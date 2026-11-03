@@ -115,7 +115,7 @@
     d.head.appendChild(st);
 
     var b = d.createElement('button');
-    b.className = 'fs-btn'; b.type = 'button'; b.title = 'מסך מלא (F)';
+    b.className = 'fs-btn'; b.type = 'button'; b.dir = 'rtl'; b.title = 'מסך מלא (F)';
     b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
       '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>מסך מלא';
     b.addEventListener('click', function (e) { e.stopPropagation(); enter(); b.blur(); });
@@ -123,7 +123,7 @@
 
     if (/[?&]present\b/.test(location.search)) {
       var o = d.createElement('div');
-      o.className = 'fs-start';
+      o.className = 'fs-start'; o.dir = 'rtl';
       o.innerHTML = '<button type="button">▶ התחלת המצגת במסך מלא<small>יציאה: Esc · מעבר שקפים: חיצים, קליק או גלגלת</small></button>';
       o.addEventListener('click', function () { o.remove(); enter(); });
       d.body.appendChild(o);
