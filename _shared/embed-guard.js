@@ -145,6 +145,15 @@
       return inSlide;
     }
     function go(step) { step > 0 ? deck.next() : deck.prev(); }
+
+    // במסך מלא מסתירים את רצועת השקפים הקטנים בצד, ומחזירים ביציאה
+    var hadNoRail = deck.hasAttribute('no-rail');
+    function syncRail() {
+      if (hadNoRail) return;
+      if (isFs()) deck.setAttribute('no-rail', ''); else deck.removeAttribute('no-rail');
+    }
+    d.addEventListener('fullscreenchange', syncRail);
+    d.addEventListener('webkitfullscreenchange', syncRail);
     var fine = matchMedia('(pointer: fine)');
     d.addEventListener('click', function (e) {
       if (!fine.matches || e.button !== 0 || e.defaultPrevented) return;
