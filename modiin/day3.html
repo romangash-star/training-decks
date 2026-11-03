@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="./work-timer.js"></script>
+<style>
+  html,body{margin:0;padding:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  :root{
+    --bg:#FAF5EC; --bg2:#F2EADC; --ink:#2A211B; --muted:#6B5D52;
+    --dark:#1F5F5B; --p1:#1F5F5B; --p2:#2F6E68; --p3:#A9D3CC; --line:#E3D8C6;
+    --coral:#B4502F; --teal-light:#DCEDEA; --amber:#D99A2B; --card:#FFFDF8; --brand-tint:#F4DED3;
+    --serif:'Alef',sans-serif; --sans:'Alef',sans-serif;
+  }
+  ::selection{background:#1F5F5B;color:#FFFDF8;}
+  a{color:var(--p1);text-decoration:none;}
+  a:hover{color:var(--p2);}
+  [data-om-subtitle]{display:none!important;}
+  [data-no-footer] > .dsf{display:none!important;}
+  .material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;display:inline-block;line-height:1;text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:'liga';}
+  @keyframes heroBar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.82)}}
+  @keyframes heroBarB{0%,100%{transform:scaleY(.88)}50%{transform:scaleY(1.06)}}
+  @keyframes floatA{0%,100%{transform:translate(0,0)}50%{transform:translate(46px,-34px)}}
+  @keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-38px,42px)}}
+  @keyframes cardFloatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes cardFloatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes cardFloatC{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes pulseRing{0%,100%{box-shadow:0 0 0 8px rgba(31,95,91,.2)}50%{box-shadow:0 0 0 14px rgba(31,95,91,.35)}}
+</style>
+<script src="image-slot.js"></script>
+<script src="practice-components.js"></script>
+<script>window.DS_DAY='יום 3';</script>
+<script src="ds-footer.js"></script>
+<script src="data-motifs.js"></script>
+<script src="deck-motion.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target&&e.target.closest&&e.target.closest('[data-load-btn]'); if(!b) return;
+  var w=b.closest('[data-src]'); if(!w||w.querySelector('iframe')) return;
+  var f=document.createElement('iframe');
+  f.src=w.getAttribute('data-src');
+  f.title='תצוגה חיה';
+  f.style.cssText='width:100%;height:100%;border:0;display:block;position:absolute;inset:0;z-index:2;background:#FFFDF8';
+  w.appendChild(f);
+  b.parentNode.style.opacity='0';
+},true);
+document.addEventListener('click',function(e){
+  var b=e.target&&e.target.closest&&e.target.closest('[data-copy-btn]'); if(!b) return;
+  var wrap=b.closest('[data-copy-src]'); if(!wrap) return;
+  var el=wrap.querySelector('[data-copy-text]'); if(!el) return;
+  var txt=(el.innerText||el.textContent||'').replace(/\u00a0/g,' ');
+  try{navigator.clipboard&&navigator.clipboard.writeText(txt);}catch(err){}
+  var h0=b.innerHTML;
+  b.innerHTML='<span class="material-icons" style="font-size:24px;">check</span>הועתק!';
+  setTimeout(function(){b.innerHTML=h0;},1600);
+},true);
+</script>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+  <section data-no-footer="" data-label="שער" data-screen-label="שער" dir="rtl" data-speaker-notes="פותחים את יום 3, המפגש האחרון. כל אחד הגדיר בעיה, אתגר או שאלה. בשבוע שעבר עבדנו עם הנתונים. היום מגיעים לפתרון, בונים מצגת בעזרת AI — ואחרי הצהריים כל אחד מציג." style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:90px 105px;background:linear-gradient(160deg,#24706B 0%,#1F5F5B 60%,#1A504D 100%);color:#fff;font-family:var(--sans);overflow:hidden;" data-no-motif="" data-om-slide-id="31c315d2">
+    <div style="position:absolute;top:44px;left:88px;display:flex;gap:16px;direction:rtl;z-index:4;">
+      <span style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;background:#1A504D;border:2px solid #1A504D;color:#fff;font-size:35px;font-weight:700;">יום 3</span>
+      <a href="day2.html" style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;border:2px solid #8CC3BB;color:#DCEDEA;font-size:35px;font-weight:700;">יום 2</a>
+      <a href="day1.html" style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;border:2px solid #8CC3BB;color:#DCEDEA;font-size:35px;font-weight:700;">יום 1</a>
+    </div>
+    <div style="position:absolute;left:50px;bottom:120px;width:600px;height:380px;display:flex;align-items:flex-end;gap:30px;z-index:1;">
+      <div style="width:88px;height:150px;border-radius:8px 8px 0 0;background:#2F6E68;transform-origin:50% 100%;animation:heroBar 4.2s ease-in-out infinite;"></div>
+      <div style="width:88px;height:210px;border-radius:8px 8px 0 0;background:#4E9893;transform-origin:50% 100%;animation:heroBarB 5s ease-in-out .4s infinite;"></div>
+      <div style="width:88px;height:270px;border-radius:8px 8px 0 0;background:#2F6E68;transform-origin:50% 100%;animation:heroBar 3.6s ease-in-out .8s infinite;"></div>
+      <div style="width:88px;height:320px;border-radius:8px 8px 0 0;background:#4E9893;transform-origin:50% 100%;animation:heroBarB 4.6s ease-in-out .2s infinite;"></div>
+      <div style="width:88px;height:370px;border-radius:8px 8px 0 0;background:#D9A04F;transform-origin:50% 100%;animation:heroBar 5.4s ease-in-out 1.1s infinite;"></div>
+    </div>
+    <div style="position:absolute;left:18px;bottom:114px;width:630px;height:6px;border-radius:3px;background:#B9C6C9;opacity:.85;"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:18px;max-width:1300px;margin-top:-60px;">
+      <div style="font-size:39px;font-weight:700;color:#C9E2DE;letter-spacing:2.5px;">מערך הדיגיטל הלאומי · הדיגיטלית · המיזם הלאומי 265</div>
+      <h1 style="font-family:var(--serif);font-weight:700;font-size:100px;line-height:1.05;margin:0;">קבלת החלטות מבוססת נתונים</h1>
+      <div style="font-size:59px;font-weight:700;color:#E3D8C6;line-height:1.3;">יום 3<br>מגיעים לפתרון<br>בונים מצגת עם AI<br>מציגים לפורום</div>
+      <div style="font-size:45px;color:#E3D8C6;margin-top:40px;">רומן גרינשטיין</div>
+    </div>
+    <div style="position:absolute;bottom:40px;right:110px;display:flex;align-items:center;gap:40px;z-index:4;">
+      <span style="display:flex;align-items:center;gap:18px;background:#FFFDF8;border-radius:12px;padding:8px 14px;"><img src="assets/partners/logo-modiin.png" alt="עיריית מודיעין מכבים רעות" style="height:58px;width:auto;display:block;"><img src="assets/partners/logo-265.png" alt="המיזם הלאומי 265" style="height:58px;width:auto;"></span>
+      <img src="logo-digital-agency.png" alt="מערך הדיגיטל הלאומי" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+      <img src="logo-digitalit.png" alt="הדיגיטלית" style="height:46px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+    </div>
+  </section>
+
+  <section data-label="מאיפה המשכנו" data-screen-label="מאיפה המשכנו" dir="rtl" data-speaker-notes="כל אחד מכם הגדיר ביום 1 בעיה, אתגר או שאלה שהוא רוצה להתעסק בה. בשבוע שעבר עבדנו עם הנתונים — ניתחנו קובץ אמיתי עם AI והגענו לתובנה. היום הצעד הבא: מגיעים לפתרון, ובהמשך היום מציגים אותו." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="e1c673cf">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">המשך מהמפגשים הקודמים</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;text-wrap:pretty;">הגדרתם בעיה. עבדתם עם הנתונים. היום — מגיעים לפתרון.</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:34px;font-weight:700;color:var(--coral);">יום 1</span><h3 style="font-size:40px;font-weight:700;margin:0;">שאלה משולחן העבודה</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">כל אחד הגדיר בעיה, אתגר או שאלה שהוא רוצה להתעסק בה.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:34px;font-weight:700;color:var(--coral);">יום 2</span><h3 style="font-size:40px;font-weight:700;margin:0;">עבדנו עם הנתונים</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">קובץ אמיתי, ניתוח עם AI ובדיקה ביקורתית — עד לתובנה.</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:34px;font-weight:700;color:var(--p1);">היום</span><h3 style="font-size:40px;font-weight:700;margin:0;">פתרון — ומציגים אותו</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">מגיעים לפתרון, בונים מצגת ומציגים אותה לפורום.</p></div>
+    </div>
+  </section>
+
+  <section data-label="מה נעשה היום" data-screen-label="מה נעשה היום" dir="rtl" data-speaker-notes="חמישה חלקים: קודם מגיעים לפתרון בכלי הפתרון. אחר כך גוגל שיטס עם Gemini, ושלושה כלים לבניית מצגת — Gemini Canvas, NotebookLM ו-Gamma — ויצירת תמונות. אחרי הצהריים: כל אחד מציג 5 דקות. ובסוף — שיר סיום וסיכום." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="95ebb391">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">מפגש 3</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;text-wrap:pretty;">מה נעשה היום</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:49px;font-weight:700;color:var(--coral);line-height:1;">01</span><span class="material-icons" style="font-size:48px;color:var(--p1);">lightbulb</span><h3 style="font-size:36px;font-weight:700;margin:0;">מגיעים לפתרון</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);"><br></p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:49px;font-weight:700;color:var(--coral);line-height:1;">02</span><span class="material-icons" style="font-size:48px;color:var(--p1);">table_view</span><h3 style="font-size:36px;font-weight:700;margin:0;">גוגל שיטס</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);"><br></p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:49px;font-weight:700;color:var(--coral);line-height:1;">03</span><span class="material-icons" style="font-size:48px;color:var(--p1);">slideshow</span><h3 style="font-size:36px;font-weight:700;margin:0;">כלים למצגת</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">Canvas · NotebookLM · Gamma — ותמונות.</p></div>
+      <div data-fragment="4" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:49px;font-weight:700;color:var(--coral);line-height:1;">04</span><span class="material-icons" style="font-size:48px;color:var(--coral);">campaign</span><h3 style="font-size:36px;font-weight:700;margin:0;">מציגים</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);"><br></p></div>
+      <div data-fragment="5" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 26px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:49px;font-weight:700;color:var(--coral);line-height:1;">05</span><span class="material-icons" style="font-size:48px;color:var(--p1);">music_note</span><h3 style="font-size:36px;font-weight:700;margin:0;">שיר וסיכום</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);"><br></p></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · מגיעים לפתרון" data-screen-label="חיץ · מגיעים לפתרון" dir="rtl" data-speaker-notes="חלק ראשון. יש בעיה שהגדרתם ויש נתונים מהשבוע שעבר. עכשיו מגיעים לפתרון — ובהמשך היום גם מציגים אותו." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="7dab1fec">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">01</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">מגיעים לפתרון</h2>
+      <p style="font-size:42px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">מהבעיה שהגדרתם — להצעה קונקרטית שאפשר להראות.</p>
+    </div>
+  </section>
+
+  <section data-label="מתובנה לפתרון" data-screen-label="מתובנה לפתרון" dir="rtl" data-speaker-notes="ביום 2 אמרנו: ממצא אומר מה קרה, תובנה אומרת מה לעשות. הפתרון הוא ה'מה לעשות' בצורה מוחשית: הכיוון במשפט, הצעד הקונקרטי, וגרסה ראשונה שאפשר להראות. ובודקים אותו מול מדד ההצלחה שהגדרתם ביום 1." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="828e49cd">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">ממצא · תובנה · פתרון</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;text-wrap:pretty;">התובנה אומרת מה לעשות. הפתרון מראה איך.</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--p1);">explore</span><h3 style="font-size:40px;font-weight:700;margin:0;">הכיוון</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">במשפט אחד — מה משנים, ולמי.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--p1);">tune</span><h3 style="font-size:40px;font-weight:700;margin:0;">מה הוא עושה</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">הצעד הקונקרטי שסוגר את הפער בין הרצוי למצוי.</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--coral);">touch_app</span><h3 style="font-size:40px;font-weight:700;margin:0;">גרסה ראשונה</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">משהו מוחשי שאפשר להראות ולבחון.</p></div>
+    </div>
+    <div data-fragment="4" style="margin-top:30px;background:#DCEDEA;border-radius:24px;padding:24px 32px;font-size:34px;line-height:1.45;">והמבחן: <b>האם הפתרון מזיז את מדד ההצלחה שהגדרתם ביום 1?</b></div>
+  </section>
+
+  <section data-label="פרוטוטייפ (פיילוט) · מה זה" data-screen-label="פרוטוטייפ (פיילוט) · מה זה" dir="rtl" data-speaker-notes="פרוטוטייפ (פיילוט): גרסה ראשונית, מהירה וזולה של הפתרון, שנועדה ללמוד ולתקשר — לא להרשים. אם קצת התביישתם להראות, כנראה עשיתם נכון." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="3c7504b7">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;"><br></div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 18px;">פרוטוטייפ (פיילוט) <span style="font-size:42px;color:var(--muted);direction:ltr;">Prototype</span></h2>
+    <p data-fragment="1" style="font-size:40px;line-height:1.5;margin:0 0 36px;max-width:1500px;">גרסה ראשונית, מהירה וזולה של הפתרון — שנועדה <b style="color:var(--p1);">ללמוד ולתקשר</b>, לא להרשים.</p>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid #e7a9a3;border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:40px;font-weight:700;color:#b4453d;margin:0;">מה זה לא</h3><p style="font-size:34px;line-height:1.45;margin:0;color:var(--muted);">מוצר מוגמר · מושלם · שנבנה חודשים · שאסור שיישבר.</p></div>
+      <div data-fragment="2" style="background:#eef6f0;border:2px solid #9fd3b4;border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:40px;font-weight:700;color:#2E7D4F;margin:0;">מה זה כן</h3><p style="font-size:34px;line-height:1.45;margin:0;">מהיר · "מספיק טוב" · נבנה בשעות · נועד לאסוף משוב.</p></div>
+    </div>
+  </section>
+
+  <section data-label="רמות פרוטוטייפ (פיילוט)" data-screen-label="רמות פרוטוטייפ (פיילוט)" dir="rtl" data-speaker-notes="שלוש רמות דיוק: סקיצה על נייר בדקות, מסך לחיץ בשעה, אתר או אפליקציה חיה בכמה שעות. מתחילים בנמוך והמהיר, ומעלים דיוק רק כשהרעיון מצדיק." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="b771db10">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">מנמוך לגבוה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;">שלוש רמות של פרוטוטייפ (פיילוט)</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1fr) 60px minmax(0,1fr) 60px minmax(0,1fr);align-items:stretch;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;"><span class="material-icons" style="font-size:59px;color:var(--p3);">draw</span><h3 style="font-size:40px;font-weight:700;margin:0;">סקיצה על נייר</h3><p style="font-size:33px;line-height:1.4;margin:0;color:var(--muted);">דקות. רואים אם הרעיון מובן.</p></div>
+      <div data-fragment="2" style="display:flex;align-items:center;justify-content:center;font-size:51px;color:var(--p3);">←</div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;"><span class="material-icons" style="font-size:59px;color:var(--p1);">smartphone</span><h3 style="font-size:40px;font-weight:700;margin:0;">מסך לחיץ</h3><p style="font-size:33px;line-height:1.4;margin:0;color:var(--muted);">שעה. רואים איך התושב עובר בו.</p></div>
+      <div data-fragment="3" style="display:flex;align-items:center;justify-content:center;font-size:51px;color:var(--coral);">←</div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:34px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;"><span class="material-icons" style="font-size:59px;color:var(--coral);">language</span><h3 style="font-size:40px;font-weight:700;margin:0;">אתר או אפליקציה חיה</h3><p style="font-size:33px;line-height:1.4;margin:0;">כמה שעות, ב‑Gemini Canvas.</p></div>
+    </div>
+    <div data-fragment="4" style="margin-top:30px;background:#DCEDEA;border-radius:24px;padding:24px 32px;font-size:34px;line-height:1.45;">מתחילים בנמוך והמהיר. מעלים דיוק רק כשהרעיון מצדיק — לא לפני.</div>
+  </section>
+
+  <section data-label="דוגמה מהשטח · דייסון" data-screen-label="דוגמה מהשטח · דייסון" dir="rtl" data-speaker-notes="ג'יימס דייסון בנה 5,127 אבות טיפוס כושלים לאורך כ-15 שנה עד ששואב האבק בלי שקית עבד. פרוטוטייפ הוא תהליך של ניסוי, כישלון ולמידה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="92c6a6ff">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div data-fragment="1" style="display:flex;flex-direction:column;gap:24px;">
+        <div style="font-size:34px;font-weight:700;color:var(--coral);"><br></div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">ג'יימס דייסון — הכישלון שהצליח</h2>
+        <div style="display:flex;align-items:baseline;gap:20px;"><span style="font-size:110px;font-weight:700;color:var(--coral);line-height:1;">5,127</span><span style="font-size:37px;font-weight:700;">אבות טיפוס כושלים</span></div>
+        <p style="font-size:36px;line-height:1.5;margin:0;color:var(--muted);">במשך כ‑<b style="color:var(--ink);">15 שנה</b> בנה גרסה אחר גרסה של שואב אבק בלי שקית.</p>
+        <div data-fragment="2" style="background:#DCEDEA;border-radius:24px;padding:24px 32px;font-size:34px;line-height:1.45;">כל אב טיפוס לימד אותו משהו. הכישלון היה <b>הדרך</b>.</div>
+      </div>
+      <image-slot id="dy-dc01-hero" shape="rounded" radius="24" placeholder="גררו לכאן תמונה של Dyson DC01 — הדגם הראשון (1993)" style="display:block;width:100%;height:680px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="דייסון · האבולוציה" data-screen-label="דייסון · האבולוציה" dir="rtl" data-speaker-notes="מ-DC01 דרך דגמים מאוחרים ועד השואבים האלחוטיים של היום. כל דור נבנה על הלמידה של הקודם — בדיוק גישת הפרוטוטייפ." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="dc72b8d3">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">מגרסה לגרסה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;">מהדגם הראשון — עד היום</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;"><image-slot id="dy-dc01" shape="rect" fit="contain" placeholder="תמונת Dyson DC01" style="display:block;width:100%;height:420px;background:#FFFDF8;"></image-slot><div style="padding:22px 28px;display:flex;flex-direction:column;gap:6px;"><div style="display:flex;align-items:baseline;gap:12px;"><h3 style="font-size:37px;font-weight:700;margin:0;">DC01</h3><span style="font-size:32px;font-weight:700;color:var(--coral);">1993</span></div><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">הדגם הראשון בלי שקית.</p></div></div>
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;"><image-slot id="dy-dc07" shape="rect" fit="contain" placeholder="תמונת Dyson DC07" style="display:block;width:100%;height:420px;background:#FFFDF8;"></image-slot><div style="padding:22px 28px;display:flex;flex-direction:column;gap:6px;"><div style="display:flex;align-items:baseline;gap:12px;"><h3 style="font-size:37px;font-weight:700;margin:0;">DC07</h3><span style="font-size:32px;font-weight:700;color:var(--coral);">2001</span></div><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">דור משופר, על בסיס הלמידה.</p></div></div>
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;"><image-slot id="dy-new" shape="rect" fit="contain" placeholder="תמונת שואב Dyson עדכני" style="display:block;width:100%;height:420px;background:#FFFDF8;"></image-slot><div style="padding:22px 28px;display:flex;flex-direction:column;gap:6px;"><div style="display:flex;align-items:baseline;gap:12px;"><h3 style="font-size:37px;font-weight:700;margin:0;">דגם עדכני</h3><span style="font-size:32px;font-weight:700;color:var(--coral);">היום</span></div><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">אלחוטי — עוד צעד באותה דרך.</p></div></div>
+    </div>
+  </section>
+
+  <section data-label="דוגמה מהשטח · בית וגן" data-screen-label="דוגמה מהשטח · בית וגן (לפני/אחרי)" dir="rtl" data-speaker-notes="דוגמה מרשות מקומית — 'בית וגן' בבת ים, אותה עיר מהסיפור של יום 1. מודל בר-קיימא לתחזוקת שטחים פרטיים פתוחים (שפ''פ). לפני: שטח מוזנח. אחרי: אותו מקום אחרי תחזוקה משותפת." style="display:flex;flex-direction:column;justify-content:center;padding:70px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="50ff2410">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">דוגמה מבת ים</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:57px;line-height:1.12;margin:10px 0 24px;">פיילוט — מודל בר‑קיימא לתחזוקת שפ"פ</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;height:620px;">
+      <div data-fragment="1" style="position:relative;border-radius:24px;overflow:hidden;border:2px solid var(--line);"><img src="maale/ex_batyam_before.png" alt="בית וגן לפני" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:22px;right:22px;background:#b4453d;color:#FFFDF8;font-size:34px;font-weight:700;padding:8px 28px;border-radius:100px;">לפני</span><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(42,33,27,.85));padding:60px 28px 24px;"><p style="color:#FFFDF8;font-size:33px;font-weight:700;margin:0;line-height:1.4;">שטח ציבורי מוזנח — עשבייה יבשה ופסולת.</p></div></div>
+      <div data-fragment="2" style="position:relative;border-radius:24px;overflow:hidden;border:2px solid var(--p3);"><img src="maale/ex_batyam_after.png" alt="בית וגן אחרי" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:22px;right:22px;background:#2E7D4F;color:#FFFDF8;font-size:34px;font-weight:700;padding:8px 28px;border-radius:100px;">אחרי</span><div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(42,33,27,.85));padding:60px 28px 24px;"><p style="color:#FFFDF8;font-size:33px;font-weight:700;margin:0;line-height:1.4;">שביל, נטיעות ותחזוקה משותפת של הדיירים והעירייה.</p></div></div>
+    </div>
+  </section>
+
+  <section data-label="בית וגן · שיתוף התושבים" data-screen-label="בית וגן · שיתוף התושבים" dir="rtl" data-speaker-notes="מה שהפך את בית וגן למודל בר-קיימא: שיתוף התושבים. שילוט שמסביר ומזמין מעורבות, ערוץ פנייה למוקד, ומיתוג של אחריות משותפת. פתרון טוב כולל גם את הקהילה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="6b0b9cb7">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">הפתרון כלל את התושבים — לא רק את התשתית</h2><div style="font-size:34px;font-weight:700;color:var(--coral);"><br></div>
+        <div data-fragment="1" style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:16px;align-items:center;font-size:35px;"><span class="material-icons" style="font-size:44px;color:var(--p1);">signpost</span>שילוט שמסביר את הפרויקט ומזמין מעורבות.</div>
+          <div style="display:flex;gap:16px;align-items:center;font-size:35px;"><span class="material-icons" style="font-size:44px;color:var(--p1);">support_agent</span>ערוץ פנייה ברור — מוקד 107 ווטסאפ.</div>
+        </div>
+        <div data-fragment="2" style="background:#DCEDEA;border-radius:24px;padding:24px 32px;font-size:34px;line-height:1.45;">פתרון שמחזיק לאורך זמן = תשתית <b>+</b> קהילה שלוקחת בעלות.</div>
+      </div>
+      <img data-fragment="1" src="maale/ex_sign_A.png" alt="שילוט פרויקט בית וגן" style="width:100%;height:680px;object-fit:cover;border-radius:24px;border:2px solid var(--line);display:block;">
+    </div>
+  </section>
+
+  <section data-label="ארבעה עקרונות לפתרון טוב" data-screen-label="ארבעה עקרונות לפתרון טוב" dir="rtl" data-speaker-notes="ארבעה כללי אצבע לכל אחת משלוש הדרכים: מתחילים קטן, משתמש אחד ברור, נשארים קונקרטיים, ובודקים מול מדד ההצלחה מיום 1 — תפוקה, תוצאה או השפעה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="4e7bf7db">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">כללי אצבע</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;">ארבעה עקרונות לפתרון טוב</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">crop_free</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">מתחילים קטן</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">פיילוט בשכונה אחת עדיף על תוכנית לכל העיר.</p></div></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">person_pin</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">משתמש אחד ברור</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">למי בדיוק זה פותר? דמות אחת, לא "כל התושבים".</p></div></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">handyman</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">נשארים קונקרטיים</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">"מה בדיוק קורה" — לא כותרות מופשטות.</p></div></div>
+      <div data-fragment="4" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--coral);">rule</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">בודקים מול מדד ההצלחה</h3><p style="font-size:32px;line-height:1.4;margin:0;">תפוקה, תוצאה או השפעה — מה שהגדרתם ביום 1.</p></div></div>
+    </div>
+  </section>
+
+  <section data-label="הכלי לפתרון" data-screen-label="הכלי לפתרון" dir="rtl" data-speaker-notes="הדרך לפתרון היא הכלי הזה. סורקים או נכנסים בקישור. הכלי מוביל בחמישה שלבים: מיפוי הבעיה, מחקר, רעיונות, אב טיפוס ומצגת — ובכל שלב מציע פרומפט מוכן והכלי המתאים. התצוגה החיה עובדת בהצגה, לא בייצוא PDF/PPTX." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="d8d6ab55">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">הדרך לפתרון</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">עובדים בכלי הפתרון — שלב אחר שלב</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:stretch;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div data-fragment="1" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">1</b><span style="font-size:33px;line-height:1.4;"><b>מיפוי הבעיה</b> — מה הבעיה, למי, ומה ידוע.</span></div>
+        <div data-fragment="2" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">2</b><span style="font-size:33px;line-height:1.4;"><b>מחקר</b> — מה כבר נעשה, ואיפה.</span></div>
+        <div data-fragment="3" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">3</b><span style="font-size:33px;line-height:1.4;"><b>רעיונות</b> — כמה כיוונים, ובוחרים אחד.</span></div>
+        <div data-fragment="4" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">4</b><span style="font-size:33px;line-height:1.4;"><b>אב טיפוס</b> — גרסה ראשונה שאפשר להראות.</span></div>
+        <div data-fragment="5" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--coral);">5</b><span style="font-size:33px;line-height:1.4;"><b>מצגת</b> — מכינים את ההצגה.</span></div>
+        <div style="background:var(--dark);border-radius:24px;padding:28px 32px;display:flex;align-items:center;gap:26px;"><img src="maale/qr_prototype.png" alt="QR סרקו לכניסה לכלי" style="width:170px;height:170px;border-radius:14px;background:#FFFDF8;padding:8px;box-sizing:border-box;flex:none;"><div style="display:flex;flex-direction:column;gap:10px;color:#FFFDF8;min-width:0;"><span style="font-size:34px;font-weight:700;">סרקו לכניסה לכלי</span><span style="font-size: 60px; color: #A9D3CC; direction: ltr; text-align: right; word-break: break-all">romanai.net/data/prototype</span><a href="https://www.romanai.net/data/prototype/" target="_blank" rel="noopener" style="align-self:flex-start;background:#FFFDF8;color:var(--p1);font-size:30px;font-weight:700;padding:10px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:30px;">open_in_new</span>פתחו את הכלי</a></div></div>
+      </div>
+      <div style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:24px;overflow:hidden;min-height:620px;" data-src="https://www.romanai.net/data/prototype/">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#DCEDEA;z-index:1;">
+          <span class="material-icons" style="font-size:68px;color:var(--p1);">route</span>
+          <div style="font-size:34px;font-weight:700;">כלי הפתרון — מהבעיה לפרוטוטייפ</div>
+          <button data-load-btn="" style="cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:32px;font-weight:700;padding:14px 34px;border-radius:100px;">הפעילו תצוגה חיה</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="עבודה · מפתחים פתרון" data-screen-label="זמן עבודה · מפתחים את הפתרון" dir="rtl" data-speaker-notes="בלוק העבודה הראשון. כל אחד נכנס לכלי הפתרון ועובד על הבעיה שלו שלב אחר שלב. אני עובר ביניכם. התוצר: פתרון מוצע במשפט — מה, למי, ואיך הוא מזיז את מדד ההצלחה — וגרסה ראשונה. כ-45 דקות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="0a139e8b">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div><div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">זמן עבודה</div><h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 0;">מפתחים את הפתרון</h2></div>
+      <practice-timer minutes="45" presets="30,45,60"></practice-timer>
+    </div>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center;margin-top:36px;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">1</b><span style="font-size:33px;line-height:1.4;">נכנסים ל<b>כלי הפתרון</b> ומזינים את הבעיה שלכם.</span></div>
+        <div style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">2</b><span style="font-size:33px;line-height:1.4;">עוברים על השלבים: מיפוי, מחקר ורעיונות.</span></div>
+        <div style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">3</b><span style="font-size:33px;line-height:1.4;">מנסחים במשפט: <b>מה, למי, ואיך זה סוגר את הפער.</b></span></div>
+        <div style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--coral);">4</b><span style="font-size:33px;line-height:1.4;">בונים גרסה ראשונה — ובודקים מול מדד ההצלחה.</span></div>
+      </div>
+      <div style="background:var(--dark);border-radius:24px;padding:28px 32px;display:flex;align-items:center;gap:26px;"><img src="maale/qr_prototype.png" alt="QR כלי הפתרון" style="width:170px;height:170px;border-radius:14px;background:#FFFDF8;padding:8px;box-sizing:border-box;flex:none;"><div style="display:flex;flex-direction:column;gap:10px;color:#FFFDF8;min-width:0;"><span style="font-size:34px;font-weight:700;">כלי הפתרון</span><span style="font-size:28px;color:#A9D3CC;direction:ltr;text-align:right;word-break:break-all;">romanai.net/data/prototype</span><a href="https://www.romanai.net/data/prototype/" target="_blank" rel="noopener" style="align-self:flex-start;background:#FFFDF8;color:var(--p1);font-size:30px;font-weight:700;padding:10px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:30px;">open_in_new</span>פתחו את הכלי</a></div></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · אקסל בגוגל שיטס" data-screen-label="חיץ · אקסל בגוגל שיטס" dir="rtl" data-speaker-notes="חלק שני: ניתוח האקסל בגוגל שיטס. ביום 2 העלינו את הקובץ ל-Gemini וקיבלנו דוח. היום פותחים את הקובץ בגוגל שיטס ועובדים עם Gemini בתוך הגיליון: שאלות, נוסחאות, טבלת ציר, גרף וסיווג טקסט. אדגים הכול על המסך. זה גם המקום להשלים את מספר המפתח למצגת." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="58c80b6d">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">02</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">מנתחים את האקסל בגוגל שיטס</h2>
+      <p style="font-size:42px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">פותחים את הקובץ בגיליון של Google — ו‑Gemini עובד איתכם בתוכו.</p>
+    </div>
+  </section>
+
+  <section data-label="גוגל שיטס · פותחים את הקובץ" data-screen-label="גוגל שיטס · פותחים את הקובץ" dir="rtl" data-speaker-notes="הדגמה על המסך. נכנסים ל-drive.google.com, לוחצים 'חדש' ואז 'העלאת קובץ' ובוחרים את קובץ האקסל המותמם. לחיצה כפולה על הקובץ ואז 'פתיחה באמצעות Google Sheets'. כדי לעבוד עם כל הכלים: קובץ ← שמירה כ-Google Sheets. מעכשיו עובדים על העותק. ותזכורת מעיקרון 7: רק קובץ מותמם — בלי שמות, ת''ז, טלפונים וכתובות מדויקות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="d199f809">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">שלב 1 · מאקסל לגוגל שיטס</div>
+    <img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;">פותחים את קובץ האקסל בגוגל שיטס</h2>
+    <div data-fragment="1" style="max-width:1300px;"><image-slot id="d3-sheets-open" shape="rounded" radius="24" placeholder="צילום מסך: פתיחת קובץ אקסל ב‑Google Sheets" style="display:block;width:100%;height:680px;"></image-slot></div>
+  </section>
+
+  <section data-label="גוגל שיטס · שלוש האפשרויות" data-screen-label="גוגל שיטס · שלוש האפשרויות" dir="rtl" data-speaker-notes="שלוש אפשרויות לעבוד עם AI בגוגל שיטס. 1) חלונית Gemini — כפתור Ask Gemini בפינה העליונה: נפתחת חלונית צד, שואלים במילים, והוא בונה נוסחה, טבלת ציר, גרף או מסכם — ישירות בתוך הגיליון. 2) מילוי חכם — משלים עמודה לפי דוגמה. 3) בלי מנוי: צ׳אט Gemini רגיל כותב את הנוסחה ומדביקים אותה. חלונית Gemini דורשת Google Workspace בתשלום או מנוי Google AI — הבדיקה: האם מופיע הכפתור Ask Gemini בגיליון." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="cf3c3347">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">שלב 2 · מה האפשרויות</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 20px;text-wrap:pretty;">שלוש דרכים לעבוד עם AI בגוגל שיטס</h2>
+    <div data-fragment="1" style="max-width:1300px;"><image-slot id="d3-sheets-gemini" shape="rounded" radius="24" placeholder="גררו לכאן צילום מסך: גוגל שיטס עם חלונית Gemini פתוחה בצד" style="display:block;width:100%;height:720px;"></image-slot></div>
+  </section>
+
+  <section data-label="גוגל שיטס · חלונית Gemini" data-screen-label="גוגל שיטס · חלונית Gemini" dir="rtl" data-speaker-notes="הדגמה על המסך: לוחצים Ask Gemini בפינה הימנית-עליונה (או השמאלית, לפי שפת הממשק). מתחילים בבקשה לתאר את הנתונים — כך רואים שהוא הבין את העמודות. אחר כך שאלה, טבלת ציר וגרף. כל פעולה אפשר לבטל בכפתור Undo בחלונית. הבקשות כאן ניתנות להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="d1dc7ba6">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">אפשרות 1 · Ask Gemini</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;">מה מבקשים מחלונית Gemini</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:none;"><div data-copy-src="" data-fragment="1" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">1 · להכיר את הנתונים</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">תאר את הטבלה: מה כל עמודה מכילה, כמה שורות יש, ואילו תאים ריקים או חשודים.</div></div><div data-copy-src="" data-fragment="2" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">2 · לשאול שאלה</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">כמה עסקים נסגרו בכל מרכז מסחרי בשנת 2025? הוסף עמודה עם הנוסחה שחישבה את זה.</div></div><div data-copy-src="" data-fragment="3" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">3 · טבלת ציר</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">צור טבלת ציר בגיליון חדש: מרכז מסחרי בשורות, שנת סגירה בעמודות, ומספר העסקים בערכים.</div></div><div data-copy-src="" data-fragment="4" style="position:relative;background:#DCEDEA;border:2px solid var(--p3);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--coral);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--coral);">4 · גרף למצגת</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">צור גרף עמודות פשוט של סגירות לפי שנה, עם כותרת ברורה בעברית — מוכן להעתקה למצגת.</div></div></div>
+  </section>
+
+  <section data-label="גוגל שיטס · בלי מנוי" data-screen-label="גוגל שיטס · בלי מנוי — צ'אט כותב נוסחה" dir="rtl" data-speaker-notes="אפשרות 3, למי שאין לו את הכפתור Ask Gemini: פותחים את Gemini בכרטיסייה אחרת, כמו ביום 2, ומבקשים נוסחה לגוגל שיטס. לא מעלים את הקובץ — רק מתארים את העמודות. מתכון קבוע: מה יש בטבלה — שמות העמודות ושורת דוגמה מותממת; מה רוצים לדעת — השאלה העסקית מיום 1; איפה הנתונים — גיליון וטווח; ובקשה להסביר כל חלק. בדוגמה: סגירת עסקים במרכזים המסחריים — הדוגמה מיום 1. הפרומפט ניתן להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="98b53496">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">אפשרות 3 · בלי מנוי · צ'אט Gemini</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 32px;">ארבעה דברים בכל בקשה לנוסחה</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1fr);gap:22px;max-width:1400px;"><div data-copy-src="" data-fragment="5" style="position:relative;background:var(--dark);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:16px;">
+        <button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button>
+        <div style="font-size:30px;font-weight:700;color:#A9D3CC;">דוגמה: סגירת עסקים במרכזים המסחריים</div>
+        <div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:30px;line-height:1.5;">יש לי טבלה בגוגל שיטס, בגיליון "עסקים", שורות 2 עד 400.
+עמודה A: מרכז מסחרי · B: סוג עסק · C: תאריך פתיחה · D: תאריך סגירה (ריק אם העסק פתוח).
+דוגמה לשורה: מרכז א' | מכולת | 03/2019 | 08/2025
+כתוב לי נוסחה שסופרת כמה עסקים נסגרו בכל מרכז מסחרי בשנת 2025, ותסביר כל חלק בנוסחה.</div>
+        <div style="border-top:1px solid rgba(169,211,204,.35);padding-top:14px;display:flex;flex-direction:column;gap:6px;"><span style="font-size:28px;color:#A9D3CC;font-weight:700;">מה חוזר — בערך כך:</span><span style="direction:ltr;text-align:left;font-family:'Courier New',monospace;font-size:28px;color:#FFFDF8;font-weight:700;white-space:nowrap;">=COUNTIFS(A:A,"<bdi dir="rtl">מרכז א'</bdi>",D:D,"&gt;="&amp;DATE(2025,1,1),<br>D:D,"&lt;="&amp;DATE(2025,12,31))</span></div>
+      </div></div>
+  </section>
+
+  <section data-label="גוגל שיטס · ניקוי לפני ניתוח" data-screen-label="גוגל שיטס · ניקוי לפני ניתוח" dir="rtl" data-speaker-notes="עיקרון 5 מיום 2 — בודקים איכות לפני שמנתחים. בגוגל שיטס יש כלים מובנים: נתונים ← ניקוי נתונים ← הסרת רווחים; נתונים ← ניקוי נתונים ← הסרת כפילויות. לאיחוד שמות רחובות בכמה כתיבים — מבקשים מ-Gemini נוסחה. הבקשות ניתנות להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="ea84183e">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">עיקרון 5 מיום 2 · בודקים איכות לפני שמנתחים</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 32px;">מנקים את הגיליון לפני שמנתחים</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:none;"><div data-copy-src="" data-fragment="3" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">שמות בכמה כתיבים</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">בעמודה B יש שמות רחובות בכמה כתיבים ("שדרות החשמונאים", "שד' החשמונאים"). הוסף עמודה עם שם אחיד לכל רחוב.</div></div><div data-copy-src="" data-fragment="4" style="position:relative;background:#DCEDEA;border:2px solid var(--p3);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--coral);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--coral);">תאריכים משובשים</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">בעמודה D יש תאריכים בכמה פורמטים. סמן את התאים שאינם תאריך תקין, ואחד את השאר לפורמט יום/חודש/שנה.</div></div></div>
+  </section>
+
+  <section data-label="גוגל שיטס · מסלול ההדגמה" data-screen-label="גוגל שיטס · מסלול ההדגמה" dir="rtl" data-speaker-notes="השקף שנשאר על המסך בזמן ההדגמה החיה. עוברים על הקובץ לדוגמה — סגירת עסקים במרכזים המסחריים — מקצה לקצה: פותחים, מנקים, שואלים, טבלת ציר, גרף, בודקים. כל שלב לוקח דקה-שתיים." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="c4548f2e" data-deck-skip="">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">הדגמה על המסך</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 36px;">מהקובץ — למספר שנכנס למצגת</h2>
+    <div data-fragment="1" style="max-width:1300px;"><image-slot id="d3-sheets-demo" shape="rounded" radius="24" placeholder="צילום מסך: הגיליון עם טבלת ציר וגרף" style="display:block;width:100%;height:680px;"></image-slot></div>
+  </section>
+
+  <section data-label="גוגל שיטס · בקשות נוספות" data-screen-label="גוגל שיטס · בקשות נוספות" dir="rtl" data-speaker-notes="בקשות נוספות שימושיות בעבודה ברשות. עובדות גם בחלונית Gemini וגם בצ'אט. מחליפים את שמות העמודות בשלכם." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="c6ec0785">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">מוכן להעתקה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 32px;">בקשות נוספות שחוסכות שעות</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:none;"><div data-copy-src="" data-fragment="1" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">השוואה לשנה קודמת</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">הוסף עמודה שמחשבת את השינוי באחוזים בין 2024 ל‑2025 לכל מרכז מסחרי.</div></div><div data-copy-src="" data-fragment="2" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">סימון חריגים</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">הוסף עיצוב מותנה שצובע באדום מרכז שבו נסגרו יותר מ‑5 עסקים בשנה.</div></div><div data-copy-src="" data-fragment="3" style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--p1);">פניות לפי חודש</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">צור טבלת ציר של מספר הפניות בכל שכונה לפי חודש, וגרף קווים של שלוש השכונות המובילות.</div></div><div data-copy-src="" data-fragment="4" style="position:relative;background:#DCEDEA;border:2px solid var(--p3);border-radius:22px;padding:26px 30px 26px 150px;display:flex;flex-direction:column;gap:8px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:var(--coral);color:#FFFDF8;font-family:var(--sans);font-size:28px;font-weight:700;padding:9px 18px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><h3 style="font-size:36px;font-weight:700;margin:0;color:var(--coral);">הסבר נוסחה</h3><div data-copy-text="" style="font-size:31px;line-height:1.45;">הנה נוסחה מקובץ שקיבלתי: [מדביקים כאן]. הסבר במילים פשוטות מה היא עושה, ומה יכול לגרום לה לטעות.</div></div></div>
+  </section>
+
+  <section data-label="גוגל שיטס · בודקים לפני שסומכים" data-screen-label="גוגל שיטס · בודקים לפני שסומכים" dir="rtl" data-speaker-notes="אותם כללים מיום 2, הפעם בגוגל שיטס. פרטיות: ל-Drive מעלים רק קובץ מותמם, ולצ'אט שולחים רק שמות עמודות ושורת דוגמה. בדיקה: מריצים את הנוסחה על כמה שורות שאתם יודעים את התשובה שלהן. הבנה: נוסחה שלא הבנתם — לא נכנסת למצגת." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="33cb42bf">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"></div>
+    
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;">בודקים לפני שסומכים על המספר</h2><div data-fragment="1" style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;"><br></div>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--coral);">shield</span><h3 style="font-size:40px;font-weight:700;margin:0;">רק מותמם</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">ל‑Drive עולה רק קובץ מותמם. לצ'אט — רק כותרות ושורת דוגמה.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--p1);">fact_check</span><h3 style="font-size:40px;font-weight:700;margin:0;">בודקים על 3 שורות</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">שורות שאתם יודעים מה התשובה שלהן. יצא אחרת? הנוסחה שגויה.</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--p1);">psychology</span><h3 style="font-size:40px;font-weight:700;margin:0;">מבינים את הנוסחה</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">נוסחה שלא הבנתם — לא נכנסת למצגת. מבקשים הסבר.</p></div>
+    </div>
+  </section>
+
+  <section data-label="תרגול · הקובץ שלכם בגוגל שיטס" data-screen-label="תרגול · הקובץ שלכם בגוגל שיטס" dir="rtl" data-speaker-notes="תרגול של 20 דקות. כל אחד מעלה את הקובץ המותמם שלו מיום 2 לגוגל שיטס, ועובד לפי מסלול ההדגמה: מנקה, שואל את Gemini (או את הצ'אט), בונה טבלת ציר או נוסחה, בודק על שלוש שורות ורושם את המספר. המספר הזה הוא מועמד למספר המפתח במצגת." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="8c50da12">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_sheets.svg" alt="Google Sheets" style="height:46px;width:auto;display:block;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div><div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">זמן עבודה · אישי</div><h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 0;">הקובץ שלכם בגוגל שיטס או בתוך האקסל</h2></div>
+      <practice-timer minutes="20" presets="15,20,30"></practice-timer>
+    </div>
+  </section>
+
+  <section data-label="חיץ · כלים למצגת" data-screen-label="חיץ · כלים למצגת" dir="rtl" data-speaker-notes="חלק שלישי. יש פתרון. עכשיו בונים מצגת: Gemini Canvas שכבר הכרתם, NotebookLM שיכול להכין מצגת או סרטון במקום, ו-Gamma — כלי חדש שמכין מצגת מעוצבת מטקסט. ובסוף — איך יוצרים תמונות ב-Gemini." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="92f1f218">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"><img src="maale/logo_notebooklm.svg" alt="NotebookLM" style="height:30px;width:auto;display:block;"><span style="display:flex;align-items:center;gap:10px;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:42px;width:42px;display:block;border-radius:8px;"><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">Gamma</b></span></div>
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">03</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">בונים מצגת עם AI</h2>
+      <p style="font-size:42px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">שלושה כלים להפוך את הפתרון למצגת — ותמונות שמחיות אותה.</p>
+    </div>
+  </section>
+
+  <section data-label="שלושה כלים למצגת" data-screen-label="שלושה כלים למצגת" dir="rtl" data-speaker-notes="שלושה כלים לבניית מצגת. Gemini Canvas — מוכר מיום 2: מתארים ומקבלים מצגת חיה. NotebookLM — המחברת מיום 2: מכינה מצגת או סרטון הסבר מתוך המקורות שלכם. Gamma — חדש היום: מדביקים טקסט ומקבלים מצגת מעוצבת שאפשר לערוך ולייצא." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="d8fa77f9">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">שניים מוכרים, אחד חדש</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 40px;text-wrap:pretty;">שלושה כלים לבניית המצגת</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:32px;font-weight:700;color:var(--muted);">מוכר מיום 2</span><div style="height:64px;display:flex;align-items:center;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:60px;width:auto;"></div><h3 style="font-size:42px;font-weight:700;margin:0;">Gemini Canvas</h3><p style="font-size:32px;line-height:1.45;margin:0;color:var(--muted);">מתארים במילים — ומקבלים מצגת חיה שאפשר לערוך.</p><a href="https://gemini.google.com" target="_blank" rel="noopener" style="margin-top:auto;font-size:31px;font-weight:700;direction:ltr;text-align:right;">gemini.google.com</a></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:32px;font-weight:700;color:var(--muted);">מוכר מיום 2</span><div style="height:64px;display:flex;align-items:center;"><img src="maale/logo_notebooklm.svg" alt="NotebookLM" style="height:34px;width:auto;"></div><h3 style="font-size:42px;font-weight:700;margin:0;">NotebookLM</h3><p style="font-size:32px;line-height:1.45;margin:0;color:var(--muted);">במקום מצגת: מצגת או סרטון הסבר — מתוך המקורות שלכם.</p><a href="https://notebooklm.google.com" target="_blank" rel="noopener" style="margin-top:auto;font-size:31px;font-weight:700;direction:ltr;text-align:right;">notebooklm.google.com</a></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p1);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:32px;font-weight:700;color:var(--coral);">חדש היום</span><div style="height:64px;display:flex;align-items:center;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:60px;width:60px;border-radius:12px;"></div><h3 style="font-size:42px;font-weight:700;margin:0;">Gamma</h3><p style="font-size:32px;line-height:1.45;margin:0;">מדביקים טקסט — ומקבלים מצגת מעוצבת. עורכים ומייצאים.</p><a href="https://gamma.app/" target="_blank" rel="noopener" style="margin-top:auto;font-size:31px;font-weight:700;direction:ltr;text-align:right;">gamma.app</a></div>
+    </div>
+  </section>
+
+  <section data-label="Gemini Canvas · בונים מצגת" data-screen-label="Gemini Canvas · בונים מצגת" dir="rtl" data-speaker-notes="את Gemini כבר הכרתם ביום 2. Canvas הוא מרחב יצירה בתוכו: מתארים מה רוצים ומקבלים מצגת או דף חיים. עורכים בלחיצה על אזור. אצלנו — מדביקים את הפרומפט מהכלי שלנו." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="904ad968">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">Gemini מיום 2 — הפעם במצב Canvas</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;">מתארים במילים — ומקבלים מצגת חיה</h2>
+    <div data-fragment="1" style="max-width:1300px;"><image-slot id="d3-canvas" shape="rounded" radius="24" placeholder="צילום מסך: מצגת שנבנתה ב‑Gemini Canvas" style="display:block;width:100%;height:680px;"></image-slot></div>
+  </section>
+
+  <section data-label="הכלי שלנו · מהנתון לפרומפט" data-screen-label="הכלי שלנו · מהנתון לפרומפט" dir="rtl" data-speaker-notes="הכלי שבניתי: ממלאים את הסיפור, ההוכחה והבקשה — והוא מרכיב פרומפט מפורט לבניית המצגת. לוחצים על הכפתור לתצוגה חיה. התצוגה החיה עובדת בהצגה, לא בייצוא PDF/PPTX." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="6b992e51">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">הכלי שלנו</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;">ממלאים נתונים — ומקבלים פרומפט</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:stretch;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:20px;padding:18px 24px;font-size:32px;line-height:1.4;display:flex;gap:14px;align-items:center;"><span class="material-icons" style="font-size:40px;color:var(--p1);">menu_book</span><span><b>הסיפור</b> — הגיבור, הבעיה, הפתרון והעתיד.</span></div>
+        <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:20px;padding:18px 24px;font-size:32px;line-height:1.4;display:flex;gap:14px;align-items:center;"><span class="material-icons" style="font-size:40px;color:var(--p1);">query_stats</span><span><b>ההוכחה</b> — המספר והמקור שמאמתים.</span></div>
+        <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:20px;padding:18px 24px;font-size:32px;line-height:1.4;display:flex;gap:14px;align-items:center;"><span class="material-icons" style="font-size:40px;color:var(--p1);">flag</span><span><b>הבקשה</b> — הצעד הבא שאתם מבקשים.</span></div>
+        <div style="background:#DCEDEA;border:2px solid var(--p3);border-radius:20px;padding:18px 24px;font-size:32px;line-height:1.4;display:flex;gap:14px;align-items:center;"><span class="material-icons" style="font-size:40px;color:var(--coral);">bolt</span><span><b>הפלט</b> — פרומפט מוכן ל‑Gemini Canvas.</span></div>
+        <div style="display:flex;align-items:center;gap:18px;background:var(--dark);border-radius:20px;padding:14px 20px;"><img src="maale/qr_pitch.png" alt="QR לכלי" style="width:110px;height:110px;border-radius:12px;background:#FFFDF8;padding:6px;box-sizing:border-box;flex:none;"><div style="color:#FFFDF8;display:flex;flex-direction:column;gap:4px;min-width:0;"><span style="font-size:32px;font-weight:700;">סרקו לכניסה לכלי</span><span style="font-size:28px;color:#A9D3CC;direction:ltr;text-align:right;word-break:break-all;">purple-frost-7272.roman-gash.workers.dev/pitch</span></div></div>
+      </div>
+      <div style="position:relative;background:#FFFDF8;border:2px solid var(--line);border-radius:24px;overflow:hidden;min-height:560px;" data-src="https://purple-frost-7272.roman-gash.workers.dev/pitch">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#DCEDEA;z-index:1;">
+          <span class="material-icons" style="font-size:68px;color:var(--p1);">campaign</span>
+          <div style="font-size:34px;font-weight:700;">הכלי — מהנתון לפרומפט</div>
+          <button data-load-btn="" style="cursor:pointer;border:0;background:var(--p1);color:#FFFDF8;font-family:var(--sans);font-size:32px;font-weight:700;padding:14px 34px;border-radius:100px;">הפעילו תצוגה חיה</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="מהכלי — למצגת" data-screen-label="מהכלי — למצגת" dir="rtl" data-speaker-notes="אחרי שמילאתם — לוחצים 'העתקת פרומפט', מדביקים ב-Gemini Canvas ומקבלים טיוטת מצגת. הדוגמה כאן מסגירת העסקים במרכזים המסחריים, וניתנת להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="1fe92850">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">פרומפט אחד — מצגת שלמה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;">כותבים פרומפט — ובונים מצגת</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1fr);gap:22px;max-width:1400px;"><div data-copy-src="" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;">
+        <button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button>
+        <div style="font-size:30px;color:#A9D3CC;font-weight:700;margin-bottom:12px;">דוגמה לפרומפט שהכלי מייצר</div>
+        <div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">בנה מצגת קצרה (6 שקופיות) בעברית, מיושרת לימין.
+הבעיה: עסקים נסגרים במרכזים המסחריים בעיר.
+הוכחה: ב‑2025 נסגרו 12 עסקים במרכז אחד — חנות כמעט בכל חודש.
+ציטוט: "אין לי איפה לקנות חלב בלי לנסוע" — תושבת.
+הפתרון: פיילוט ליווי לעסקים בסיכון במרכז אחד.
+פעולות להמשך: אישור פיילוט לשלושה חודשים; מדד הצלחה — ירידה בסגירות.
+עיצוב: מסר אחד בכל שקופית, טקסט גדול, מקום לתמונה אמיתית, צבע מוביל טורקיז.</div>
+      </div></div>
+  </section>
+
+  <section data-label="NotebookLM · מצגת מהמקורות" data-screen-label="NotebookLM · מצגת מהמקורות" dir="rtl" data-speaker-notes="NotebookLM — המחברת מיום 2. בחלונית Studio בצד יש אפשרויות שמחליפות מצגת: מצגת (Slide Deck) שנבנית מתוך המקורות, או סקירת וידאו — סרטון הסבר קצר. היתרון: הכול מבוסס רק על המקורות שהעליתם. לפני שלוחצים — כותבים הנחיה קצרה: למי, באיזו שפה, ומה המסר. הפרומפט ניתן להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="4450411e">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_notebooklm.svg" alt="NotebookLM" style="height:30px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">NotebookLM מיום 2 — במקום מצגת</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">Notebook מכינה מצגת או סרטון — מהמקורות שלכם</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start;"><div style="display:flex;flex-direction:column;gap:20px;"><div data-copy-src="" data-fragment="6" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;display:flex;flex-direction:column;gap:12px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><div style="font-size:30px;color:#A9D3CC;font-weight:700;">הנחיה ל־Studio · מוכנה להעתקה</div><div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">צור מצגת קצרה בעברית להנהלת העירייה.
+המסר: [הפתרון שלי במשפט אחד].
+מבנה: הבעיה · ההוכחה מהנתונים · הפתרון · הצעד הבא.
+מסר אחד בכל שקופית, מעט טקסט, והשתמש רק במקורות שבמחברת.</div></div></div><image-slot id="d3-notebooklm" shape="rounded" radius="24" placeholder="צילום מסך: חלונית Studio ב‑NotebookLM" style="display:block;width:100%;height:620px;"></image-slot></div>
+  </section>
+
+  <section data-label="Gamma · מה זה" data-screen-label="Gamma · מה זה" dir="rtl" data-speaker-notes="Gamma — כלי חדש להיום. אתר שבונה מצגת מעוצבת מתוך טקסט: פרומפט, טקסט שמדביקים או קובץ. נרשמים עם חשבון Google, ויש קרדיטים חינמיים להתחלה. היתרון: עיצוב מוכן, תמונות, ועריכה בלחיצה. סורקים ונכנסים יחד איתי." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="7338b3c1">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><span style="display:flex;align-items:center;gap:10px;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:42px;width:42px;display:block;border-radius:8px;"><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">Gamma</b></span></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">כלי חדש · Gamma</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">מטקסט — למצגת מעוצבת בדקות</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div data-fragment="1" style="display:flex;gap:16px;align-items:center;font-size:34px;"><span class="material-icons" style="font-size:44px;color:var(--p1);">edit_note</span>כותבים פרומפט, מדביקים טקסט או מעלים קובץ.</div>
+          <div data-fragment="2" style="display:flex;gap:16px;align-items:center;font-size:34px;"><span class="material-icons" style="font-size:44px;color:var(--p1);">palette</span>מקבלים עיצוב, פריסה ותמונות — מוכנים.</div>
+          <div data-fragment="3" style="display:flex;gap:16px;align-items:center;font-size:34px;"><span class="material-icons" style="font-size:44px;color:var(--p1);">ios_share</span>משתפים בקישור או מייצאים ל‑PDF ו‑PowerPoint.</div>
+        </div>
+        <div data-fragment="4" style="background:#DCEDEA;border-radius:20px;padding:18px 26px;font-size:31px;line-height:1.45;">נרשמים עם חשבון Google. יש <b>קרדיטים חינמיים</b> להתחלה.</div>
+      </div>
+      <div data-fragment="1" style="display:flex;flex-direction:column;gap:22px;">
+        <image-slot id="d3-gamma-home" shape="rounded" radius="24" placeholder="גררו לכאן צילום מסך של מסך הפתיחה של Gamma" style="display:block;width:100%;height:440px;"></image-slot>
+        <div style="background:var(--dark);border-radius:24px;padding:28px 32px;display:flex;align-items:center;gap:26px;"><img src="maale/qr_gamma.png" alt="QR נכנסים ל‑Gamma" style="width:170px;height:170px;border-radius:14px;background:#FFFDF8;padding:8px;box-sizing:border-box;flex:none;"><div style="display:flex;flex-direction:column;gap:10px;color:#FFFDF8;min-width:0;"><span style="font-size:34px;font-weight:700;">נכנסים ל‑Gamma</span><span style="font-size:28px;color:#A9D3CC;direction:ltr;text-align:right;word-break:break-all;">gamma.app</span><a href="https://gamma.app/" target="_blank" rel="noopener" style="align-self:flex-start;background:#FFFDF8;color:var(--p1);font-size:30px;font-weight:700;padding:10px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:30px;">open_in_new</span>פתחו את Gamma</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Gamma · בונים מצגת" data-screen-label="Gamma · בונים מצגת" dir="rtl" data-speaker-notes="הדרכה צעד אחר צעד, על המסך: Create new ← Generate. בוחרים Presentation, מספר כרטיסים (שקופיות) ושפה — עברית. מדביקים את הפרומפט ולוחצים Generate outline. עורכים את קווי המתאר — כאן מתקנים סדר ומוחקים. בוחרים ערכת עיצוב, כמות טקסט וסגנון תמונות, ולוחצים Generate. הפרומפט לדוגמה ניתן להעתקה — מחליפים בפרטים שלכם." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="1ff629f8" data-deck-skip="">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><span style="display:flex;align-items:center;gap:10px;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:42px;width:42px;display:block;border-radius:8px;"><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">Gamma</b></span></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">הדרכה · צעד אחר צעד</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">בונים מצגת ב‑Gamma</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start;"><div style="display:flex;flex-direction:column;gap:20px;"><div data-copy-src="" data-fragment="6" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;display:flex;flex-direction:column;gap:12px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><div style="font-size:30px;color:#A9D3CC;font-weight:700;">פרומפט לדוגמה · מוכן להעתקה</div><div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">צור מצגת של 6 שקופיות בעברית, מיושרת לימין, להנהלת העירייה.
+הבעיה: [הבעיה שלכם במשפט].
+ההוכחה: [מספר מפתח אחד + המקור].
+הפתרון: [מה מציעים, למי, ואיך זה נראה].
+הצעד הבא: [בקשה אחת ברורה — מי ומתי].
+מסר אחד בכל שקופית, מעט טקסט, צבע מוביל טורקיז.</div></div></div><image-slot id="d3-gamma-build" shape="rounded" radius="24" placeholder="צילום מסך: מסך היצירה ב‑Gamma" style="display:block;width:100%;height:620px;"></image-slot></div>
+  </section>
+
+  <section data-label="Gamma · עורכים ומייצאים" data-screen-label="Gamma · עורכים ומייצאים" dir="rtl" data-speaker-notes="אחרי שהמצגת נוצרה: לוחצים על שקופית ועורכים טקסט ישירות. לשינויים גדולים — עריכה עם AI: קצר את הטקסט, הפוך לגרף, הוסף שקופית סיכום. מחליפים תמונות שנוצרו בתמונה אמיתית או בתמונה שיצרתם ב-Gemini. בודקים יישור לימין בעברית. בסוף: Share לקישור, או Export ל-PDF או PowerPoint." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="37923bcd" data-deck-skip="">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><span style="display:flex;align-items:center;gap:10px;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:42px;width:42px;display:block;border-radius:8px;"><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">Gamma</b></span></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">אחרי שנוצרה טיוטה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;text-wrap:pretty;">עורכים, מחליפים תמונות — ומייצאים</h2>
+    <div data-fragment="1" style="max-width:1300px;"><image-slot id="d3-gamma-edit" shape="rounded" radius="24" placeholder="צילום מסך: מצגת מוכנה ב‑Gamma" style="display:block;width:100%;height:680px;"></image-slot></div>
+  </section>
+
+  <section data-label="תמונות ב-Gemini" data-screen-label="תמונות ב-Gemini" dir="rtl" data-speaker-notes="הסבר קצר: ב-Gemini אפשר ליצור תמונות למצגת. נכנסים ל-gemini.google.com, בוחרים בכלים ביצירת תמונה, ומתארים: מה רואים, איפה, באיזה סגנון ובאיזה יחס. אפשר גם להעלות תמונה ולבקש לשנות אותה. כללים: תמונה שנוצרה ב-AI היא המחשה — לא ראיה. לא יוצרים תושבים אמיתיים, לוגואים או מסמכים רשמיים. הפרומפטים ניתנים להעתקה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="08be8f05">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">הסבר קצר · תמונות למצגת</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">יוצרים תמונות רלוונטיות ב‑Gemini</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start;"><div style="display:flex;flex-direction:column;gap:20px;"><div data-copy-src="" data-fragment="6" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;display:flex;flex-direction:column;gap:12px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><div style="font-size:30px;color:#A9D3CC;font-weight:700;">פרומפט 1 · תמונת "המצב היום"</div><div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">צילום ריאליסטי של מרכז מסחרי שכונתי בעיר קטנה בגליל התחתון, על רקע עמק יזרעאל, בשעות אחר הצהריים. חלק מהחנויות סגורות, תריסים מוגפים, מעט אנשים. אווירה שקטה. בלי טקסט ובלי שלטים קריאים. יחס 16:9.</div></div><div data-copy-src="" data-fragment="7" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;display:flex;flex-direction:column;gap:12px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><div style="font-size:30px;color:#A9D3CC;font-weight:700;">פרומפט 2 · תמונת "העתיד"</div><div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">אותו מרכז מסחרי, שנה אחרי: חנויות פתוחות, תושבים ובעלי עסקים משוחחים, ספסלים וצמחייה. אור חם של שקיעה. צילום ריאליסטי, בלי טקסט. יחס 16:9.</div></div></div><image-slot id="d3-gemini-img" shape="rounded" radius="24" placeholder="תמונה לדוגמה שנוצרה ב‑Gemini" style="display:block;width:100%;height:620px;"></image-slot></div>
+  </section>
+
+  <section data-label="ארבעה דברים שעושים את ההבדל" data-screen-label="ארבעה דברים שעושים את ההבדל" dir="rtl" data-speaker-notes="ה-AI נותן טיוטה — העריכה שלכם. תמונה אמיתית מהשטח, מסר אחד בשקופית, צבע ופונט אחידים, וניקוי רעש." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="3a84e95c">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">הליטוש האנושי</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;">ארבעה דברים שעושים את ההבדל</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--coral);">photo_camera</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">תמונה אמיתית</h3><p style="font-size:32px;line-height:1.4;margin:0;">הצילום שהבאתם מהשטח — לא איור גנרי.</p></div></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">filter_1</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">מסר אחד בשקופית</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">מוחקים כל מה שלא משרת את המסר.</p></div></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">palette</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">צבע ופונט אחידים</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">צבע מוביל אחד ופונט אחד.</p></div></div>
+      <div data-fragment="4" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;"><span class="material-icons" style="font-size:51px;color:var(--p1);">cleaning_services</span><div><h3 style="font-size:37px;font-weight:700;margin:0 0 6px;">מנקים רעש</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">פחות טקסט, יותר רווח — העין נחה.</p></div></div>
+    </div>
+    <div data-fragment="5" style="margin-top:28px;background:#DCEDEA;border-radius:24px;padding:22px 32px;font-size:34px;line-height:1.45;">ה‑AI נותן טיוטה. הטעם והדוגמאות האמיתיות — מכם.</div>
+  </section>
+
+  <section data-label="עבודה · בונים מצגת" data-screen-label="זמן עבודה · בונים מצגת" dir="rtl" data-speaker-notes="בלוק העבודה הגדול. כל אחד בוחר כלי — Gamma, Gemini Canvas או NotebookLM — ובונה מצגת מהפתרון שיצא מכלי הפתרון. מוסיפים תמונה אמיתית או תמונה מ-Gemini, ומתאמנים פעם אחת בקול. כ-70 דקות, עד הפסקת הצהריים." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="73935ec5">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><span style="display:flex;align-items:center;gap:10px;"><img src="maale/logo_gamma.png" alt="Gamma" style="height:42px;width:42px;display:block;border-radius:8px;"><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">Gamma</b></span><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"><img src="maale/logo_notebooklm.svg" alt="NotebookLM" style="height:30px;width:auto;display:block;"></div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div><div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">זמן עבודה · הבלוק הגדול</div><h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 0;">בונים את המצגת</h2></div>
+      <practice-timer minutes="70" presets="60,70,90"></practice-timer>
+    </div>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:center;margin-top:34px;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:44px;color:var(--p1);">1</b><span style="font-size:34px;line-height:1.4;">לוקחים את הפתרון מ<b>כלי הפתרון</b>.</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:44px;color:var(--p1);">2</b><span style="font-size:34px;line-height:1.4;">בוחרים כלי: <b>Gamma</b> · <b>Gemini Canvas</b> · <b>NotebookLM</b>.</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:44px;color:var(--p1);">3</b><span style="font-size:34px;line-height:1.4;">בונים טיוטה: בעיה · הוכחה · פתרון · צעד הבא.</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:44px;color:var(--p1);">4</b><span style="font-size:34px;line-height:1.4;">מוסיפים <b>תמונה</b> — מהשטח או מ‑Gemini.</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:44px;color:var(--coral);">5</b><span style="font-size:34px;line-height:1.4;">מתאמנים פעם אחת בקול — <b>5 דקות</b>.</span></div>
+      </div>
+      <image-slot id="d3-deck" shape="rounded" radius="24" placeholder="גררו לכאן צילום מסך של מצגת לדוגמה" style="display:block;width:100%;height:520px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="שולחים את המצגות" data-screen-label="שולחים את המצגות" dir="rtl" data-speaker-notes="לפני ההצגות: כל מציג שולח לי את המצגת או קישור לפרוטוטייפ — במייל או בוואטסאפ, עם השם שלו. כך אני פותח הכול ממחשב אחד. בוואטסאפ: סורקים את הקוד ונפתחת שיחה איתי." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="b1c4ff64">
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">לפני ההצגות</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;">שולחים לי את המצגת</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:48px;color:var(--p1);">1</b><span style="font-size:39px;line-height:1.4;">שולחים את המצגת — או קישור לפרוטוטייפ (פיילוט).</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:48px;color:var(--p1);">2</b><span style="font-size:39px;line-height:1.4;">כותבים את <b>השם שלכם</b> בהודעה.</span></div>
+        <div style="display:flex;gap:20px;align-items:baseline;"><b style="font-size:48px;color:var(--coral);">3</b><span style="font-size:39px;line-height:1.4;">שולחים <b>לפני</b> שמתחילות ההצגות.</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;">
+        <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;">
+          <span class="material-icons" style="font-size:96px;color:var(--p1);">mail</span>
+          <div style="font-size:40px;font-weight:700;">במייל</div>
+          <div style="font-size:36px;font-weight:700;color:var(--p1);direction:ltr;">romangash@gmail.com</div>
+          <a href="mailto:romangash@gmail.com?subject=%D7%94%D7%9E%D7%A6%D7%92%D7%AA%20%D7%A9%D7%9C%D7%99%20-%20%D7%99%D7%95%D7%9D%203" style="display:inline-flex;align-items:center;gap:10px;background:var(--p1);color:#FFFDF8;font-size:34px;font-weight:700;padding:12px 30px;border-radius:100px;"><span class="material-icons" style="font-size:34px;">send</span>שלחו מייל</a>
+        </div>
+        <div style="background:var(--dark);border-radius:24px;padding:32px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;">
+          <div style="display:flex;align-items:center;gap:14px;"><img src="maale/whatsapp.svg" alt="WhatsApp" style="width:56px;height:56px;"><span style="font-size:40px;font-weight:700;color:#FFFDF8;">בוואטסאפ</span></div>
+          <div style="position:relative;width:240px;height:240px;"><img src="maale/qr_whatsapp.png" alt="QR לשליחה בוואטסאפ" style="width:240px;height:240px;border-radius:16px;background:#FFFDF8;padding:8px;box-sizing:border-box;display:block;"><img src="maale/whatsapp.svg" alt="" style="position:absolute;top:50%;left:50%;width:54px;height:54px;transform:translate(-50%,-50%);background:#FFFDF8;border-radius:50%;padding:4px;box-sizing:border-box;"></div>
+          <div style="font-size:36px;font-weight:700;color:#FFFDF8;direction:ltr;">054-6738651</div>
+          <a href="https://wa.me/972546738651" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#0B3B2A;font-size:34px;font-weight:700;padding:12px 30px;border-radius:100px;"><span class="material-icons" style="font-size:34px;">chat</span>פתחו שיחה</a>
+        </div>
+      </div>
+    </div>
+  </section><section data-label="הפסקת צהריים" data-screen-label="הפסקת צהריים" dir="rtl" data-speaker-notes="הפסקת צהריים. אחרי ההפסקה — כל אחד מציג את הפתרון שלו, 5 דקות. זו לא גרסה סופית; המטרה להתאמן ולהציג. מי שעוד לא שלח — שולח לי במייל או בוואטסאפ לפני שחוזרים." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="90acae49">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div style="display:flex;flex-direction:column;gap:20px;"><div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">הפסקה</div><h2 style="font-family:var(--serif);font-weight:700;font-size:110px;line-height:1.05;margin:0;">הפסקת צהריים</h2><p style="font-size:42px;line-height:1.45;margin:0;color:var(--muted);max-width:1100px;">אחרי ההפסקה — כל אחד מציג את הפתרון שלו, <b style="color:var(--ink);">5 דקות</b>.</p></div>
+      <practice-timer minutes="45" presets="30,45,60"></practice-timer>
+    </div>
+    <div data-fragment="1" style="margin-top:44px;background:#FFFDF8;border:2px dashed var(--p3);border-radius:24px;padding:24px 32px;font-size:34px;line-height:1.45;max-width:1300px;">זו לא גרסה סופית — <b style="color:var(--p1);">מתאמנים ומציגים</b>. שולחים לי את המצגת לפני שחוזרים.</div>
+  </section>
+
+  <section data-label="חיץ · מציגים לפורום" data-screen-label="חיץ · מציגים לפורום" dir="rtl" data-speaker-notes="חלק רביעי — הרגע הגדול. כל אחד מציג את הפתרון לפורום — 5 דקות. זו לא גרסה סופית, אנחנו מתאמנים. השאר בתפקיד מקבלי ההחלטות. לפני שמתחילים — שני שקפים על סיפור נכון ועל עמידה." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="e9fee542">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">04</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">מציגים את המצגות&nbsp;</h2>
+      <p style="font-size:42px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">5 דקות לכל אחד. לא גרסה סופית — מתאמנים להציג.</p>
+    </div>
+  </section>
+
+  <section data-label="סיפור נכון למצגת" data-screen-label="סיפור נכון למצגת" dir="rtl" data-speaker-notes="איך בונים סיפור נכון לחמש דקות. ארבע תחנות: הבעיה — עם התושב כגיבור; ההוכחה — מספר אחד מוחשי וציטוט; הפתרון — להראות, לא רק לספר; והבקשה — צעד אחד ברור." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="48421f16">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">לפני שעולים לבמה · 1</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 32px;text-wrap:pretty;">סיפור נכון — ב‑5 דקות</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:start;max-width:1400px;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 28px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;align-items:center;"><span style="font-size:42px;font-weight:700;color:var(--p1);">0:45</span><span style="font-size:33px;line-height:1.4;"><b>הבעיה</b> — מה כואב, ולמי. התושב הוא הגיבור.</span></div>
+        <div data-fragment="2" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:22px;padding:20px 28px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;align-items:center;"><span style="font-size:42px;font-weight:700;color:var(--coral);">1:15</span><span style="font-size:33px;line-height:1.4;"><b>ההוכחה</b> — מספר מפתח אחד + ציטוט או תמונה.</span></div>
+        <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 28px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;align-items:center;"><span style="font-size:42px;font-weight:700;color:var(--p1);">2:00</span><span style="font-size:33px;line-height:1.4;"><b>הפתרון</b> — מה בניתם — מראים, לא רק מספרים.</span></div>
+        <div data-fragment="4" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:22px;padding:20px 28px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:22px;align-items:center;"><span style="font-size:42px;font-weight:700;color:var(--p1);">1:00</span><span style="font-size:33px;line-height:1.4;"><b>הבקשה</b> — צעד אחד ברור: מי, מה ומתי.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="עמידה והצגה נכונה" data-screen-label="עמידה והצגה נכונה" dir="rtl" data-speaker-notes="ההגשה חשובה כמו התוכן. עמידה יציבה — רגליים ברוחב הכתפיים, לא מתנדנדים. קשר עין — מדברים לאנשים, לא למסך. קצב ועצירות — שתיקה אחרי מספר חזק. ידיים פתוחות. לא מקריאים את השקופית. ופתיחה וסיום חזקים — משפט ראשון שמושך, ומשפט אחרון שהוא הבקשה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FAF5EC 0%,#F4EEE2 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="fbebc745">
+    <div style="font-size:34px;font-weight:700;color:var(--p1);letter-spacing:1px;">לפני שעולים לבמה · 2</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;text-wrap:pretty;">עמידה והצגה נכונה</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--p1);">self_improvement</span><h3 style="font-size:37px;font-weight:700;margin:0;">עמידה יציבה</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">רגליים ברוחב הכתפיים. לא מתנדנדים, לא מסתובבים למסך.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--p1);">visibility</span><h3 style="font-size:37px;font-weight:700;margin:0;">קשר עין</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">מדברים לאנשים — לא לשקופית. עוברים מאדם לאדם.</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--p1);">pause_circle</span><h3 style="font-size:37px;font-weight:700;margin:0;">קצב ועצירות</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">לאט מהרגיל. שתיקה אחרי מספר חזק.</p></div>
+      <div data-fragment="4" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--p1);">back_hand</span><h3 style="font-size:37px;font-weight:700;margin:0;">ידיים פתוחות</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">מחוץ לכיסים. תנועה שמלווה את המילים.</p></div>
+      <div data-fragment="5" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--p1);">voice_over_off</span><h3 style="font-size:37px;font-weight:700;margin:0;">לא מקריאים</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">השקופית תומכת — אתם מספרים.</p></div>
+      <div data-fragment="6" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><span class="material-icons" style="font-size:53px;color:var(--coral);">flag</span><h3 style="font-size:37px;font-weight:700;margin:0;">פתיחה וסיום חזקים</h3><p style="font-size:31px;line-height:1.4;margin:0;color:var(--muted);">משפט ראשון שמושך. משפט אחרון — הבקשה.</p></div>
+    </div>
+  </section>
+
+  
+
+  <section data-label="טיימר · הצגה ומשוב" data-screen-label="טיימר · הצגה ומשוב" dir="rtl" data-speaker-notes="שקף התפעול בזמן ההצגות: 5 דקות הצגה ו-2 דקות משוב. מבנה המשוב: דבר אחד שעבד, דבר אחד לחידוד." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="ef2ad900">
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">זמן הצגה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 40px;">הצגה — ואז שאלות ומשוב</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:18px;"><div style="display:flex;align-items:center;gap:14px;"><span class="material-icons" style="font-size:48px;color:var(--p1);">campaign</span><span style="font-size:40px;font-weight:700;">הצגה — 5 דקות</span></div><practice-timer minutes="5" presets="4,5,6"></practice-timer></div>
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:18px;"><div style="display:flex;align-items:center;gap:14px;"><span class="material-icons" style="font-size:48px;color:var(--coral);">forum</span><span style="font-size:40px;font-weight:700;">משוב — 2 דקות</span></div><practice-timer minutes="2" presets="1,2,3"></practice-timer></div>
+    </div>
+    <div data-fragment="1" style="margin-top:28px;background:#FFFDF8;border:2px dashed var(--p3);border-radius:24px;padding:22px 32px;font-size:34px;line-height:1.45;"><b style="color:var(--p1);">מבנה המשוב:</b> דבר אחד <b>שעבד</b> · דבר אחד <b>לחידוד</b>.</div>
+  </section>
+
+  <section data-label="מציגים לפורום" data-screen-label="מציגים לפורום" dir="rtl" data-speaker-notes="הרגע הגדול — התוצאה של שלושה מפגשים. המאזינים: הקשיבו כמקבלי החלטות אמיתיים ושאלו את שלוש השאלות האלה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="59f234e1">
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">הרגע הגדול</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 16px;">הבמה שלכם</h2>
+    <p data-fragment="1" style="font-size:37px;color:var(--muted);margin:0 0 36px;line-height:1.5;">כמאזינים, שאלו את עצמכם בכל הצגה:</p>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--coral);">report_problem</span><h3 style="font-size:40px;font-weight:700;margin:0;color:var(--p1);">הבעיה ברורה?</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">והוכיחו שהיא באמת קיימת?</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--p1);">lightbulb</span><h3 style="font-size:40px;font-weight:700;margin:0;color:var(--p1);">הפתרון משכנע?</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">קונקרטי ומחובר לבעיה?</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:34px 36px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:55px;color:var(--coral);">rocket_launch</span><h3 style="font-size:40px;font-weight:700;margin:0;color:var(--coral);">הייתם אומרים "כן"?</h3><p style="font-size:33px;line-height:1.45;margin:0;color:var(--muted);">לבקשה שהם הציגו?</p></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · סיכום ושיר לסיום" data-screen-label="חיץ · סיכום ושיר לסיום" dir="rtl" data-speaker-notes="חלק אחרון. מסכמים את שלושת המפגשים — ויוצרים יחד שיר סיום עם הנקדן ו-Suno." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_suno.png" alt="Suno" style="height:52px;width:52px;display:block;border-radius:50%;"></div>
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">05</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">סיכום ושיר לסיום 😊</h2>
+      <p style="font-size:42px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">שלושה מפגשים — ושיר אחד שנכתוב יחד.</p>
+    </div>
+  </section>
+
+  <section data-label="שיר סיום · נקדן" data-screen-label="שיר סיום · נקדן" dir="rtl" data-speaker-notes="לסיום — כותבים יחד שיר על שלושת המפגשים. שלב 1: מבקשים מ-Gemini מילים לשיר — הפרומפט ניתן להעתקה. שלב 2: מדביקים את המילים בנקדן של דיקטה ומקבלים טקסט מנוקד. הניקוד עוזר ל-Suno להגות את העברית נכון. מעתיקים את הטקסט המנוקד לשלב הבא." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#F7F5EC 0%,#EEF1E9 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="643fa798">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><span style="display:flex;align-items:center;gap:10px;"><span class="material-icons" style="font-size:38px;color:var(--p1);">spellcheck</span><b style="font-size:30px;color:#2A211B;font-family:var(--sans);">נקדן · דיקטה</b></span><img src="maale/logo_gemini.svg" alt="Gemini" style="height:46px;width:auto;display:block;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">שיר סיום · שלב 1</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">כותבים מילים — ומנקדים בנקדן</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div data-fragment="1" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">1</b><span style="font-size:33px;line-height:1.4;">מבקשים מ‑Gemini מילים לשיר (פרומפט משמאל).</span></div>
+        <div data-fragment="2" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">2</b><span style="font-size:33px;line-height:1.4;">מדביקים את המילים ב<b>נקדן</b> של דיקטה.</span></div>
+        <div data-fragment="3" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">3</b><span style="font-size:33px;line-height:1.4;">מקבלים טקסט מנוקד — ומעתיקים.</span></div>
+        <div data-fragment="4" style="background:#DCEDEA;border-radius:20px;padding:18px 26px;font-size:31px;line-height:1.45;">למה לנקד? כך Suno <b>הוגה את העברית נכון</b>.</div>
+        <div style="background:var(--dark);border-radius:24px;padding:28px 32px;display:flex;align-items:center;gap:26px;"><img src="maale/qr_nakdan.png" alt="QR הנקדן של דיקטה" style="width:170px;height:170px;border-radius:14px;background:#FFFDF8;padding:8px;box-sizing:border-box;flex:none;"><div style="display:flex;flex-direction:column;gap:10px;color:#FFFDF8;min-width:0;"><span style="font-size:34px;font-weight:700;">הנקדן של דיקטה</span><span style="font-size:28px;color:#A9D3CC;direction:ltr;text-align:right;word-break:break-all;">nakdan.dicta.org.il</span><a href="https://nakdan.dicta.org.il/" target="_blank" rel="noopener" style="align-self:flex-start;background:#FFFDF8;color:var(--p1);font-size:30px;font-weight:700;padding:10px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:30px;">open_in_new</span>פתחו את הנקדן</a></div></div>
+      </div>
+      <div data-copy-src="" data-fragment="5" style="position:relative;background:var(--dark);border-radius:24px;padding:28px 34px;display:flex;flex-direction:column;gap:12px;"><button data-copy-btn="" style="position:absolute;top:22px;left:22px;cursor:pointer;border:0;background:#FFFDF8;color:var(--p1);font-family:var(--sans);font-size:28px;font-weight:700;padding:10px 20px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:28px;">content_copy</span>העתק</button><div style="font-size:30px;color:#A9D3CC;font-weight:700;">פרומפט למילים · מוכן להעתקה</div><div data-copy-text="" style="white-space:pre-wrap;color:#FFFDF8;font-size:28px;line-height:1.5;">כתוב מילים לשיר קצר ושמח בעברית על קבוצת עובדים בעיריית מודיעין מכבים רעות, שעברה שלושה מפגשים של קבלת החלטות מבוססת נתונים.
+מפגש 1: הגדרנו בעיה ושאלה. מפגש 2: עבדנו עם נתונים ו‑AI. מפגש 3: הגענו לפתרון והצגנו.
+שני בתים ופזמון חוזר, שורות קצרות, חרוזים פשוטים.</div></div>
+    </div>
+  </section>
+
+  <section data-label="שיר סיום · Suno" data-screen-label="שיר סיום · Suno" dir="rtl" data-speaker-notes="שלב 2: נכנסים ל-Suno, לוחצים Create ובוחרים מצב Custom — כך אפשר להדביק מילים משלנו. מדביקים את הטקסט המנוקד בשדה Lyrics, כותבים סגנון — למשל פופ ישראלי שמח — ונותנים שם לשיר. Create. מקבלים שתי גרסאות — בוחרים ומשמיעים לכולם." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:linear-gradient(170deg,#FBF6EF 0%,#F6EEE5 100%);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="52b53cb8">
+    <div data-logo-badge="" style="position:absolute;top:34px;left:120px;display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid #E3D8C6;border-radius:100px;padding:10px 24px;z-index:3;"><img src="maale/logo_suno.png" alt="Suno" style="height:52px;width:52px;display:block;border-radius:50%;"></div>
+    <div style="font-size:34px;font-weight:700;color:var(--coral);letter-spacing:1px;">שיר סיום · שלב 2</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:61px;line-height:1.12;margin:10px 0 36px;text-wrap:pretty;">מפיקים את השיר ב‑Suno</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div data-fragment="1" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">1</b><span style="font-size:33px;line-height:1.4;">נכנסים ל‑<b>Suno</b> ← <b>Create</b> ← מצב <b>Custom</b>.</span></div>
+        <div data-fragment="2" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">2</b><span style="font-size:33px;line-height:1.4;">מדביקים את הטקסט המנוקד בשדה <b>Lyrics</b>.</span></div>
+        <div data-fragment="3" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">3</b><span style="font-size:33px;line-height:1.4;">כותבים סגנון: <b style="direction:ltr;display:inline-block;">Israeli pop, upbeat, choir</b>.</span></div>
+        <div data-fragment="4" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--p1);">4</b><span style="font-size:33px;line-height:1.4;">נותנים שם לשיר ← <b>Create</b>.</span></div>
+        <div data-fragment="5" style="display:flex;gap:18px;align-items:baseline;"><b style="font-size:42px;color:var(--coral);">5</b><span style="font-size:33px;line-height:1.4;">מקבלים שתי גרסאות — בוחרים ומשמיעים לכולם.</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:32px 36px;display:flex;align-items:center;gap:22px;"><span class="material-icons" style="font-size:68px;color:var(--coral);">music_note</span><div style="display:flex;flex-direction:column;gap:6px;"><h3 style="font-size:40px;font-weight:700;margin:0;">השיר של הקבוצה</h3><p style="font-size:32px;line-height:1.4;margin:0;color:var(--muted);">שלושה מפגשים — בשלוש דקות.</p></div></div>
+        <div style="background:var(--dark);border-radius:24px;padding:28px 32px;display:flex;align-items:center;gap:26px;"><img src="maale/qr_suno.png" alt="QR נכנסים ל‑Suno" style="width:170px;height:170px;border-radius:14px;background:#FFFDF8;padding:8px;box-sizing:border-box;flex:none;"><div style="display:flex;flex-direction:column;gap:10px;color:#FFFDF8;min-width:0;"><span style="font-size:34px;font-weight:700;">נכנסים ל‑Suno</span><span style="font-size:28px;color:#A9D3CC;direction:ltr;text-align:right;word-break:break-all;">suno.com</span><a href="https://suno.com/" target="_blank" rel="noopener" style="align-self:flex-start;background:#FFFDF8;color:var(--p1);font-size:30px;font-weight:700;padding:10px 24px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;"><span class="material-icons" style="font-size:30px;">open_in_new</span>פתחו את Suno</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="סיכום · שלושה מפגשים" data-screen-label="סיכום · שלושה מפגשים" dir="rtl" data-speaker-notes="סיכום שלושת המפגשים. יום 1: פיצחנו את האתגר — סיפורי נתונים, כאב מול תושב, שאלה עסקית, מדד הצלחה, מקורות מידע והתממה. יום 2: עבדנו עם הנתונים — שבעה עקרונות, ניתוח עם Gemini ו-NotebookLM, ותובנה. יום 3: הגענו לפתרון בכלי הפתרון, ניתחנו בגוגל שיטס, בנינו מצגת והצגנו. זה התהליך לכל אתגר עתידי ברשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="70d82080">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.55;"></div>
+    <div style="font-size:34px;font-weight:700;color:#A9D3CC;letter-spacing:1px;position:relative;">סיכום · שלושה מפגשים</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.12;margin:10px 0 36px;position:relative;">מה עשינו בשלושת הימים</h2>
+    <div data-fragment="1" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;position:relative;">
+      <div data-fragment="1" style="background:rgba(255,255,255,.07);border:2px solid rgba(169,211,204,.35);border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:14px;"><span style="font-size:48px;font-weight:700;color:#A9D3CC;">יום 1</span><h3 style="font-size:40px;font-weight:700;margin:0;">הגדרנו את הבעיה</h3><div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>כאב אמיתי מול תושב</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>סיפורי נתונים מהשטח</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>שאלה עסקית ומדד הצלחה</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>מקורות מידע והתממה</span></div></div></div>
+      <div data-fragment="2" style="background:rgba(255,255,255,.07);border:2px solid rgba(169,211,204,.35);border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:14px;"><span style="font-size:48px;font-weight:700;color:#A9D3CC;">יום 2</span><h3 style="font-size:40px;font-weight:700;margin:0;">עבדנו עם הנתונים</h3><div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>שבעה עקרונות לעבודה עם נתונים</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>ניתוח קובץ אמיתי עם Gemini</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>מחברת מקורות ב‑NotebookLM</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>מממצא — לתובנה</span></div></div></div>
+      <div data-fragment="3" style="background:rgba(255,255,255,.07);border:2px solid rgba(169,211,204,.35);border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:14px;"><span style="font-size:48px;font-weight:700;color:#A9D3CC;">יום 3</span><h3 style="font-size:40px;font-weight:700;margin:0;">הגענו לפתרון והצגנו</h3><div style="display:flex;flex-direction:column;gap:10px;"><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>כלי הפתרון — מבעיה לפרוטוטייפ</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>גוגל שיטס עם Gemini</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>מצגת ב‑Gamma, Canvas ו‑NotebookLM</span></div><div style="display:flex;gap:12px;align-items:baseline;font-size:31px;color:#DCEDEA;line-height:1.4;"><span style="color:#D9A04F;font-weight:700;">•</span><span>הצגה לפורום — ושיר סיום</span></div></div></div>
+    </div>
+    <p data-fragment="4" style="font-size:37px;color:#C9E2DE;margin:36px 0 0;line-height:1.5;position:relative;">מבעיה — לנתונים — לפתרון. זה התהליך לכל אתגר עתידי ברשות.</p>
+  </section>
+
+  <section data-no-footer="" data-label="תודה" data-screen-label="תודה" dir="rtl" data-speaker-notes="תודה על שלושה מפגשים של פתיחות ועבודה אמיתית. פרטי קשר של רומן." style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px 120px;background:linear-gradient(160deg,#24706B 0%,#1F5F5B 60%,#1A504D 100%);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="512c035d">
+    <div style="font-size:37px;font-weight:700;color:#C9E2DE;letter-spacing:2px;">קבלת החלטות מבוססת נתונים · עיריית מודיעין מכבים רעות</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:140px;line-height:1;margin:24px 0;">תודה</h2>
+    <p style="font-size:44px;color:#E3D8C6;margin:0;max-width:1300px;line-height:1.45;">על שלושה מפגשים של פתיחות, סקרנות ועבודה אמיתית. עכשיו — ליישם בשטח.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:36px;font-size:37px;color:#DCEDEA;"><span class="material-icons" style="font-size:40px;color:#A9D3CC;">mail</span>romangash@gmail.com · רומן גרינשטיין</div>
+    <div style="display:flex;align-items:center;gap:40px;margin-top:50px;">
+      <span style="display:flex;align-items:center;gap:18px;background:#FFFDF8;border-radius:12px;padding:8px 14px;"><img src="assets/partners/logo-modiin.png" alt="עיריית מודיעין מכבים רעות" style="height:58px;width:auto;display:block;"><img src="assets/partners/logo-265.png" alt="המיזם הלאומי 265" style="height:58px;width:auto;"></span>
+      <img src="logo-digital-agency.png" alt="מערך הדיגיטל הלאומי" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+      <img src="logo-digitalit.png" alt="הדיגיטלית" style="height:46px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+<script src="../_shared/embed-guard.js"></script>
+</body>
+</html>

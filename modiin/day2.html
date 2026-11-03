@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="./work-timer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<style>
+  html,body{margin:0;padding:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  :root{
+    --bg:#FAF5EC; --bg2:#F2EADC; --ink:#2A211B; --muted:#6B5D52;
+    --dark:#1F5F5B; --p1:#1F5F5B; --p2:#2F6E68; --p3:#A9D3CC; --line:#E3D8C6;
+    --coral:#B4502F; --teal-light:#DCEDEA; --amber:#D99A2B; --card:#FFFDF8; --brand-tint:#F4DED3;
+    --serif:'Alef',sans-serif; --sans:'Alef',sans-serif;
+  }
+  ::selection{background:#1F5F5B;color:#FFFDF8;}
+  a{color:var(--p1);text-decoration:none;}
+  a:hover{color:var(--p2);}
+  [data-om-subtitle]{display:none!important;}
+  [data-no-footer] > .dsf{display:none!important;}
+  .material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;display:inline-block;line-height:1;text-transform:none;letter-spacing:normal;word-wrap:normal;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;font-feature-settings:'liga';}
+  @keyframes heroBar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.82)}}
+  @keyframes heroBarB{0%,100%{transform:scaleY(.88)}50%{transform:scaleY(1.06)}}
+  @keyframes floatA{0%,100%{transform:translate(0,0)}50%{transform:translate(46px,-34px)}}
+  @keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-38px,42px)}}
+  @keyframes floatC{0%,100%{transform:translate(0,0)}50%{transform:translate(28px,30px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spinR{to{transform:rotate(-360deg)}}
+  @keyframes pulse{0%,100%{opacity:.45}50%{opacity:.85}}
+  @keyframes cardFloatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @keyframes cardFloatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes cardFloatC{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes accentPulse{0%,100%{transform:scaleX(1);opacity:.85}50%{transform:scaleX(1.12);opacity:1}}
+  @keyframes iconBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes frameBreath{0%,100%{opacity:.42}50%{opacity:.78}}
+  @keyframes pulseRing{0%,100%{box-shadow:0 0 0 8px rgba(31,95,91,.2)}50%{box-shadow:0 0 0 14px rgba(31,95,91,.35)}}
+  @keyframes pulseRingCoral{0%,100%{box-shadow:0 0 0 8px rgba(180,80,47,.2)}50%{box-shadow:0 0 0 14px rgba(180,80,47,.35)}}
+  @keyframes progressGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.4)}}
+  @keyframes logoGlow{0%,100%{box-shadow:0 10px 36px rgba(0,0,0,.25)}50%{box-shadow:0 12px 46px rgba(31,95,91,.4)}}
+</style>
+<script src="image-slot.js"></script>
+<script src="practice-components.js"></script>
+<script>window.DS_DAY='יום 2';</script>
+<script src="ds-footer.js"></script>
+<script>window.WS_FILE='דף עזר - יום 2 (גרסה צפופה).dc.html';</script>
+<script src="worksheet-badge.js"></script>
+<script src="data-motifs.js"></script>
+<script src="deck-motion.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target&&e.target.closest&&e.target.closest('[data-load-btn]'); if(!b) return;
+  var w=b.closest('[data-src]'); if(!w||w.querySelector('iframe')) return;
+  var f=document.createElement('iframe');
+  f.src=w.getAttribute('data-src');
+  f.title='תצוגה חיה';
+  f.style.cssText='width:100%;height:100%;border:0;display:block;position:absolute;inset:0;z-index:2;background:#FFFDF8';
+  w.appendChild(f);
+  b.parentNode.style.opacity='0';
+},true);
+</script>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+<section data-no-footer="" data-label="שער" data-screen-label="שער" dir="rtl" data-speaker-notes="פותחים את יום 2. במפגש הקודם כל אחד יצא עם שאלה עסקית. היום לוקחים אותה לנתונים: עקרונות עבודה, קובץ Excel אמיתי, ניתוח עם AI והפקת תובנות." style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:90px 105px;background:linear-gradient(160deg,#24706B 0%,#1F5F5B 60%,#1A504D 100%);color:#fff;font-family:var(--sans);overflow:hidden;" data-no-motif="" data-om-slide-id="2c0c5011">
+    <div style="position:absolute;top:44px;left:88px;display:flex;gap:16px;direction:rtl;z-index:4;">
+      <a href="day3.html" style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;border:2px solid #8CC3BB;color:#DCEDEA;font-size:31px;font-weight:700;text-decoration:none;">יום 3</a>
+      <span style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;background:#1A504D;border:2px solid #1A504D;color:#fff;font-size:31px;font-weight:700;">יום 2</span>
+      <a href="day1.html" style="display:flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:100px;border:2px solid #8CC3BB;color:#DCEDEA;font-size:31px;font-weight:700;text-decoration:none;">יום 1</a>
+    </div>
+    <div style="position:absolute;left:50px;bottom:120px;width:600px;height:380px;display:flex;align-items:flex-end;gap:30px;z-index:1;">
+      <div style="width:88px;height:200px;border-radius:8px 8px 0 0;background:#2F6E68;transform-origin:50% 100%;animation:heroBar 4.2s ease-in-out infinite;"></div>
+      <div style="width:88px;height:264px;border-radius:8px 8px 0 0;background:#4E9893;transform-origin:50% 100%;animation:heroBarB 5s ease-in-out .4s infinite;"></div>
+      <div style="width:88px;height:359px;border-radius:8px 8px 0 0;background:#D9A04F;transform-origin:50% 100%;animation:heroBar 3.6s ease-in-out .8s infinite;"></div>
+      <div style="width:88px;height:222px;border-radius:8px 8px 0 0;background:#2F6E68;transform-origin:50% 100%;animation:heroBarB 4.6s ease-in-out .2s infinite;"></div>
+      <div style="width:88px;height:148px;border-radius:8px 8px 0 0;background:#2F6566;transform-origin:50% 100%;animation:heroBar 5.4s ease-in-out 1.1s infinite;"></div>
+    </div>
+    <div style="position:absolute;left:18px;bottom:114px;width:630px;height:6px;border-radius:3px;background:#B9C6C9;opacity:.85;"></div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:18px;max-width:1300px;margin-top:-60px;">
+      <div style="font-size:35px;font-weight:700;color:#C9E2DE;letter-spacing:2.5px;">מערך הדיגיטל הלאומי · הדיגיטלית · המיזם הלאומי 265</div>
+      <h1 style="font-family:var(--serif);font-weight:700;font-size:100px;line-height:1.05;margin:0;">קבלת החלטות מבוססת נתונים</h1>
+      <div style="font-size:56px;font-weight:700;color:#E3D8C6;">יום 2&nbsp;<br data-om-id="7c6e4230:28">מנתחים את הנתונים שלכם<br data-om-id="7c6e4230:29">עובדים עם AI<br data-om-id="7c6e4230:30">מייצרים תובנות</div>
+      <div style="font-size:41px;color:#E3D8C6;margin-top:40px;">&nbsp;רומן גרינשטיין</div>
+    </div>
+    <div style="position:absolute;bottom:40px;right:110px;display:flex;align-items:center;gap:40px;z-index:4;">
+      <span style="display:flex;align-items:center;gap:18px;background:#FFFDF8;border-radius:12px;padding:8px 14px;"><img src="assets/partners/logo-modiin.png" alt="עיריית מודיעין מכבים רעות" style="height:58px;width:auto;display:block;"><img src="assets/partners/logo-265.png" alt="המיזם הלאומי 265" style="height:58px;width:auto;"></span>
+      <img src="logo-digital-agency.png" alt="מערך הדיגיטל הלאומי" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+      <img src="logo-digitalit.png" alt="הדיגיטלית" style="height:46px;width:auto;filter:brightness(0) invert(1);opacity:.9;">
+    </div>
+  </section>
+
+  
+
+  <section data-label="מאיפה המשכנו" data-screen-label="מאיפה המשכנו" dir="rtl" data-speaker-notes="חיבור ליום 1: כל אחד יצא עם שאלה עסקית שעברה את חמש הבדיקות. היום השאלה הזו היא המצפן — כל עמודה, כל גרף וכל פרומפט נבדקים מולה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="8175f74b">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">המשך מהמפגש הקודם</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 36px;text-wrap:pretty;">יצאתם עם שאלה עסקית. היום נביא לה נתונים.</h2>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">מה יש לנו</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">שאלה עסקית מנוסחת.</p></div>
+      <div data-fragment="2" style="font-size:64px;color:var(--coral);">←</div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">מה נעשה היום</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">קובץ אמיתי, ניתוח עם AI, ותובנות שאפשר לעמוד מאחוריהן.</p></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · עקרונות" data-screen-label="חיץ · עקרונות" dir="rtl" data-speaker-notes="פותחים בעקרונות. לא תאוריה — כללים שחוסכים לנו טעויות בניתוח. לכל עיקרון נראה דוגמה מהעולם של רשות מקומית." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="bbc5255a">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">01</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">עקרונות לעבודה עם נתונים</h2>
+      <p style="font-size:38px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">&nbsp;כללים בעבודת נתונים ברשות</p>
+    </div>
+  </section>
+
+  <section data-label="עקרונות · מבט על" data-screen-label="עקרונות · מבט על" dir="rtl" data-speaker-notes="שבעת העקרונות בתמונה אחת. נעבור על כל אחד עם דוגמה. כדאי לשמור את השקופית הזו — היא גם רשימת הבדיקה לסוף היום." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="b730e280" data-deck-skip="">
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:0 0 34px;text-wrap:pretty;">שבעה עקרונות לעבודה עם נתונים ברשות</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 48px;">
+      <div data-fragment="1" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">01</span><span style="font-size:36px;font-weight:700;">מתחילים בשאלה, לא בקובץ</span></div>
+      <div data-fragment="2" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">02</span><span style="font-size:36px;font-weight:700;">מספר לבד לא אומר כלום</span></div>
+      <div data-fragment="3" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">03</span><span style="font-size:36px;font-weight:700;">זהירות עם מספרים קטנים</span></div>
+      <div data-fragment="4" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">04</span><span style="font-size:36px;font-weight:700;">יודעים מאיפה הנתון הגיע</span></div>
+      <div data-fragment="5" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">05</span><span style="font-size:36px;font-weight:700;">בודקים איכות לפני שמנתחים</span></div>
+      <div data-fragment="6" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">06</span><span style="font-size:36px;font-weight:700;">הנתון מראה מה — האנשים מסבירים למה</span></div>
+      <div data-fragment="7" style="display:flex;align-items:baseline;gap:22px;padding:14px 0;border-bottom:2px solid var(--line);"><span style="font-size:40px;font-weight:700;color:var(--coral);min-width:56px;">07</span><span style="font-size:36px;font-weight:700;">פרטיות התושבים קודמת לכל</span></div>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 1 · מתחילים בשאלה, לא בקובץ" data-screen-label="עיקרון 1 · מתחילים בשאלה, לא בקובץ" dir="rtl" data-speaker-notes="עיקרון 1: מתחילים בשאלה, לא בקובץ. קובץ בלי שאלה הוא ים של מספרים. השאלה העסקית קובעת אילו עמודות חשובות ומה מתעלמים ממנו. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="3801527f">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 01 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">מתחילים בשאלה, לא בקובץ</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">קובץ בלי שאלה הוא ים של מספרים. השאלה העסקית קובעת אילו עמודות חשובות ומה מתעלמים ממנו.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">לפני שפותחים את הדוח מהמערכת — כותבים בשורה אחת מה רוצים לדעת ולמה זה חשוב להחלטה.</span></div>
+      </div>
+      <image-slot id="d2-principle-1" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 1 — גררו לכאן צילום מסך או גרף" style="display:block;width:100%;height:700px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 2 · מספר לבד לא אומר כלום" data-screen-label="עיקרון 2 · מספר לבד לא אומר כלום" dir="rtl" data-speaker-notes="עיקרון 2: מספר לבד לא אומר כלום. נתון מקבל משמעות רק מול משהו: שנה קודמת, עיר דומה, ממוצע, יעד. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="40fa8778">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 02 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">מספר לבד לא אומר כלום</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">נתון מקבל משמעות רק מול משהו: שנה קודמת, עיר דומה, ממוצע, יעד.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">"212 פניות" — הרבה או מעט? רק השוואה לשנה שעברה או לעיר בגודל דומה עונה על זה.</span></div>
+      </div>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:18px;">
+        <figcaption style="font-size:28px;font-weight:700;line-height:1.35;color:var(--ink);text-wrap:pretty;">מגמת המדד שיעור תושבים לפי קבוצות גיל (אחוז מכלל האוכלוסייה) בין השנים 2014–2024, גילאי 0–19</figcaption>
+        <image-slot id="d2-principle-2" shape="rounded" radius="24" fit="contain" placeholder="דוגמה לעיקרון 2 — גררו לכאן צילום מסך או גרף" style="display:block;width:100%;aspect-ratio:673/454;height:auto;"></image-slot>
+      </figure>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 3 · זהירות עם מספרים קטנים" data-screen-label="עיקרון 3 · זהירות עם מספרים קטנים" dir="rtl" data-speaker-notes="עיקרון 3: זהירות עם מספרים קטנים. כשהקבוצה קטנה, שינוי קטן נראה דרמטי. אחוזים על 20 מקרים הם לא מגמה. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="38484060">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 03 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">זהירות עם מספרים קטנים</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">כשהקבוצה קטנה, שינוי קטן נראה דרמטי.&nbsp;<br><br>הכלל הוא מינימום 30.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">בשכונה של 150 משפחות, 3 משפחות = 2%. "עלייה של 50%" יכולה להיות מ‑2 מקרים ל‑3.</span></div>
+      </div>
+      <image-slot id="d2-principle-4" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 4 — גררו לכאן צילום מסך או גרף" fit="contain" style="display:block;width:100%;aspect-ratio:552/352;height:auto;" src="./-2026-10-12-120112-mv50w6i4-gedh.png"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 4 · יודעים מאיפה הנתון הגיע" data-screen-label="עיקרון 4 · יודעים מאיפה הנתון הגיע" dir="rtl" data-speaker-notes="עיקרון 4: יודעים מאיפה הנתון הגיע. מי הזין, באיזו מערכת, מתי, ומה ההגדרה. אותה מילה יכולה להיספר אחרת בכל מחלקה. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="f5dc44b5">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 04 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">יודעים מאיפה הנתון הגיע</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">מאיזה מערכת, מתי, ומה ההגדרה. אותה מילה יכולה להיספר אחרת בכל מחלקה. שם של רחוב או שכונה נכתב אחרת</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">מה נחשב "פנייה"? שיחה למוקד, מייל, וואטסאפ? מחלקה אחת סופרת פתיחה, אחרת סגירה.</span></div>
+      </div>
+      <image-slot id="d2-principle-5" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 5 — גררו לכאן צילום מסך או גרף" style="display:block;width:100%;height:700px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 5 · בודקים איכות לפני שמנתחים" data-screen-label="עיקרון 5 · בודקים איכות לפני שמנתחים" dir="rtl" data-speaker-notes="עיקרון 5: בודקים איכות לפני שמנתחים. שורות כפולות, תאים ריקים, תאריכים משובשים ושמות רחובות בכמה כתיבים — כל אלה משנים את התוצאה. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="1b5fce20">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 05 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">בודקים איכות לפני שמנתחים</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">שורות כפולות, תאים ריקים, תאריכים משובשים ושמות רחובות בכמה כתיבים — כל אלה משנים את התוצאה.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">"שדרות החשמונאים", "שד' החשמונאים" ו"שדרות החשמונאים " (עם רווח) — שלושה רחובות שונים בעיני המחשב.</span></div>
+      </div>
+      <image-slot id="d2-principle-6" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 6 — גררו לכאן צילום מסך או גרף" style="display:block;width:100%;height:700px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 6 · הנתון מראה מה — האנשים מסבירים למה" data-screen-label="עיקרון 6 · הנתון מראה מה — האנשים מסבירים למה" dir="rtl" data-speaker-notes="עיקרון 6: הנתון מראה מה — האנשים מסבירים למה. מספרים מצביעים על תופעה, לא על הסיבה שלה. את ה״למה״ משלימים בשיחה, בתצפית ובידע מהשטח. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="e2da94af">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 06 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">הנתון מראה מה — האנשים מסבירים למה</h2>
+        <p style="font-size: 54px; line-height: 1.5; margin: 0">מספרים מצביעים על תופעה, לא על הסיבה שלה.<br><br>&nbsp;את ה"למה" משלימים בשיחה, בתצפית ובידע מהשטח.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">ירידה בהרשמה לחוג יכולה להיות מחיר, שעה, הסעה או מדריך. הנתון לא יגיד — המשפחות יגידו.</span></div>
+      </div>
+      <image-slot id="d2-principle-7" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 7 — גררו לכאן צילום מסך או גרף" style="display:block;width:100%;height:700px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="עיקרון 7 · פרטיות התושבים קודמת לכל" data-screen-label="עיקרון 7 · פרטיות התושבים קודמת לכל" dir="rtl" data-speaker-notes="עיקרון 7: פרטיות התושבים קודמת לכל. לפני שקובץ יוצא מהמערכת — מורידים שמות, ת״ז, טלפונים וכתובות מדויקות. מעלים לכלי AI רק קובץ מותמם. כאן מכניסים דוגמה אמיתית מהרשות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="5675f150">
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <div style="font-size:30px;font-weight:700;color:var(--coral);">עיקרון 07 מתוך 07</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;text-wrap:pretty;">פרטיות התושבים קודמת לכל</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">לפני שקובץ יוצא מהמערכת — מורידים שמות, ת״ז, טלפונים וכתובות מדויקות. מעלים לכלי AI רק קובץ מותמם.</p>
+        <div data-fragment="1" style="background:#DCEDEA;border-radius:24px;padding:26px 32px;display:flex;flex-direction:column;gap:8px;"><span style="font-size:28px;font-weight:700;color:var(--p1);">ברשות זה נראה כך</span><span style="font-size:32px;line-height:1.45;">מחליפים שם תושב במספר רץ, וכתובת מדויקת ברחוב או בשכונה בלבד.</span></div>
+      </div>
+      <image-slot id="d2-principle-8" shape="rounded" radius="24" placeholder="דוגמה לעיקרון 8 — גררו לכאן צילום מסך או גרף" fit="contain" style="display:block;width:100%;max-width:640px;aspect-ratio:1/1;height:auto;justify-self:center;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="חיץ · סבב שאלות" data-screen-label="חיץ · סבב שאלות" dir="rtl" data-speaker-notes="סבב מהיר. המטרה: שכולם ישמעו את השאלות של כולם, ושאני אבין מי מוכן לעבוד עם קובץ ומי צריך עזרה בהתממה או בהשגת נתונים." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="f5f9e8d7">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">02</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">סבב: השאלות העסקיות שלכם</h2>
+      <p style="font-size:38px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">דקה לכל אחד. בלי דיון — רק לשמוע איפה כל אחד עומד.</p>
+    </div>
+  </section>
+
+  <section data-label="סבב · סורקים" data-screen-label="סבב · סורקים" dir="rtl" data-speaker-notes="כולם סורקים את הקוד ונכנסים ללוח השיתוף. כל אחד כותב שם את השאלה העסקית שלו." style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;padding:70px 120px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="c03d2a24">
+    <image-slot id="d2-share-qr" shape="rounded" radius="28" fit="contain" placeholder="QR ללוח השיתוף" style="display:block;width:640px;height:640px;"></image-slot>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:80px;line-height:1.1;margin:0;text-align:center;">סורקים וכותבים את השאלה העסקית</h2>
+  </section>
+
+  <section data-ws="1" data-ws-item="1.1–1.3" data-label="סבב · ארבע שורות" data-screen-label="סבב · ארבע שורות" dir="rtl" data-speaker-notes="כל אחד ממלא ארבע שורות בלוח השיתוף ואומר אותן בקול — דקה לאדם. לא נכנסים לדיון. אני רושם לעצמי מי צריך התממה ומי עוד בלי קובץ, ונטפל בזה בזמן העבודה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="cd09c84b">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div>    <div style="font-size:30px;font-weight:700;color:var(--coral);letter-spacing:1px;">דקה לכל אחד · בלי דיון</div>    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 0;text-wrap:pretty;">שלוש שורות — וממשיכים</h2></div>
+      
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;gap:14px;"><span class="material-icons" style="font-size:52px;color:var(--p1);">help_outline</span><h3 style="font-size:38px;font-weight:700;margin:0;">1.1 השאלה העסקית</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">מה אני רוצה לדעת?</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;gap:14px;"><span class="material-icons" style="font-size:52px;color:var(--p1);">table_view</span><h3 style="font-size:38px;font-weight:700;margin:0;">1.2 מקור הנתונים</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">איזה קובץ או מערכת הבאתי?</p></div>
+      <div data-fragment="4" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:24px;padding:32px 30px;display:flex;flex-direction:column;gap:14px;"><span class="material-icons" style="font-size:52px;color:var(--coral);">verified_user</span><h3 style="font-size:38px;font-weight:700;margin:0;">1.3 מצב הקובץ</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">מוכן לעבודה · דורש התממה (הסרת פרטים אישיים) · עוד אין</p></div>
+    </div>
+  </section>
+
+  <section data-label="מקרא · דף העזר" data-screen-label="מקרא · דף העזר" dir="rtl" data-speaker-notes="מחלקים את דף העזר. לכל חלק צבע משלו. לאורך היום, בצד שמאל של השקף יופיע ריבוע בצבע החלק עם המספר — זה הסימן לעבור לחלק באותו צבע בדף." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="1090f3e0">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">דף העזר · מקרא</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 18px;text-wrap:pretty;">כל חלק בצבע משלו — עקבו אחרי הצבע</h2>
+    <p style="font-size:34px;line-height:1.5;margin:0 0 44px;color:var(--muted);">כשמופיע בצד השקף ריבוע צבעוני — עוברים לחלק באותו צבע בדף.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;">
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#1F5F5B;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">1</span><span style="font-size:36px;font-weight:700;color:#1F5F5B;">השאלה</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#2E6FA3;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">2</span><span style="font-size:36px;font-weight:700;color:#2E6FA3;">הקובץ</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#B4502F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">3</span><span style="font-size:36px;font-weight:700;color:#B4502F;">השערה</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#6B4FA0;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">4</span><span style="font-size:36px;font-weight:700;color:#6B4FA0;">מחקר</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#9A6A0C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">5</span><span style="font-size:36px;font-weight:700;color:#9A6A0C;">בדיקה</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#B23A6B;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">6</span><span style="font-size:36px;font-weight:700;color:#B23A6B;">חדר מחקר</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#3F7D3A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">7</span><span style="font-size:36px;font-weight:700;color:#3F7D3A;">תובנות</span></div>
+      <div style="display:flex;align-items:center;gap:20px;background:#FFFDF8;border:2px solid var(--line);border-radius:22px;padding:20px 24px;"><span style="width:76px;height:76px;border-radius:16px;background:#5E5249;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:700;flex-shrink:0;">8</span><span style="font-size:36px;font-weight:700;color:#5E5249;">הלאה</span></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · עובדים עם הנתונים" data-screen-label="חיץ · עובדים עם הנתונים" dir="rtl" data-speaker-notes="החלק המעשי. לפני שנוגעים בקובץ — דבר אחד שהשתנה בעבודה עם AI, ושמשנה את הדרך שבה ניגשים לכלי." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="62cc6efe">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">03</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">עובדים עם הנתונים ו AI</h2>
+      <p style="font-size:38px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">לוקחים קובץ Excel אמיתי — ומנתחים אותו עם AI, שלב אחרי שלב.</p>
+    </div>
+  </section>
+
+  <section data-label="מה השתנה" data-screen-label="מה השתנה" dir="rtl" data-speaker-notes="מה שהשתנה באמת: היום אפשר לכתוב בשפה חופשית ולקבל קוד שעובד — אתר, גרף, דשבורד. לא צריך לדעת לתכנת. צריך לדעת להסביר מה רוצים, ולהתעקש." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="a1ddb2df">
+    <div style="display:flex;flex-direction:column;gap:40px;max-width:1550px;">
+          <div style="font-size: 66px; font-weight: 700; color: var(--p1); letter-spacing: 1px">אז מה השתנה מאז שיש AI ?</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:104px;line-height:1.08;margin:0;letter-spacing:-2px;">כותבים בעברית —<br><span style="color:var(--coral);">ומקבלים קוד שעובד.</span></h2>
+      <p data-fragment="1" style="font-size:40px;line-height:1.5;margin:0;max-width:1300px;">גרף, דשבורד, אתר ניתוח — בלי לדעת לתכנת.</p>
+      <div data-fragment="2" style="display:flex;flex-wrap:wrap;gap:20px;direction:ltr;justify-content:flex-end;">
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=128" alt="" style="width:48px;height:48px;">Gemini</span>
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=128" alt="" style="width:48px;height:48px;">ChatGPT</span>
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=claude.ai&amp;sz=128" alt="" style="width:48px;height:48px;">Claude</span>
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=copilot.microsoft.com&amp;sz=128" alt="" style="width:48px;height:48px;">Copilot</span>
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=notebooklm.google.com&amp;sz=128" alt="" style="width:48px;height:48px;">NotebookLM</span>
+        <span style="display:flex;align-items:center;gap:14px;background:#FFFDF8;border:2px solid var(--line);border-radius:100px;padding:14px 30px 14px 18px;font-size:32px;font-weight:700;"><img src="https://www.google.com/s2/favicons?domain=perplexity.ai&amp;sz=128" alt="" style="width:48px;height:48px;">Perplexity</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="כשמשהו לא עובד — שואלים" data-screen-label="כשמשהו לא עובד — שואלים" dir="rtl" data-speaker-notes="שינוי תפיסה: אין " תקוע".="" אם="" משהו="" לא="" עובד,="" מובן="" או="" חסר="" —="" כותבים="" לו="" בדיוק="" את="" זה.="" מתעקשים.="" התשובה="" הראשונה="" היא="" טיוטה."="" style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="81b666c1">
+    <div style="display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+            <div style="font-size: 66px; font-weight: 700; color: var(--p1); letter-spacing: 1px">שינוי תפיסה</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">משהו לא עובד? כותבים לו בדיוק את זה.</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;color:var(--muted);">לא צריך לדעת למה זה נשבר. צריך לתאר מה רואים — ולהתעקש.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div data-fragment="1" style="align-self:flex-start;background:#FFFDF8;color:var(--ink);border:2px solid var(--line);border-radius:28px 28px 6px 28px;padding:22px 34px;font-size:38px;">אני לא רואה כלום. תתקן.</div>
+        <div data-fragment="2" style="align-self:flex-end;background:#FFFDF8;color:var(--ink);border:2px solid var(--line);border-radius:28px 28px 28px 6px;padding:22px 34px;font-size:38px;">הגרף לא מתעדכן כשאני מסנן.</div>
+        <div data-fragment="3" style="align-self:flex-start;background:#FFFDF8;color:var(--ink);border:2px solid var(--line);border-radius:28px 28px 6px 28px;padding:22px 34px;font-size:38px;">תוסיף לי השוואה לפי שכונה.</div>
+        <div data-fragment="4" style="align-self:flex-end;background:#FFFDF8;color:var(--ink);border:2px solid var(--line);border-radius:28px 28px 28px 6px;padding:22px 34px;font-size:38px;">חסרה לי עמודת תאריך בטבלה.</div>
+        <div data-fragment="5" style="align-self:flex-start;background:var(--p1);color:#FFFDF8;border:2px solid var(--p1);border-radius:28px 28px 6px 28px;padding:22px 34px;font-size:38px;">מה היית ממליץ להוסיף?</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="התהליך · שבעה שלבים" data-screen-label="התהליך · שבעה שלבים" dir="rtl" data-speaker-notes="מפת הדרך לניתוח. עושים את זה יחד — אני מדגים כל שלב על המסך, ואתם עושים אותו מיד על הקובץ שלכם." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="063bb269">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">עושים יחד, שלב אחרי שלב</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 48px;text-wrap:pretty;">מקובץ Excel — לתובנות</h2>
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:16px;">
+      <div data-fragment="1" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">1</span><span style="font-size:33px;font-weight:700;line-height:1.3;">מוצאים את הקובץ</span></div>
+      <div data-fragment="2" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">2</span><span style="font-size:33px;font-weight:700;line-height:1.3;">פותחים ומסתכלים</span></div>
+      <div data-fragment="3" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">3</span><span style="font-size:33px;font-weight:700;line-height:1.3;">בודקים את האקסל בעיניים</span></div>
+      <div data-fragment="4" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--coral);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">4</span><span style="font-size:33px;font-weight:700;line-height:1.3;">טוענים ל‑Gemini</span></div>
+      <div data-fragment="5" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--coral);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">5</span><span style="font-size:33px;font-weight:700;line-height:1.3;">מחקר מעמיק AI</span></div>
+      <div data-fragment="6" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">6</span><span style="font-size:33px;font-weight:700;line-height:1.3;">יוצרים חדר מחקר</span></div>
+      <div data-fragment="7" style="display:flex;flex-direction:column;gap:18px;align-items:flex-start;"><span style="width:76px;height:76px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:700;">7</span><span style="font-size:33px;font-weight:700;line-height:1.3;">מייצרים תובנות</span></div>
+    </div>
+    <p data-fragment="8" style="font-size:32px;color:var(--muted);margin:48px 0 0;"><b><u>שלבים 1–3 קורים <span style="color: var(--ink);">לפני</span> שה‑AI רואה את הקובץ. זה החלק שהכי קל לדלג עליו — ואסור.</u></b></p>
+  </section>
+
+  <section data-ws="2" data-ws-item="2.1" data-label="שלב 1 · מוצאים את הקובץ" data-screen-label="שלב 1 · מוצאים את הקובץ" dir="rtl" data-speaker-notes="שלב 1: מוצאים את הקובץ. ייצוא מהמערכת של המחלקה, קובץ שכבר יושב אצלכם, או מאגר פתוח. בודקים שלוש דרישות לפני שממשיכים." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="852a9189">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 1 מתוך 7</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:6px 0 36px;text-wrap:pretty;">מוצאים את הקובץ</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">ייצוא ממערכת</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">מוקד, גבייה, רישוי, CRM — רוב המערכות מייצאות ל‑Excel.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">קובץ שכבר אצלכם</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">דוח חודשי, טבלת מעקב, רשימה שמתעדכנת ידנית.</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">מאגר פתוח</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">data.gov.il, הלמ״ס, אתר השקיפות של העירייה.</p></div>
+    </div>
+    <div data-fragment="4" style="margin-top:32px;background:#F4DED3;border-radius:24px;padding:24px 34px;font-size:32px;line-height:1.5;"><b style="color:var(--coral);">לפני שממשיכים:</b> קובץ Excel או CSV · שורה ראשונה = כותרות · בלי פרטים מזהים של תושבים.</div>
+  </section>
+
+  <section data-ws="2" data-ws-item="2.2–2.5" data-label="שלב 2 · פותחים ומסתכלים" data-screen-label="שלב 2 · פותחים ומסתכלים" dir="rtl" data-speaker-notes="שלב 2: פותחים את הקובץ ומסתכלים לפני שמנתחים. מה כל עמודה, מה כל שורה מייצגת, כמה שורות יש. ומה נראה מוזר — כאן למשל "שדרות החשמונאים" ו"שד' החשמונאים", ותא ריק בימי טיפול." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="f7ccc07b">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 2 מתוך 7</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 30px;text-wrap:pretty;">פותחים ובודקים את הקובץ לפני הכל..&nbsp;</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:start;">
+      <div style="background:#FFFDF8;border:2px solid var(--line);border-radius:20px;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;font-size:28px;">
+          <tr style="background:#DCEDEA;font-weight:700;"><td style="padding:14px 18px;">תאריך פנייה</td><td style="padding:14px 18px;">רחוב</td><td style="padding:14px 18px;">נושא</td><td style="padding:14px 18px;">סטטוס</td><td style="padding:14px 18px;">ימי טיפול</td></tr>
+          <tr style="border-top:2px solid var(--line);"><td style="padding:14px 18px;">03/01/2026</td><td style="padding:14px 18px;">הנרקיס</td><td style="padding:14px 18px;">תאורה</td><td style="padding:14px 18px;">טופל</td><td style="padding:14px 18px;">4</td></tr>
+          <tr style="border-top:2px solid var(--line);"><td style="padding:14px 18px;">03/01/2026</td><td style="padding:14px 18px;">שדרות החשמונאים</td><td style="padding:14px 18px;">פסולת</td><td style="padding:14px 18px;">פתוח</td><td style="padding:14px 18px;background:#F4DED3;outline:3px solid var(--coral);outline-offset:-3px;">&nbsp;</td></tr>
+          <tr style="border-top:2px solid var(--line);"><td style="padding:14px 18px;">04/01/2026</td><td style="padding:14px 18px;">הזית</td><td style="padding:14px 18px;">בטיחות בדרכים</td><td style="padding:14px 18px;">טופל</td><td style="padding:14px 18px;">11</td></tr>
+          <tr style="border-top:2px solid var(--line);"><td style="padding:14px 18px;">04/01/2026</td><td style="padding:14px 18px;background:#F4DED3;outline:3px solid var(--coral);outline-offset:-3px;">שד' החשמונאים</td><td style="padding:14px 18px;">תאורה</td><td style="padding:14px 18px;">טופל</td><td style="padding:14px 18px;">2</td></tr>
+          <tr style="border-top:2px solid var(--line);color:var(--muted);"><td colspan="5" style="padding:14px 18px;">… עוד שורות</td></tr>
+        </table>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div data-fragment="1" style="font-size:32px;line-height:1.4;"><b>עמודות</b> — מה נמדד?</div>
+        <div data-fragment="2" style="font-size:32px;line-height:1.4;"><b>שורה</b> — מה היא מייצגת? (כאן: פנייה אחת)</div>
+        <div data-fragment="3" style="font-size:32px;line-height:1.4;"><b>כמה שורות?</b> Ctrl+↓ קופץ לשורה האחרונה</div>
+        <div data-fragment="4" style="font-size:32px;line-height:1.4;color:var(--coral);"><b>מה מוזר?</b> שני כתיבים לאותו רחוב, תא ריק</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-ws="2" data-ws-item="2.1–2.6" data-label="שלב 3 · כרטיס היכרות עם הקובץ" data-screen-label="שלב 3 · כרטיס היכרות עם הקובץ" dir="rtl" data-speaker-notes="שלב 3: כל אחד ממלא כרטיס היכרות עם הקובץ שלו — בכלי באתר או על הדף המודפס. זה לוקח עשר דקות וחוסך שעה של ניתוח שגוי." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="ed076b9f">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 3 מתוך 7</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 26px;text-wrap:pretty;">כרטיס היכרות עם הקובץ</h2><work-timer presets="5,10,15,20" minutes="10" accent="#1F5F5B"></work-timer></div>
+    <div style="display:flex;flex-direction:column;background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:10px 36px;">
+      <div data-fragment="1" style="display:grid;grid-template-columns:380px minmax(0,1fr);gap:28px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--line);"><span style="font-size:34px;font-weight:700;color:var(--p1);">2.1 שם הקובץ ומקורו</span><span style="font-size:31px;color:var(--muted);line-height:1.4;">מאיזו מערכת, מי הוציא, איזה טווח תאריכים</span></div>
+      <div data-fragment="2" style="display:grid;grid-template-columns:380px minmax(0,1fr);gap:28px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--line);"><span style="font-size:34px;font-weight:700;color:var(--p1);">2.2–2.3 שורות ועמודות</span><span style="font-size:31px;color:var(--muted);line-height:1.4;">כמה שורות וכמה עמודות יש בקובץ</span></div>
+      <div data-fragment="3" style="display:grid;grid-template-columns:380px minmax(0,1fr);gap:28px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--line);"><span style="font-size:34px;font-weight:700;color:var(--p1);">2.4 כותרות העמודות</span><span style="font-size:31px;color:var(--muted);line-height:1.4;">רשימת הכותרות · סוג תוכן (מספר, תאריך, טקסט, קטגוריה)</span></div>
+      <div data-fragment="4" style="display:grid;grid-template-columns:380px minmax(0,1fr);gap:28px;align-items:baseline;padding:18px 0;border-bottom:2px solid var(--line);"><span style="font-size:34px;font-weight:700;color:var(--p1);">2.5 מה חסר או חשוד</span><span style="font-size:31px;color:var(--muted);line-height:1.4;">תאים ריקים, כפילויות, כתיב לא אחיד</span></div>
+      <div data-fragment="5" style="display:grid;grid-template-columns:380px minmax(0,1fr);gap:28px;align-items:baseline;padding:18px 0;"><span style="font-size:34px;font-weight:700;color:var(--p1);">2.6 מה צריך להשלים</span><span style="font-size:31px;color:var(--muted);line-height:1.4;">עמודה, קובץ נוסף או נתון מהשטח שיחזק את הניתוח</span></div>
+    </div>
+  </section>
+
+  <section data-ws="3" data-ws-item="3.1–3.3" data-label="שלב 3 · השערת מחקר" data-screen-label="שלב 3 · השערת מחקר" dir="rtl" data-speaker-notes="עוד לפני שה-AI רואה את הקובץ — כל אחד כותב השערה אחת או יותר (עד שלוש) על מה שתהיה התשובה. ממלאים בדף העזר 3.1–3.3. ההשערה היא הבסיס לביקורת: כשה-AI יחזיר תוצאה, נשווה אותה למה שציפינו, ונשאל למה יש פער." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="698f30ff">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 3 מתוך 7</div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;margin-top:20px;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">מה אתם חושבים שהנתונים יגידו?</h2>
+        <p style="font-size:36px;line-height:1.5;margin:0;">כותבים <b>השערה אחת או יותר</b> — <b>לפני</b> הניתוח. כך תדעו מה אושש, מה הפתיע — ומה צריך בדיקה נוספת.</p>
+        <p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">דף העזר · חלק 3 · עד שלוש השערות (3.1–3.3)</p>
+      </div>
+      <div data-fragment="1" style="background:#F4DED3;border-radius:28px;padding:44px 48px;display:flex;flex-direction:column;gap:20px;">
+        <span style="font-size:30px;font-weight:700;color:var(--coral);">התבנית</span>
+        <span style="font-size:38px;font-weight:700;line-height:1.4;">אני משער/ת ש ________ כי ________</span>
+        <div data-fragment="2" style="display:flex;flex-direction:column;gap:14px;border-top:2px solid #E7A9A3;padding-top:20px;">
+          <div style="display:flex;gap:16px;align-items:baseline;font-size:29px;line-height:1.4;"><b style="color:var(--coral);flex-shrink:0;">3.1</b><span>רוב הפניות על תאורה מגיעות משלוש שכונות, כי שם התשתית הכי ישנה.</span></div>
+          <div style="display:flex;gap:16px;align-items:baseline;font-size:29px;line-height:1.4;"><b style="color:var(--coral);flex-shrink:0;">3.2</b><span>הפניות עולות בחורף, כי החושך מגיע מוקדם יותר.</span></div>
+          <div style="display:flex;gap:16px;align-items:baseline;font-size:29px;line-height:1.4;"><b style="color:var(--coral);flex-shrink:0;">3.3</b><span>זמן הטיפול ארוך יותר בשכונות הוותיקות.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-ws="2" data-ws-item="2.7" data-label="עצירה · התממה לפני העלאה" data-screen-label="עצירה · התממה לפני העלאה" dir="rtl" data-speaker-notes="עוצרים לפני שמעלים משהו לאנשהו. שני דברים: הקובץ מותאם לעבודה, והקובץ מותמם — אין בו שום פרט שמזהה תושב. זה נכון ל-Gemini, ל-NotebookLM ולכל מערכת אחרת. שומרים את המקור אצלנו ומעלים רק עותק מותמם. ממלאים בדף העזר סעיף 2.7." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="440e2e91">
+    <div style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--coral);color:#FFFDF8;padding:10px 26px;border-radius:100px;font-size:28px;font-weight:700;"><span class="material-icons" style="font-size:32px;">pan_tool</span>עצירה לפני העלאה</div>
+    
+    <p style="font-size:32px;line-height:1.45;margin:0 0 36px;color:var(--muted);">התממה = מוציאים מהקובץ כל פרט שיכול לזהות תושב. נכון ל‑Gemini, ל‑NotebookLM ולכל מערכת אחרת.</p><h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:18px 0 14px;text-wrap:pretty;">לפני שהקובץ עולה לאנשהו — <u>מתמימים אותו</u></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--coral);">מוחקים</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">שם, ת״ז, טלפון, מייל, מספר בית.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">מחליפים בקוד</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">צריך לזהות חזרות? ״תושב 001״ במקום השם.</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">מכלילים</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">גיל ← טווח גילים. כתובת ← שכונה או אזור סטטיסטי.</p></div>
+    </div>
+    <div data-fragment="4" style="display:flex;align-items:center;gap:20px;margin-top:30px;background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:22px 34px;"><span class="material-icons" style="font-size:40px;color:var(--p1);">fact_check</span><span style="font-size:31px;line-height:1.45;"><b>וגם הקובץ מותאם:</b> כותרות בשורה אחת, בלי שורות סיכום, בלי תאים ממוזגים. המקור נשאר אצלכם — מעלים רק עותק.</span></div>
+  </section>
+
+  <section data-ws="4" data-ws-item="4.1" data-label="שלב 4 · טוענים ל-Gemini" data-screen-label="שלב 4 · טוענים ל-Gemini" dir="rtl" data-speaker-notes="שלב 4: נכנסים ל-Gemini, מעלים את הקובץ, בוחרים Deep Research ומדביקים את הפרומפט. החלק החשוב בפרומפט: להסתמך רק על הקובץ ולא לחפש באינטרנט." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="9fed4714">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 4 מתוך 7</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 30px;text-wrap:pretty;">טוענים את הקובץ ומפעילים Deep Research</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:22px;">
+        <div data-fragment="1" style="display:flex;align-items:center;gap:20px;font-size:34px;"><span style="width:64px;height:64px;border-radius:16px;background:#DCEDEA;color:var(--p1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-icons" style="font-size:36px;">add</span></span>מעלים את הקובץ (+)</div>
+        <div data-fragment="2" style="display:flex;align-items:center;gap:20px;font-size:34px;"><span style="width:64px;height:64px;border-radius:16px;background:#DCEDEA;color:var(--p1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-icons" style="font-size:36px;">travel_explore</span></span>בוחרים Deep Research</div>
+        <div data-fragment="3" style="display:flex;align-items:center;gap:20px;font-size:34px;"><span style="width:64px;height:64px;border-radius:16px;background:#DCEDEA;color:var(--p1);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-icons" style="font-size:36px;">content_paste</span></span>מדביקים את הפרומפט</div>
+      </div>
+      <div data-fragment="4"><div style="background:#FFFDF8;border:2px solid var(--p1);border-radius:24px;overflow:hidden;"><div style="background:var(--p1);color:#FFFDF8;font-size:28px;font-weight:700;padding:14px 30px;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:32px;">content_copy</span>הפרומפט</div><div style="padding:28px 34px;font-size:32px;line-height:1.55;">בצע ניתוח מקיף של הנתונים בקובץ המצורף.<br><b style="color:var(--coral);">הסתמך אך ורק על הקובץ — אל תחפש מידע נוסף באינטרנט.</b><br>השאלה שלי: [השאלה העסקית].<br>זהה מגמות, חריגים והשוואות, והפק מסקנות ותובנות. לכל תובנה ציין על אילו עמודות היא מבוססת.</div></div></div>
+    </div>
+  </section>
+
+  <section data-ws="4" data-ws-item="4.2–4.3" data-label="שלב 5 · מאשרים ומחכים" data-screen-label="שלב 5 · מאשרים ומחכים" dir="rtl" data-speaker-notes="שלב 5: Gemini מציג תוכנית מחקר. קוראים אותה — אם כתוב שם חיפוש באינטרנט, עורכים ומבקשים להסתמך רק על הקובץ. מאשרים, ומחכים כמה דקות. בזמן ההמתנה חוזרים להשערות (דף העזר 3.1–3.3)." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="dab8e57a">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 5 מתוך 7</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 36px;text-wrap:pretty;">קוראים את תוכנית המחקר — ורק אז מאשרים</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">קוראים את התוכנית</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">האם היא עונה על השאלה שלכם? האם מופיע בה חיפוש באינטרנט?</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">עורכים אם צריך</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">"ערוך תוכנית" — מוסיפים, מורידים, ומזכירים: רק מהקובץ.</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">מאשרים ומחכים</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">כמה דקות של עבודה. בינתיים — חוזרים להשערות שכתבתם (3.1–3.3).</p></div>
+    </div>
+  </section>
+
+  <section data-ws="5" data-ws-item="5.1" data-label="שלב 5 · קוראים את הדוח" data-screen-label="שלב 5 · קוראים את הדוח" dir="rtl" data-speaker-notes="הדוח של Deep Research מוכן. לפני שיוצרים ממנו משהו — קוראים אותו. כל אחד עובר על הדוח ומחפש ארבעה דברים: מגמות, מסקנות (ועל מה הן מבוססות), טעויות או דברים שלא מסתדרים, ודברים חדשים שלא ידענו. רושמים בדף העזר 5.1 את הממצאים המרכזיים, וליד כל ממצא — האם ההשערה אוששה או הופרכה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="45a85b70">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--line);"></span></div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-top:22px;"><div><div style="font-size:30px;font-weight:700;color:var(--coral);">שלב 5 · הדוח מוכן</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 14px;text-wrap:pretty;">קוראים את דוח ה‑Deep Research — בעין ביקורתית</h2></div>
+    <work-timer presets="5,10,15" minutes="10" accent="#1F5F5B"></work-timer></div>
+    <p style="font-size:32px;line-height:1.45;margin:0 0 30px;color:var(--muted);">לפני שיוצרים משהו מהדוח — קוראים אותו ומחפשים ארבעה דברים:</p>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:46px;color:var(--p1);">trending_up</span><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">מגמות</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">מה עולה, יורד או חוזר על עצמו?</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:46px;color:var(--p1);">fact_check</span><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">מסקנות</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">מה הדוח מסיק — ועל אילו עמודות זה מבוסס?</p></div>
+      <div data-fragment="3" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:24px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:46px;color:var(--coral);">error_outline</span><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--coral);">טעויות</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">מספר שלא מסתדר? עמודה שהתבלבלה? מקור מהאינטרנט?</p></div>
+      <div data-fragment="4" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;"><span class="material-icons" style="font-size:46px;color:var(--p1);">lightbulb</span><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">מה חדש</h3><p style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">מה לא ידעתם — ומה סותר את ההשערות שלכם?</p></div>
+    </div>
+    <div data-fragment="5" style="display:flex;align-items:center;gap:20px;margin-top:30px;background:#FFFDF8;border:2px solid var(--p1);border-radius:24px;padding:22px 32px;"><span class="material-icons" style="font-size:40px;color:var(--p1);">edit_note</span><span style="font-size:31px;line-height:1.45;">רושמים בדף העזר <b>5.1</b> את הממצאים המרכזיים — וליד כל אחד: <b>אוששה</b> או <b>הופרכה</b> ההשערה.</span></div>
+  </section>
+
+  
+
+  <section data-ws="5" data-ws-item="5.1" data-label="שלב 7 · שאלות לשאול את ה-AI" data-screen-label="שלב 7 · שאלות לשאול את ה-AI" dir="rtl" data-speaker-notes="שלב 7: ממשיכים לשאול — על הקובץ ועל האתר שנוצר. שני סוגי שאלות: ניתוח (מה הקטגוריות הגדולות, איך זה השתנה, פילוח) ותובנה (מה רלוונטי לשאלה שלי, מה עוד לבדוק). את שאלות האימות והתקלות עושים בשקף הבא ובדף העזר 5.2 ו-5.4." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="7f8a289c">
+    <div style="display:flex;gap:10px;align-items:center;"><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span><span style="height:10px;flex:1;border-radius:5px;background:var(--p1);"></span></div>
+    <div style="font-size:30px;font-weight:700;color:var(--coral);margin-top:22px;">שלב 7 מתוך 7</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:6px 0 30px;text-wrap:pretty;">ממשיכים לשאול: ניתוח ותובנה</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 28px;display:flex;flex-direction:column;gap:16px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">ניתוח</h3><p style="font-size:29px;line-height:1.45;margin:0;">״מה הקטגוריות הגדולות, ומה חלקן מהסך?״</p><p style="font-size:29px;line-height:1.45;margin:0;">״איך זה השתנה לאורך זמן? פלח לפי שכונה.״</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 28px;display:flex;flex-direction:column;gap:16px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">תובנה</h3><p style="font-size:29px;line-height:1.45;margin:0;">״מה שלוש התובנות הרלוונטיות לשאלה שלי?״</p><p style="font-size:29px;line-height:1.45;margin:0;">״מה עוד צריך לבדוק לפני שמחליטים?״</p></div>
+    </div>
+  </section>
+
+  <section data-ws="5" data-ws-item="5.2 · 5.4" data-label="תקלות שכדאי להכיר" data-screen-label="תקלות שכדאי להכיר" dir="rtl" data-speaker-notes="התקלות הנפוצות בניתוח עם AI. כולן ניתנות לתפיסה — אם יודעים לחפש אותן. לכל אחת יש שאלת בדיקה פשוטה. כל אחד מסמן בדף העזר 5.4 מה בדק, ורושם ב-5.2 את שאלת האימות ששאל." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="9e0da7d5">
+    <div style="font-size:30px;font-weight:700;color:var(--coral);letter-spacing:1px;">לשים לב</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 34px;text-wrap:pretty;">תקלות שקורות — ואיך תופסים אותן</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>קרא רק חלק מהקובץ</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">שואלים: כמה שורות קראת?</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>בלבל בין עמודות</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">במיוחד כותרות בעברית או מקוצרות</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>טעה בתאריכים</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">יום/חודש הפוכים, שנה חסרה</p></div>
+      <div data-fragment="4" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>ספר תא ריק כאפס</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">ממוצע שיורד בלי סיבה</p></div>
+      <div data-fragment="5" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>המציא מספר</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">מספר שלא מופיע בקובץ — מבקשים להראות את השורות</p></div>
+      <div data-fragment="6" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;"><h3 style="font-size:36px;font-weight:700;margin:0;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:36px;color:var(--coral);">error_outline</span>חיפש באינטרנט</h3><p style="font-size:30px;line-height:1.4;margin:0;color:var(--muted);">למרות ההוראה — בודקים מקורות בדוח</p></div>
+    </div>
+  </section>
+
+  <section data-ws="5" data-ws-item="5.3" data-label="ה-AI מול הידע המקצועי" data-screen-label="ה-AI מול הידע המקצועי" dir="rtl" data-speaker-notes="הלב של חשיבה ביקורתית: כל הזמן קדימה ואחורה. ה-AI אומר משהו — בודקים מול מה שאתם יודעים מהשטח. אם זה מסתדר, ממשיכים. אם זה מפתיע — לא מקבלים ולא דוחים, בודקים בקובץ עצמו." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="0559b071">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">חשיבה ביקורתית</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:10px 0 44px;text-wrap:pretty;">קדימה ואחורה: מה ה‑AI אומר, ומה אתם יודעים</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 200px minmax(0,1fr);gap:24px;align-items:center;">
+      <div data-fragment="1" style="background:#DCEDEA;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px;"><span class="material-icons" style="font-size:56px;color:var(--p1);">auto_awesome</span><h3 style="font-size:44px;font-weight:700;margin:0;">הניתוח של ה‑AI</h3><p style="font-size:31px;line-height:1.45;margin:0;">מגמות, חריגים, השוואות — מהר ובהיקף.</p></div>
+      <div data-fragment="2" style="display:flex;flex-direction:column;align-items:center;gap:6px;font-size:64px;color:var(--coral);line-height:1;"><span>←</span><span>→</span></div>
+      <div data-fragment="1" style="background:#F4DED3;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px;"><span class="material-icons" style="font-size:56px;color:var(--coral);">psychology</span><h3 style="font-size:44px;font-weight:700;margin:0;">הידע המקצועי שלכם</h3><p style="font-size:31px;line-height:1.45;margin:0;">מה קורה בשטח, מה השתנה, מה הגיוני.</p></div>
+    </div>
+    <div data-fragment="3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:36px;font-size:31px;line-height:1.4;">
+      <div><b>מסתדר?</b> ממשיכים, ורושמים מאיפה זה בא.</div>
+      <div><b>מפתיע?</b> מסננים בקובץ ובודקים בעצמכם.</div>
+      <div><b>סותר את ההשערה?</b> שואלים למה — זה בדרך כלל המקום של התובנה.</div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · חדר המחקר" data-screen-label="חיץ · חדר המחקר" dir="rtl" data-speaker-notes="עוברים לחדר המחקר: הופכים את הדוח לדשבורד אינטראקטיבי, בודקים שכל הרשומות בפנים, ומצליבים נתונים." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <span class="material-icons" style="font-size:120px;color:#A9D3CC;line-height:1;">dashboard</span>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">חדר המחקר</h2>
+      <p style="font-size:38px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">מהדוח — לדשבורד אינטראקטיבי שאפשר לסנן, להצליב ולבדוק.</p>
+    </div>
+  </section>
+
+  <section data-ws="6" data-ws-item="6.1" data-label="חדר המחקר · יצירה ← דף אינטרנט" data-screen-label="חדר המחקר · יצירה ← דף אינטרנט" dir="rtl" data-speaker-notes="נכנסים לחדר המחקר. כשה-Deep Research מסיים, לוחצים על כפתור 'יצירה' בסוף הדוח ובוחרים 'דף אינטרנט'. נפתחת שורה להוראות — שם מדביקים את הפרומפט המפורט שנשלח בוואטסאפ. Gemini בונה מהדוח דשבורד אינטראקטיבי — זה חדר המחקר שלנו. שימו לב: מ-9.10.2026 בחשבון חינמי זמין רק מודל Flash-Lite — זה עובד, אבל לפעמים צריך יותר סבבי תיקון." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="713ef041">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+            <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">חדר המחקר · אחרי ה‑Deep Research</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">נכנסים לחדר המחקר: מתארים דשבורד במילים — ומקבלים אותו עובד</h2>
+        <p style="font-size:34px;line-height:1.5;margin:0;">הדוח מוכן? לוחצים על <b>״יצירה״</b> בסוף הדוח ← <b>״דף אינטרנט״</b> ← בשורה שנפתחת מדביקים את <b>הפרומפט מהוואטסאפ</b>.</p>
+        <p data-fragment="1" style="font-size:30px;line-height:1.45;margin:0;color:var(--muted);">זמין גם בחשבון חינמי, עם מגבלת שימוש.</p>
+      </div>
+      <image-slot id="d2-canvas-shot" shape="rounded" radius="24" placeholder="צילום מסך: כפתור יצירה ← דף אינטרנט" style="display:block;width:100%;height:680px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-ws="6" data-ws-item="6.1" data-label="פרומפט לדשבורד" data-screen-label="פרומפט לדשבורד" dir="rtl" data-speaker-notes="אני שולח עכשיו לכל המשתתפים בוואטסאפ את הפרומפט המלא (אפשר גם לסרוק את הקוד). מעתיקים אותו כמו שהוא לשורה שנפתחת אחרי יצירה ← דף אינטרנט, באותה שיחה של הדוח. אחרי הגרסה הראשונה — מתעקשים: מה לא עובד, מה חסר, מה לשנות." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="6b1779ea">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">פרומפט לחדר המחקר</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:10px 0 26px;text-wrap:pretty;">מעתיקים את הפרומפט — ומקבלים דשבורד</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:44px;align-items:start;">
+      <div style="background:#FFFDF8;border:2px solid var(--p1);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;"><div style="background:var(--p1);color:#FFFDF8;font-size:28px;font-weight:700;padding:14px 30px;display:flex;align-items:center;gap:12px;"><span class="material-icons" style="font-size:32px;">content_copy</span>הפרומפט המלא</div><div style="padding:22px 30px;height:560px;overflow-y:auto;white-space:pre-wrap;font-size:24px;line-height:1.5;direction:rtl;text-align:right;"># תפקיד
+אתה מפתח Full-Stack בכיר ומומחה לניתוח נתונים. בנה אפליקציית Web בקובץ HTML יחיד: "חדר מחקר" אינטראקטיבי המבוסס באופן מלא ובלעדי על נתוני האקסל שנוטחו וצורפו בתחילת השיחה.
+קהל היעד: משתתפים בהכשרה על קבלת החלטות מבוססת נתונים, עובדי רשויות מקומיות שאינם אנליסטים. הממשק כולו בעברית פשוטה וברורה.
+
+# דגשים קריטיים ומוחלטים לנתונים (חובה!)
+- הכללת כל הרשומות במלואן: אין ליצור דגימה, קיצור או השמטה של שורות! מערך הנתונים בתוך קוד המקור (Hardcoded) חייב לכלול את כל הרשומות והשורות המדויקות שהופיעו בקובץ האקסל המקורי שצורף בתחילת השיחה, עם כל העמודות והנתונים המלאים שלהן.
+- אין דרישה לכפתור העלאת קבצים – האפליקציה מטעינה את מלוא הנתונים באופן פנימי מראש.
+
+# ממשק, עיצוב ומיתוג רשות מקומית
+- עברית מלאה, dir="rtl", גופן Heebo, Tailwind מ-CDN. רספונסיבי עד רוחב 375px, בלי גלילה אופקית של הדף.
+- שפה חזותית ועיצוב מוניציפלי: עיצוב נקי, מוסדי, מקצועי ומכובד (צבעי בסיס Slate / Indigo / Blue רגועים, ניגודיות גבוהה לנגישות).
+- לוגו הרשות המקומית: יש לכלול בראש הסרגל העליון אלמנט ויזואלי ברור או מקום ייעודי המדמה לוגו רשמי של הרשות המקומית עם כותרת "חדר מחקר מוניציפלי".
+- סרגל עליון: לוגו הרשות, שם המחקר/הקובץ, מונה מדויק "מוצגות X מתוך Y רשומות" (כאשר Y הוא סך כל הרשומות האמיתיות מהאקסל), ותגיות סינונים פעילים עם אפשרות הסרה ו-"נקה הכל".
+- state מרכזי אחד ופונקציית render() אחת שמעדכנת את כל המסך מיד עם כל בחירת סינון.
+
+# שלוש לשוניות מרכזיות
+
+## 1. סקירה ותובנות
+- טבלת עמודות: שם המדד/העמודה, סוג נתונים, אחוז מילוי ומספר ערכים ייחודיים.
+- 4 כרטיסי KPI: סך רשומות (מבוסס על מלוא נתוני האקסל); סכום או ממוצע של מדד מספרי מרכזי; הערך המוביל בקטגוריה המרכזית; טווח תאריכים או תקופת הדיווח.
+- 5 עד 7 תובנות אוטומטיות בעברית עם מספרים מדויקים מתוך הנתונים המלאים (ריכוזיות, מגמות, פערים בולטים וחוסרים). כל התובנות מתעדכנות דינמית לפי הסינון הפעיל.
+
+## 2. דשבורד צולב
+- בורר מדד להצגה (ספירה, סכום או ממוצע).
+- כרטיסי פילוח לכל עמודת קטגוריה ראשית (עד 6 כרטיסים). בכל כרטיס ערכים ממוינים מהגדול לקטן עם פס יחסי ואחוז.
+- לחיצה על ערך מוסיפה סינון (OR בתוך אותה עמודה, AND בין עמודות שונות) ומעדכנת את כל המסך מיידית.
+- גרף קווי (Chart.js) המציג את מגמת הנתונים לאורך זמן/חודשים מתוך הקובץ. יש לבצע destroy למופע הקודם לפני יצירת גרף חדש.
+
+## 3. נתונים גולמיים
+- טבלה מפורטת עם כל הרשומות המלאות, כותרת דביקה, חיפוש חופשי, מיון בעברית בלחיצה על כותרת, ועימוד של 50 שורות לעמוד.
+- כפתור "ייצוא ל-CSV" של הנתונים המסוננים הנוכחיים (כולל BOM לתמיכה מלאה בעברית ב-Excel).
+
+# כלל עליון: קובץ שלם, נקי ועובד
+- כל הקוד חייב להיכנס בתשובה אחת בלבד, מההתחלה ועד התגית &lt;/html&gt;.
+- היקף הקוד: עד 700 שורות. הקפד על קוד תמציתי, ללא placeholders, ללא הערות כמו "// המשך כאן" וללא פונקציות ריקות.
+- ודא שהקובץ תקין ונפתח ועובד מיד בדפדפן.</div></div>
+      <div style="display:flex;flex-direction:column;gap:20px;align-items:stretch;">
+        <div style="display:flex;align-items:center;gap:14px;background:var(--coral);color:#FFFDF8;border-radius:20px;padding:18px 24px;font-size:28px;font-weight:700;line-height:1.35;"><span class="material-icons" style="font-size:38px;">send</span>אני שולח את הפרומפט עכשיו לכל המשתתפים בוואטסאפ</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;background:#FFFDF8;border:2px solid var(--line);border-radius:20px;padding:18px;"></div>
+        <div style="display:flex;flex-direction:column;gap:22px;font-size:38px;font-weight:600;line-height:1.3;"><div style="display:flex;gap:16px;"><b style="color:var(--p1);">1</b>״יצירה״ ← ״דף אינטרנט״</div><div style="display:flex;gap:16px;"><b style="color:var(--p1);">2</b>מדביקים את הפרומפט ושולחים</div><div style="display:flex;gap:16px;"><b style="color:var(--p1);">3</b>מתקנים: ״הגרף ריק. תתקן.״</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-ws="6" data-ws-item="6.2" data-label="בדיקת שלמות · כל הרשומות בפנים?" data-screen-label="בדיקת שלמות · כל הרשומות בפנים?" dir="rtl" data-speaker-notes="לפני שנוגעים בדשבורד: בודקים שכל הרשומות בפנים. משווים את מספר הרשומות בדשבורד למספר השורות בקובץ — כתבתם אותו בסעיף 2.2. הרבה פעמים Gemini לוקח רק חלק מהשורות. אם לא תואם — מעלים שוב את קובץ האקסל באותה שיחה ומבקשים לכלול את כל הרשומות. רק כשהמספרים תואמים מתחילים לעבוד." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="ee5e12d3">
+    <div style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--coral);color:#FFFDF8;padding:10px 26px;border-radius:100px;font-size:28px;font-weight:700;"><span class="material-icons" style="font-size:32px;">pan_tool</span>עצירה לפני שמתחילים</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:18px 0 40px;text-wrap:pretty;">כל הרשומות בדשבורד? בודקים לפני הכול</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);gap:26px;align-items:stretch;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:30px;font-weight:700;color:var(--p1);">1 · משווים</span><p style="font-size:32px;line-height:1.45;margin:0;">מספר הרשומות בדשבורד מול מספר השורות בקובץ (סעיף 2.2).</p></div>
+      <div data-fragment="2" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:14px;"><span style="font-size:30px;font-weight:700;color:var(--coral);">2 · לא תואם? קורה הרבה</span><p style="font-size:30px;line-height:1.4;margin:0;">מעלים שוב את קובץ האקסל באותה שיחה וכותבים:</p><div style="background:#FFFDF8;border-radius:16px;padding:16px 22px;font-size:30px;line-height:1.45;display:flex;gap:14px;align-items:flex-start;"><span class="material-icons" style="font-size:34px;color:var(--p1);">content_copy</span><span>״הכל בדשבורד את כל הרשומות מהקובץ המצורף. ציין בראש הדף כמה רשומות נכללו.״</span></div></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:30px 34px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:30px;font-weight:700;color:var(--p1);">3 · תואם</span><p style="font-size:32px;line-height:1.45;margin:0;">רק עכשיו נכנסים לחדר המחקר ומתחילים לשאול.</p></div>
+    </div>
+  </section>
+
+  <section data-ws="6" data-ws-item="6.3" data-label="חדר המחקר · הצלבת נתונים" data-screen-label="חדר המחקר · הצלבת נתונים" dir="rtl" data-speaker-notes="בחדר המחקר עובדים בזוגות. כל זוג לוקח שתי עמודות ומבקש מ-Gemini, באותה שיחה של הדוח, להצליב ביניהן ולעדכן את דף האינטרנט. המטרה: תובנה שלא רואים כשמסתכלים על כל נתון לבד. להזכיר: מתאם אינו סיבתיות. ממלאים בדף העזר סעיף 6.3." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="ca760ead">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div><div style="font-size:30px;font-weight:700;color:var(--coral);letter-spacing:1px;">חדר המחקר · עובדים בזוגות</div><h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 0;text-wrap:pretty;">מצליבים שני נתונים — ומחפשים מה חדש</h2></div>
+      <work-timer presets="10,15,20,30" minutes="15" accent="#1F5F5B"></work-timer>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 70px minmax(0,1fr) 70px minmax(0,1.25fr);align-items:stretch;margin-top:48px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:30px;font-weight:700;color:var(--p1);">נתון א׳</span><span style="font-size:36px;font-weight:700;line-height:1.3;">פניות על תאורה לפי שכונה</span></div>
+      <span data-fragment="1" style="display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:700;color:var(--coral);">×</span>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:30px;font-weight:700;color:var(--p1);">נתון ב׳</span><span style="font-size:36px;font-weight:700;line-height:1.3;">גיל התשתית בשכונה</span></div>
+      <span data-fragment="2" style="display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:700;color:var(--coral);">=</span>
+      <div data-fragment="3" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:24px;padding:32px 34px;display:flex;flex-direction:column;gap:12px;"><span style="font-size:30px;font-weight:700;color:var(--coral);">מה גילינו</span><span style="font-size:36px;font-weight:700;line-height:1.3;">הפניות מתרכזות היכן שהתשתית ישנה מ‑20 שנה</span></div>
+    </div>
+    <div data-fragment="4" style="display:flex;align-items:center;gap:20px;margin-top:40px;background:#FFFDF8;border:2px solid var(--p1);border-radius:24px;padding:24px 34px;"><span class="material-icons" style="font-size:40px;color:var(--p1);">content_copy</span><span style="font-size:32px;line-height:1.45;">״הצלב את [עמודה א׳] עם [עמודה ב׳]. מה הקשר? הצג בגרף אחד והסבר מה זה אומר.״</span></div>
+    <p data-fragment="5" style="font-size:32px;line-height:1.45;margin:24px 0 0;color:var(--coral);font-weight:700;">זה הולך יחד ≠ זה גורם. בודקים לפני שמסיקים.</p>
+  </section>
+
+  <section data-ws="6–7" data-label="זמן עבודה · חדר המחקר ותובנות" data-screen-label="זמן עבודה · חדר המחקר ותובנות" dir="rtl" data-speaker-notes="זמן עבודה בחדר המחקר: כל זוג בונה דשבורד על הקובץ, ומנסח שלוש תובנות — ממצא, משמעות, ומה עושים. לפחות אחת מהן צריכה לעבור בדיקה מול הקובץ." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="51f4b61b">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:40px;">
+      <div>    <div style="font-size:30px;font-weight:700;color:var(--coral);letter-spacing:1px;">זמן עבודה</div>    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 0;text-wrap:pretty;">חדר המחקר — ושלוש תובנות</h2></div>
+      <work-timer presets="15,20,30,45" minutes="30" accent="#1F5F5B"></work-timer>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin-top:44px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">בונים</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">חדר מחקר: ״יצירה״ ← ״דף אינטרנט״ — ומשפרים בשלושה סבבים לפחות.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">מנסחים</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">שלוש תובנות: ממצא · משמעות · מה עושים.</p></div>
+      <div data-fragment="3" style="background:#F4DED3;border:2px solid #E7A9A3;border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--coral);">בודקים</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">תובנה אחת לפחות — מול הקובץ ומול הידע שלכם.</p></div>
+    </div>
+  </section>
+
+  <section data-label="חיץ · הפקת תובנות" data-screen-label="חיץ · הפקת תובנות" dir="rtl" data-speaker-notes="אחרי הצהריים: מהניתוח לתובנות. שתי עדשות, כלל פארטו, הגרף הנכון — ובסוף נכנסים לחדר המחקר: כפתור יצירה ← דף אינטרנט מתוך דוח ה-Deep Research." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 130px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="12882360">
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.6;"></div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:26px;max-width:1400px;">
+      <div style="font-size:120px;font-weight:700;color:#A9D3CC;line-height:1;">04</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:96px;line-height:1.05;margin:0;">הפקת תובנות</h2>
+      <p style="font-size:38px;color:#C9E2DE;margin:0;line-height:1.45;max-width:1300px;">מה שה‑AI מצא — הופך למשהו שאפשר להחליט לפיו.</p>
+    </div>
+  </section>
+
+  <section data-label="סרטון · כלים" data-screen-label="סרטון · כלים" dir="rtl" data-speaker-notes="סרטון קצר על למה לא לשתף מידע אישי עם ה-AI. לוחצים Play כדי לנגן. אם ההטמעה חסומה ברשת — אפשר לפתוח ישירות בפייסבוק." style="display:flex;flex-direction:row;justify-content:center;align-items:center;gap:90px;padding:40px 90px 110px;background:var(--dark);color:#fff;font-family:var(--sans);overflow:hidden;">
+    <div style="position:absolute;top:-150px;left:-110px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#1F5F5B,transparent 70%);filter:blur(70px);opacity:.5;animation:floatA 17s ease-in-out infinite;"></div>
+    <div style="position:absolute;bottom:-170px;right:-100px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,#B4502F,transparent 70%);filter:blur(70px);opacity:.4;animation:floatB 19s ease-in-out infinite;"></div>
+    <div style="position:relative;flex-shrink:0;max-width:780px;text-align:right;">
+      
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:62px;line-height:1.15;margin:14px 0 0;">למה אסור לשתף מידע אישי עם ה‑AI?</h2>
+      <a href="https://www.facebook.com/reel/998821763013606/" target="_blank" rel="noopener" style="display:inline-block;margin-top:28px;font-size:31px;color:var(--p3);text-decoration:underline;">לא נטען? פתחו את הסרטון בפייסבוק ↗</a>
+    </div><iframe data-lazy-src="https://www.facebook.com/plugins/video.php?height=1000&amp;href=https%3A%2F%2Fwww.facebook.com%2Freel%2F998821763013606%2F&amp;show_text=false&amp;width=562&amp;t=0" width="506" height="900" style="position: relative; flex-shrink: 0; border: none; overflow: hidden; border-radius: 20px; box-shadow: 0 24px 70px rgba(0,0,0,.45); background: #000; font-size:28px" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+    
+  </section>
+
+  <section data-ws="7" data-ws-item="7.1–7.3" data-label="תובנה = ממצא + משמעות" data-screen-label="תובנה = ממצא + משמעות" dir="rtl" data-speaker-notes="ההבדל בין ממצא לתובנה: ממצא אומר מה קרה. תובנה אומרת מה זה אומר — ומה כדאי לעשות. ממצא בלי so what הוא עוד מספר." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="00d2425b">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">מה זו תובנה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:64px;line-height:1.12;margin:10px 0 44px;text-wrap:pretty;">ממצא אומר מה קרה. תובנה אומרת מה לעשות.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">ממצא</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">70% מהפניות על תאורה מגיעות משלוש שכונות.</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--ink);">משמעות</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">הבעיה מרוכזת — לא פזורה בכל העיר.</p></div>
+      <div data-fragment="3" style="background:#DCEDEA;border:2px solid var(--p3);border-radius:24px;padding:32px 36px;display:flex;flex-direction:column;gap:12px;"><h3 style="font-size:38px;font-weight:700;margin:0;color:var(--p1);">אז מה עושים</h3><p style="font-size:31px;line-height:1.45;margin:0;color:var(--muted);">מתחילים את תוכנית החידוש בשלוש השכונות האלה.</p></div>
+    </div>
+  </section>
+
+  <section data-label="Zoom out / Zoom in" data-screen-label="Zoom out / Zoom in" dir="rtl" data-speaker-notes="שתי עדשות שעובדים איתן לסירוגין. Zoom out: התמונה הכללית — מגמה, סך הכול, השוואה. Zoom in: יורדים לפרט — שכונה אחת, חודש אחד, קטגוריה אחת — כדי להבין מה עומד מאחורי המגמה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="5410ca93">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">שתי עדשות</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:10px 0 44px;text-wrap:pretty;">מתרחקים כדי לראות מגמה. מתקרבים כדי להבין אותה.</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px;"><span class="material-icons" style="font-size:60px;color:var(--p1);">zoom_out</span><h3 style="font-size:46px;font-weight:700;margin:0;">Zoom out</h3><p style="font-size:32px;line-height:1.45;margin:0;color:var(--muted);">כל העיר, כל השנים. מה המגמה? איפה יש קפיצה?</p><p style="font-size:30px;margin:0;">״הראה את המגמה החודשית בשלוש השנים האחרונות.״</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px;"><span class="material-icons" style="font-size:60px;color:var(--coral);">zoom_in</span><h3 style="font-size:46px;font-weight:700;margin:0;">Zoom in</h3><p style="font-size:32px;line-height:1.45;margin:0;color:var(--muted);">שכונה אחת, חודש אחד, נושא אחד. מה עומד מאחורי הקפיצה?</p><p style="font-size:30px;margin:0;">״פרט את הפניות של מרץ בשכונה X לפי נושא.״</p></div>
+    </div>
+  </section>
+
+  <section data-label="כלל פארטו" data-screen-label="כלל פארטו" dir="rtl" data-speaker-notes="כלל פארטו: לרוב, מיעוט קטן של קטגוריות אחראי לרוב הבעיה — בערך 20% מהסיבות ל-80% מהתוצאה. בגרף: שלושת הנושאים הראשונים הם 70% מהפניות. שם מתחילים. הנתונים בגרף להמחשה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="4ffa6576">
+    <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:26px;">
+            <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">כלל פארטו</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">שלושה נושאים — 70% מהפניות</h2>
+        <p style="font-size:34px;line-height:1.5;margin:0;">מיעוט קטן של סיבות אחראי לרוב הבעיה. מוצאים אותו — ושם מתחילים.</p>
+        <p data-fragment="1" style="font-size:31px;margin:0;background:#DCEDEA;border-radius:20px;padding:22px 28px;">״סדר את הקטגוריות מהגדולה לקטנה, והראה אחוז מצטבר.״</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:flex-end;gap:14px;height:520px;border-bottom:2px solid var(--line);">
+          <div data-bar-v="" style="flex:1;height:476px;background:#D99A2B;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:308px;background:#D99A2B;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:196px;background:#D99A2B;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:126px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:98px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:70px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:56px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:42px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+          <div data-bar-v="" style="flex:1;height:28px;background:#D6CBBB;border-radius:6px 6px 0 0;"></div>
+        </div>
+        <div style="font-size:24px;color:var(--muted);">נושאי פנייה, מהגדול לקטן · נתונים להמחשה</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="תיאור מול הסקה" data-screen-label="מתאם מול סיבתיות" dir="rtl" data-speaker-notes="המלכודת הכי נפוצה: מתאם אינו סיבתיות. שני דברים שעולים יחד לא בהכרח אחד גורם לשני. דוגמה: יותר תלונות בקיץ לא אומר שהקיץ הוא הבעיה." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="37e83bdb"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>תיאור מול הסקה</div>
+    <div style="position:absolute;top:-120px;left:-100px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,#8CC3BB,transparent 70%);filter:blur(55px);opacity:.4;animation:floatC 17s ease-in-out infinite;"></div>
+    <div style="font-size:26px;font-weight:700;color:var(--p1);letter-spacing:1px;position:relative;"><br></div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;margin:10px 0 30px;position:relative;">מתאם אינו סיבתיות</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;position:relative;">
+      <div style="background:#FFFDF8;border:2px solid #e7a9a3;border-radius:20px;padding:32px 36px;" data-fragment="1"><h3 style="font-size:27px;font-weight:800;color:#b4453d;margin:0 0 14px;">קפיצה למסקנה ✕</h3><p style="font-size:27px;line-height:1.5;margin:0;color:var(--muted);">"מספר התלונות עולה בקיץ — <b>אז החום גורם לתלונות</b>."</p></div>
+      <div style="background:linear-gradient(160deg,#eef6f0,#FFFDF8);border:2px solid #9fd3b4;border-radius:20px;padding:32px 36px;" data-fragment="2"><h3 style="font-size:27px;font-weight:800;color:#2E7D4F;margin:0 0 14px;">בדיקה נוספת ✓</h3><p style="font-size:27px;line-height:1.5;margin:0;color:var(--ink);">אולי בקיץ יש יותר פעילות עסקית — <b>גורם שלישי</b> מסביר את שניהם.</p></div>
+    </div>
+    <div style="margin-top:28px;background:#DCEDEA;border-right:5px solid var(--p1);border-radius:12px;padding:20px 28px;font-size:27px;line-height:1.5;position:relative;" data-fragment="3">לפני שקובעים "X גורם ל‑Y" — שואלים: מה עוד יכול להסביר את זה?</div>
+  </section>
+
+  <section data-label="דשבורד · מוקד 106" data-screen-label="דשבורד · מוקד 106" dir="rtl" data-speaker-notes="דוגמה חיה: דשבורד ניתוח פניות מוקד 106. נסתכל יחד על הנתונים — נושאים חוזרים, פילוח לפי אזור וזמן — ונתרגל קריאה נכונה של הנתונים." style="display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;padding:0;" data-om-slide-id="9b989509">
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:16px;padding:16px 34px;background:#DCEDEA;border-bottom:2px solid var(--line);">
+      <span style="background:var(--p1);color:#FFFDF8;font-size:21px;font-weight:800;border-radius:100px;padding:6px 18px;white-space:nowrap;">דשבורד חי</span>
+      <span style="font-size:30px;font-weight:800;color:var(--ink);white-space:nowrap;">דשבורד ניתוח נתונים · מוקד עירוני 106</span>
+      <div style="flex:1;"></div>
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiOWU4ZjIxMWEtNzA3MC00ODIzLWIxZWMtNTBlZGRhMGYwYTEzIiwidCI6IjllYzRiZTkzLWYyZjQtNDYyMC04MTEzLTEwYmMzOTQ4YWI4ZSIsImMiOjl9" target="_blank" rel="noopener" style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:var(--p1);color:#FFFDF8;padding:10px 24px;border-radius:100px;font-size:22px;font-weight:800;text-decoration:none;white-space:nowrap;">פתח בטאב חדש ↗</a>
+    </div>
+    <iframe data-fallback="embeds/powerbi-106.png" src="https://app.powerbi.com/view?r=eyJrIjoiOWU4ZjIxMWEtNzA3MC00ODIzLWIxZWMtNTBlZGRhMGYwYTEzIiwidCI6IjllYzRiZTkzLWYyZjQtNDYyMC04MTEzLTEwYmMzOTQ4YWI4ZSIsImMiOjl9" style="flex:1;width:100%;border:0;display:block;background:#FFFDF8;" allowfullscreen="true"></iframe>
+  </section>
+
+  <section data-label="דוגמה · מטוסי מלחמה" data-screen-label="מתאם מול סיבתיות · דוגמת המטוסים" dir="rtl" data-speaker-notes="הדוגמה המפורסמת מהמלחמה — הטיית ההישרדות (אברהם וולד). הצבא בדק את המטוסים שחזרו וראה שרוב החורים בכנפיים ובזנב, אז רצה לשריין שם. וולד הבין את ההפך: המטוסים שנפגעו במנוע פשוט לא חזרו — ולכן דווקא במקומות בלי חורים צריך לשריין. השיעור: הנתונים שאתם רואים הם רק מהניצולים. תמיד שאלו — מי ומה חסר מהתמונה." style="display:flex;flex-direction:column;justify-content:center;padding:70px 100px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="2533dcfe"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>דוגמה · הטיית ההישרדות</div>
+    <div style="font-size:26px;font-weight:700;color:var(--p1);letter-spacing:1px;">הטיית ההישרדות</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:52px;margin:8px 0 26px;">איפה כדאי לשריין את המטוס?</h2>
+    <div style="display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <p style="font-size:27px;color:var(--muted);margin:0;line-height:1.5;">במלחמת העולם השנייה בדקו את המטוסים ש<b style="color:var(--ink);">חזרו</b> מהקרב, וסימנו איפה ספגו יריות — כמעט כולן <b style="color:var(--ink);">בכנפיים</b>.</p>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:#FFFDF8;border:2px solid #e7a9a3;border-radius:16px;padding:18px 24px;" data-fragment="1"><span style="font-size:30px;">✕</span><p style="font-size:25px;margin:0;line-height:1.45;"><b style="color:#b4453d;">הקפיצה למסקנה:</b> "יש הכי הרבה חורים בכנפיים — בואו נשריין את הכנפיים."</p></div>
+        <div style="display:flex;gap:16px;align-items:flex-start;background:linear-gradient(160deg,#eef6f0,#FFFDF8);border:2px solid #9fd3b4;border-radius:16px;padding:18px 24px;" data-fragment="2"><span style="font-size:30px;">✓</span><p style="font-size:25px;margin:0;line-height:1.45;"><b style="color:#2E7D4F;">אברהם וולד:</b> לשריין דווקא איפה ש<b>אין</b> חורים — מי שנפגע שם (המנוע) פשוט לא חזר.</p></div>
+        <div style="background:#DCEDEA;border-right:5px solid var(--p1);border-radius:12px;padding:16px 24px;font-size:25px;line-height:1.5;" data-fragment="3">.לפני שמסיקים — שאלו: מי ומה <b>לא מופיע</b> בכלל?</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 16px 40px rgba(20,28,42,.10);"><div style="position:relative;width:100%;max-width:720px;margin:0 auto;"><img src="survivorship-wings.png" alt="מטוס מלחמה עם סימוני פגיעות אדומים בכנפיים — הטיית ההישרדות" style="width:100%;height:auto;display:block;border-radius:10px;"><div data-fragment="2" style="position:absolute;inset:0;pointer-events:none;"><span style="position:absolute;left:46.6%;top:11%;width:6.9%;height:15.5%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:15.6%;top:41.6%;width:5.6%;height:13.6%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:31.4%;top:41.6%;width:5.6%;height:13.6%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:63.1%;top:41.6%;width:5.6%;height:13.6%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:78.9%;top:41.6%;width:5.6%;height:13.6%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:46.6%;top:53%;width:6.9%;height:33.5%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span><span style="position:absolute;left:30.4%;top:72.8%;width:39.2%;height:10.6%;border:4px solid #2E7D4F;background:rgba(46,125,79,.30);border-radius:10px;box-sizing:border-box;"></span></div></div></div>
+        <div style="display:flex;align-items:center;gap:10px;justify-content:center;font-size:21px;color:var(--muted);"><span style="width:14px;height:14px;border-radius:50%;background:#A8362D;display:inline-block;"></span>נקודות אדומות = פגיעות במטוסים ששרדו וחזרו לבסיס</div>
+        <div data-fragment="2" style="display:flex;align-items:center;gap:10px;justify-content:center;font-size:21px;color:#2E7D4F;font-weight:700;"><span style="width:16px;height:16px;border-radius:4px;background:rgba(46,125,79,.35);border:3px solid #2E7D4F;display:inline-block;"></span>אין פגיעות: מנועים, תא הטייס, גוף וזנב — כאן משריינים</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="הגרף הנכון" data-screen-label="הגרף הנכון" dir="rtl" data-speaker-notes="לכל שאלה יש גרף מתאים. השוואה בין קטגוריות — עמודות. מגמה לאורך זמן — קו. חלקים משלם — לא בהכרח עוגה. הכלל: הגרף משרת את המסר, לא להיפך." style="display:flex;flex-direction:column;justify-content:center;padding:84px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="3711ca03"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>הגרף הנכון</div>
+    <div style="font-size:26px;font-weight:700;color:var(--p1);letter-spacing:1px;">כלי עבודה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:56px;margin:10px 0 30px;">בוחרים את הגרף לפי השאלה</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:18px;padding:30px 32px;" data-fragment="1"><span class="material-icons" style="font-size:44px;color:var(--p1);">bar_chart</span><h3 style="font-size:27px;font-weight:700;margin:12px 0 8px;">עמודות</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">להשוות בין קטגוריות — איזה אגף, איזו שכונה.</p></div>
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:18px;padding:30px 32px;" data-fragment="2"><span class="material-icons" style="font-size:44px;color:var(--p1);">show_chart</span><h3 style="font-size:27px;font-weight:700;margin:12px 0 8px;">קו</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">מגמה לאורך זמן — עלייה, ירידה, עונתיות.</p></div>
+      <div style="background:linear-gradient(160deg,#DCEDEA,#FFFDF8);border:1px solid var(--p3);border-radius:18px;padding:30px 32px;" data-fragment="3"><span class="material-icons" style="font-size:44px;color:var(--p1);">table_rows</span><h3 style="font-size:27px;font-weight:700;margin:12px 0 8px;">מספר בודד</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">כשיש נתון אחד חזק — הציגו אותו גדול, לבד.</p></div>
+    </div>
+    <div style="margin-top:24px;background:#DCEDEA;border-right:5px solid var(--p1);border-radius:12px;padding:20px 28px;font-size:27px;line-height:1.5;" data-fragment="4">הכלל: הגרף משרת את המסר. אם צריך להסביר את הגרף — הוא לא עובד.</div>
+  </section>
+
+  <section data-label="לשקר עם גרפים" data-screen-label="גרפים מטעים" dir="rtl" data-speaker-notes="אותו נתון בדיוק — שתי מסקנות הפוכות, תלוי בגרף. ציר Y חתוך מנפח הבדל זעום. תמיד בודקים: מאיפה מתחיל הציר, ומה הטווח." style="display:flex;flex-direction:column;justify-content:center;padding:84px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="471ad5c4"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>לשקר עם גרפים</div>
+    <div style="font-size:26px;font-weight:700;color:var(--p1);letter-spacing:1px;">המלכודת מספר 2</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:56px;margin:10px 0 30px;">אותו נתון — שני סיפורים</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;">
+      <div style="background:#FFFDF8;border:2px solid #e7a9a3;border-radius:20px;padding:28px 32px;" data-fragment="1"><h3 style="font-size:26px;font-weight:800;color:#b4453d;margin:0 0 16px;">ציר חתוך — "זינוק דרמטי" ✕</h3><div style="display:flex;align-items:flex-end;gap:16px;height:180px;border-right:2px solid var(--line);border-bottom:2px solid var(--line);padding:0 10px 0 0;"><div style="width:70px;height:60%;background:#e7a9a3;border-radius:6px 6px 0 0;"></div><div style="width:70px;height:100%;background:var(--coral);border-radius:6px 6px 0 0;"></div></div><p style="font-size:24px;color:var(--muted);margin:12px 0 0;">הציר מתחיל מ‑95 — הבדל של 3% נראה ענק.</p></div>
+      <div style="background:linear-gradient(160deg,#eef6f0,#FFFDF8);border:2px solid #9fd3b4;border-radius:20px;padding:28px 32px;" data-fragment="2"><h3 style="font-size:26px;font-weight:800;color:#2E7D4F;margin:0 0 16px;">ציר מ‑0 — התמונה האמיתית ✓</h3><div style="display:flex;align-items:flex-end;gap:16px;height:180px;border-right:2px solid var(--line);border-bottom:2px solid var(--line);padding:0 10px 0 0;"><div style="width:70px;height:94%;background:#9fd3b4;border-radius:6px 6px 0 0;"></div><div style="width:70px;height:100%;background:var(--p1);border-radius:6px 6px 0 0;"></div></div><p style="font-size:24px;color:var(--p2);margin:12px 0 0;">הציר מ‑0 — ההבדל האמיתי קטן.</p></div>
+    </div>
+    <p style="font-size:26px;color:var(--muted);margin:24px 0 0;line-height:1.5;" data-fragment="3">כשמראים לכם גרף — הסתכלו קודם על הצירים, לא על הצורה.</p>
+  </section>
+
+  <section data-label="NotebookLM · מחברת המחקר" data-screen-label="NotebookLM · מחברת המחקר" dir="rtl" data-speaker-notes="עוברים ל-NotebookLM — המחברת של Google. מעלים אליה את הדוח, הקובץ והמסמכים, ושואלים שאלות שהתשובות עליהן מבוססות רק על המקורות שלכם. הדגמה חיה." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="52ddec25">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;">
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">הכלי הבא · הדגמה חיה</div>
+        <h2 style="font-family:var(--serif);font-weight:700;font-size:68px;line-height:1.1;margin:0;">NotebookLM — מחברת המחקר שלכם</h2>
+        <p style="font-size:34px;line-height:1.5;margin:0;">מעלים את הדוח, הקובץ והמסמכים — ושואלים. התשובות מבוססות רק על המקורות שלכם.</p>
+        <a href="https://notebooklm.google.com" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:14px;background:var(--p1);color:#FFFDF8;padding:18px 36px;border-radius:100px;font-size:32px;font-weight:700;text-decoration:none;direction:ltr;">notebooklm.google.com ↗</a>
+      </div>
+      <image-slot id="d2-notebooklm-shot" shape="rounded" radius="24" placeholder="צילום מסך: NotebookLM" style="display:block;width:100%;height:680px;"></image-slot>
+    </div>
+  </section>
+
+  <section data-label="NotebookLM · תהליך העבודה" data-screen-label="NotebookLM · תהליך העבודה" dir="rtl" data-speaker-notes="תהליך העבודה המלא ב-NotebookLM: 1) מעלים מקורות — קבצי Excel/Sheets ו-CSV, PDF ו-Word, קישורים לאתרים וסרטוני YouTube, הקלטות ותמונות; או מפעילים Deep Research שמוצא מקורות ברשת ומצרף אותם. 2) שואלים בצ'אט — התשובות מבוססות רק על המקורות, עם הפניה לכל טענה; אפשר להגדיר לצ'אט מטרה ותפקיד, ולסמן רק חלק מהמקורות. 3) מייצרים בסטודיו: סקירה קולית (פודקאסט), סרטון הסבר, מצגת, אינפוגרפיקה, מפת חשיבה, טבלת נתונים לייצוא ל-Sheets, דוח, שאלון וכרטיסיות. חשבון חינמי (נכון ל-2026): עד 50 מקורות במחברת, 50 שאלות ביום, 3 סקירות קול ווידאו ביום, ו-Deep Research מוגבל. חלק מהיכולות (כמו סרטונים קולנועיים) רק בתוכניות בתשלום, והיכולות מתעדכנות תדיר — לבדוק לפני ההדרכה. מעלים רק נתונים מותממים." style="display:flex;flex-direction:column;justify-content:center;padding:80px 120px 130px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="26f9f9d6">
+    <div style="font-size:30px;font-weight:700;color:var(--p1);letter-spacing:1px;">NotebookLM · תהליך העבודה</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;line-height:1.12;margin:10px 0 30px;text-wrap:pretty;">מעלים מקורות ← שואלים ← מייצרים</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr);gap:24px;align-items:stretch;">
+      <div data-fragment="1" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;gap:14px;"><span style="width:56px;height:56px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;">1</span><span class="material-icons" style="font-size:40px;color:var(--p1);">upload_file</span></div><h3 style="font-size:36px;font-weight:700;margin:0;">מעלים מקורות</h3><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• Excel / Sheets ו‑CSV</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• PDF ו‑Word</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• אתרים וסרטוני YouTube</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• הקלטות ותמונות</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• Deep Research — מוצא מקורות ברשת</p></div>
+      <div data-fragment="2" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;gap:14px;"><span style="width:56px;height:56px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;">2</span><span class="material-icons" style="font-size:40px;color:var(--p1);">forum</span></div><h3 style="font-size:36px;font-weight:700;margin:0;">שואלים ובודקים</h3><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• תשובות רק מהמקורות — עם הפניה לכל טענה</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• מגדירים לצ׳אט מטרה ותפקיד</p><p style="font-size:26px;line-height:1.4;margin:0;color:var(--muted);">• מסמנים רק חלק מהמקורות כדי למקד</p></div>
+      <div data-fragment="3" style="background:#FFFDF8;border:2px solid var(--line);border-radius:24px;padding:28px 30px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;gap:14px;"><span style="width:56px;height:56px;border-radius:50%;background:var(--p1);color:#FFFDF8;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;">3</span><span class="material-icons" style="font-size:40px;color:var(--p1);">auto_awesome</span></div><h3 style="font-size:36px;font-weight:700;margin:0;">מייצרים בסטודיו</h3><div style="display:flex;flex-wrap:wrap;gap:10px;"><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">סקירה קולית (פודקאסט)</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">סרטון הסבר</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">מצגת</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">אינפוגרפיקה</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">מפת חשיבה</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">טבלת נתונים ← Sheets</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">דוח / תדריך</span><span style="background:#DCEDEA;color:var(--p1);border-radius:100px;padding:8px 18px;font-size:24px;font-weight:700;">שאלון וכרטיסיות</span></div></div>
+    </div>
+    <div data-fragment="4" style="display:flex;align-items:center;gap:18px;margin-top:26px;background:#F4DED3;border:2px solid #E7A9A3;border-radius:22px;padding:18px 30px;"><span class="material-icons" style="font-size:38px;color:var(--coral);">shield</span><span style="font-size:28px;line-height:1.4;">חשבון חינמי: עד 50 מקורות במחברת ו‑50 שאלות ביום. <b>מעלים רק קבצים מותממים.</b></span></div>
+  </section>
+
+  <section data-ws="7" data-ws-item="7.1–7.3" data-label="שיתוף · תובנות" data-screen-label="שיתוף · תובנות יום 2" dir="rtl" data-speaker-notes="סבב קצר: כל צוות משתף תובנה אחת שגילה — מהנתונים או מ-AI — וגם רגע אחד שבו הכלי כמעט הטעה אותם." style="display:flex;flex-direction:column;justify-content:center;padding:90px 120px;background:linear-gradient(135deg,#DCEDEA,#FAF5EC);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-om-slide-id="13cb88eb"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>שיתוף · תובנות</div>
+    <div style="position:absolute;top:-120px;right:-100px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,#8CC3BB,transparent 70%);filter:blur(55px);opacity:.55;animation:floatC 16s ease-in-out infinite;"></div>
+    <div style="display:flex;align-items:center;gap:16px;position:relative;"><span style="display:inline-flex;align-items:center;gap:10px;background:var(--coral);color:#FFFDF8;padding:10px 24px;border-radius:100px;font-size:24px;font-weight:700;">● שיתוף קצר</span><span style="font-size:24px;font-weight:600;color:var(--p1);"><br></span></div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:60px;margin:20px 0 14px;position:relative;">מה גילינו</h2>
+    <p style="font-size:31px;color:var(--muted);margin:0 0 36px;max-width:1250px;line-height:1.5;position:relative;">כל צוות: תובנה אחת מהנתונים, ורגע אחד שבו כמעט נפלתם במלכודת.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;">
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:18px;animation:cardFloatA 6s ease-in-out infinite;padding:32px;" data-fragment="1"><h3 style="font-size:28px;font-weight:700;margin:0 0 10px;color:var(--p1);">התובנה</h3><p style="font-size:25px;color:var(--muted);line-height:1.45;margin:0;">מה הנתונים אמרו על השאלה שלכם.</p></div>
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:18px;animation:cardFloatB 7.5s ease-in-out infinite;padding:32px;" data-fragment="2"><h3 style="font-size:28px;font-weight:700;margin:0 0 10px;color:var(--p1);">המלכודת</h3><p style="font-size:25px;color:var(--muted);line-height:1.45;margin:0;">איפה כמעט הטעו אתכם הנתונים או ה‑AI.</p></div>
+      <div style="background:linear-gradient(160deg,#DCEDEA,#FFFDF8);border:1px solid var(--p3);border-radius:18px;animation:cardFloatC 5.5s ease-in-out infinite;padding:32px;" data-fragment="3"><h3 style="font-size:28px;font-weight:700;margin:0 0 10px;color:var(--coral);">מה השתנה</h3><p style="font-size:25px;color:var(--muted);line-height:1.45;margin:0;">האם ההנחה מיום 1 אוששה — או הופתעתם.</p></div>
+    </div>
+  </section>
+
+  <section data-ws="8" data-ws-item="8.1–8.3" data-label="משימה למפגש הבא" data-screen-label="משימה למפגש 3" dir="rtl" data-speaker-notes="המשימה עד מפגש 3: לבחור את התובנה החזקה ביותר, ולאסוף חומר גלם לסיפור — מספר מפתח אחד, ציטוט אחד של תושב, ותמונה או מסך אחד." style="display:flex;flex-direction:column;justify-content:center;padding:90px 120px;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden;" data-deck-skip="" data-om-slide-id="50a8a50a"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>משימה למפגש הבא</div>
+    <div style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:var(--coral);color:#FFFDF8;padding:9px 22px;border-radius:100px;font-size:24px;font-weight:700;"><span class="material-icons" style="font-size:26px;">assignment</span> משימה למפגש הבא</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:58px;margin:18px 0 16px;">אוספים חומר גלם לסיפור</h2>
+    <p style="font-size:31px;color:var(--muted);margin:0 0 34px;max-width:1300px;line-height:1.5;">עד המפגש הבא — בחרו את התובנה החזקה שלכם, ואספו שלושה חומרים שיהפכו אותה לסיפור.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:20px;animation:cardFloatA 6s ease-in-out infinite;padding:34px;" data-fragment="1"><span class="material-icons" style="font-size:44px;color:var(--p1);">looks_one</span><h3 style="font-size:28px;font-weight:700;margin:14px 0 8px;">מספר מפתח</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">הנתון האחד שמסכם את הבעיה.</p></div>
+      <div style="background:#FFFDF8;border:1px solid var(--line);border-radius:20px;animation:cardFloatB 7.5s ease-in-out infinite;padding:34px;" data-fragment="2"><span class="material-icons" style="font-size:44px;color:var(--p1);">format_quote</span><h3 style="font-size:28px;font-weight:700;margin:14px 0 8px;">ציטוט תושב</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">משפט אמיתי שנותן פנים לנתון.</p></div>
+      <div style="background:linear-gradient(160deg,#DCEDEA,#FFFDF8);border:1px solid var(--p3);border-radius:20px;animation:cardFloatC 5.5s ease-in-out infinite;padding:34px;" data-fragment="3"><span class="material-icons" style="font-size:44px;color:var(--coral);">image</span><h3 style="font-size:28px;font-weight:700;margin:14px 0 8px;">תמונה או מסך</h3><p style="font-size:24px;color:var(--muted);line-height:1.45;margin:0;">ויזואל אחד שממחיש את המצב.</p></div>
+    </div>
+  </section>
+
+  <section data-label="סיכום יום 2" data-screen-label="סיכום יום 2" dir="rtl" data-speaker-notes="סוגרים יום 2: עקרונות, קובץ אמיתי, ניתוח עם AI ובדיקה ביקורתית, ותובנות בדשבורד. מחר — הופכים את התובנה לסיפור שמניע לפעולה." style="display:flex;flex-direction:column;justify-content:center;padding:90px 120px;background:var(--dark);color:#FFFDF8;font-family:var(--sans);overflow:hidden;" data-om-slide-id="dfa58768"><div data-om-subtitle="1" style="position:absolute;bottom:34px;right:58px;display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:24px;font-weight:600;color:inherit;opacity:.42;letter-spacing:.3px;pointer-events:none;z-index:3;"><span style="width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.8;"></span>סיכום יום 2</div>
+    <div style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,#2F6E68,transparent 70%);filter:blur(70px);opacity:.55;animation:floatA 16s ease-in-out infinite;"></div>
+    <div style="position:absolute;bottom:-180px;left:-90px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,#3A857D,transparent 70%);filter:blur(70px);opacity:.4;animation:floatB 19s ease-in-out infinite;"></div>
+    <div style="font-size:26px;font-weight:700;color:var(--p3);letter-spacing:1px;position:relative;">15:00 · סיכום יום 2</div>
+    <h2 style="font-family:var(--serif);font-weight:700;font-size:60px;margin:10px 0 40px;position:relative;">מה לקחנו מהיום</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(169,211,204,.3);border-radius:18px;animation:cardFloatA 6s ease-in-out infinite;padding:30px;" data-fragment="1"><div style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--p2);">01</div><h3 style="font-size:27px;font-weight:700;margin:12px 0 6px;">עקרונות</h3><p style="font-size:24px;color:#C9E2DE;line-height:1.4;margin:0;">שבעה כללים לעבודה ברשות</p></div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(169,211,204,.3);border-radius:18px;animation:cardFloatA 6s ease-in-out infinite;padding:30px;" data-fragment="2"><div style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--p2);">02</div><h3 style="font-size:27px;font-weight:700;margin:12px 0 6px;">ניתוח עם AI</h3><p style="font-size:24px;color:#C9E2DE;line-height:1.4;margin:0;">שבעה שלבים · Deep Research</p></div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(169,211,204,.3);border-radius:18px;animation:cardFloatA 6s ease-in-out infinite;padding:30px;" data-fragment="3"><div style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--p2);">03</div><h3 style="font-size:27px;font-weight:700;margin:12px 0 6px;">בדיקה ביקורתית</h3><p style="font-size:24px;color:#C9E2DE;line-height:1.4;margin:0;">ה‑AI מול הידע המקצועי</p></div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(169,211,204,.3);border-radius:18px;animation:cardFloatA 6s ease-in-out infinite;padding:30px;" data-fragment="4"><div style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--p2);">04</div><h3 style="font-size:27px;font-weight:700;margin:12px 0 6px;">תובנות וחדר מחקר</h3><p style="font-size:24px;color:#C9E2DE;line-height:1.4;margin:0;">פארטו · Zoom · הצלבת נתונים</p></div>
+    </div>
+    <p style="font-size:30px;color:#C9E2DE;margin:40px 0 0;line-height:1.5;position:relative;max-width:1300px;" data-fragment="5">מחר — הופכים את התובנה לסיפור שמניע לפעולה. <b style="color:#FFFDF8;">תודה על יום שני מצוין.</b></p>
+  </section>
+
+</x-import>
+</x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#1A2332">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1A2332"/>
+    <circle cx="600" cy="300" r="70" fill="#0A8A7A"/>
+    <circle cx="430" cy="470" r="52" fill="#8FC4BC"/>
+    <circle cx="770" cy="470" r="52" fill="#8FC4BC"/>
+    <circle cx="600" cy="560" r="46" fill="#F05060"/>
+    <path d="M600 370 L600 514 M600 300 L430 418 M600 300 L770 418" stroke="#8FC4BC" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+    <text x="600" y="680" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#FAFAF8" text-anchor="middle">מאיצים דיגיטליים</text>
+  </svg>
+</template>
+<script type="text/x-dc" data-dc-script data-props="{&quot;promptUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;QR לפרומפט (שקף 34)&quot;}}">
+class Component extends DCLogic {
+  componentDidMount(){ const el = document.getElementById('tw-style'); if (el) el.remove(); this.drawQr(); }
+  _unused(){
+    const P = {
+      'טורקיז': '',
+      'לילה': ':root{--bg:#1B2422;--bg2:#222D2B;--card:#26322F;--ink:#F3EDE3;--muted:#B9AEA2;--line:#3A4744;--teal-light:#2C3B38;--brand-tint:#3A2E28;--p1:#6FC1B6;--p2:#8FD3C9;--dark:#0F3B38;}',
+      'טרקוטה': ':root{--bg:#FBF3EC;--bg2:#F4E4D6;--p1:#A4472A;--p2:#B4502F;--dark:#8A3A22;--p3:#E9B9A3;--teal-light:#F6E1D6;--line:#EAD6C4;--coral:#1F5F5B;}'
+    };
+    const M = {
+      'מהבהב': '@keyframes twBlink{0%,100%{opacity:1;filter:brightness(1)}50%{opacity:.35;filter:brightness(1.35)}}.wsb,[data-tw-blink]{animation:twBlink 1.1s ease-in-out infinite!important;}',
+      'רגוע': '',
+      'סטטי': '*,*::before,*::after{animation:none!important;transition:none!important;}'
+    };
+    const css = (P[this.props.palette ?? 'טורקיז'] || '') + (M[this.props.motion ?? 'רגוע'] || '') + ((this.props.motifs ?? true) ? '' : '[data-motif]{display:none!important;}');
+    let el = document.getElementById('tw-style');
+    if (!el) { el = document.createElement('style'); el.id = 'tw-style'; document.head.appendChild(el); }
+    el.textContent = css;
+  }
+  qrRef = React.createRef();
+  componentDidUpdate(){ this.drawQr(); }
+  drawQr(){
+    const el = this.qrRef.current; if (!el) return;
+    const url = (this.props.promptUrl ?? '').trim();
+    if (el.dataset.url === url) return;
+    if (!url) { el.dataset.url = ''; el.textContent = 'הדביקו קישור לפרומפט בהגדרות (Tweaks) — והקוד ייווצר כאן'; return; }
+    if (!window.qrcode) { setTimeout(() => this.drawQr(), 300); return; }
+    const q = window.qrcode(0, 'M'); q.addData(unescape(encodeURIComponent(url))); q.make();
+    el.innerHTML = q.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
+    const svg = el.querySelector('svg'); if (svg) { svg.style.width = '100%'; svg.style.height = '100%'; }
+    el.dataset.url = url;
+  }
+  renderVals(){ return { qrRef: this.qrRef }; }
+}
+</script>
+<script src="../_shared/embed-guard.js"></script>
+</body>
+</html>
