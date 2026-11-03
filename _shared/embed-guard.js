@@ -78,3 +78,100 @@
   addEventListener('resize', run);
   addEventListener('online', function () { location.reload(); });
 })();
+
+/* מסך מלא וניווט בעכבר: כפתור קבוע בפינה, מקש F, קליק/גלגלת להעברת שקף, ו-?present פותח מסך "לחצו להתחלה".
+   הדפדפן מאפשר מסך מלא רק אחרי לחיצה, ולכן ?present מציג כפתור גדול ולא נכנס לבד. */
+(function () {
+  if (/print-pdf/.test(location.search)) return;
+  var d = document, root = d.documentElement;
+  var can = root.requestFullscreen || root.webkitRequestFullscreen;
+  if (!can) return;
+  function isFs() { return !!(d.fullscreenElement || d.webkitFullscreenElement); }
+  function enter() {
+    var p = (root.requestFullscreen || root.webkitRequestFullscreen).call(root);
+    if (p && p.catch) p.catch(function (e) { console.warn('[fullscreen]', e && e.message); });
+  }
+  function exit() { (d.exitFullscreen || d.webkitExitFullscreen).call(d); }
+  function toggle() { isFs() ? exit() : enter(); }
+
+  var tries = 0;
+  function init() {
+    // הנגן נבנה אחרי טעינת הדף: מחכים לו עד 10 שניות. בדפי עזר אין נגן ואין כפתור
+    if (!d.querySelector('deck-stage')) { if (++tries < 40) setTimeout(init, 250); return; }
+    var st = d.createElement('style');
+    st.textContent =
+      '.fs-btn{position:fixed;left:16px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:8px;' +
+      'font:700 15px/1 "Alef","Heebo","Segoe UI",Arial,sans-serif;color:#FFFDF8;background:rgba(31,95,91,.92);' +
+      'border:0;border-radius:8px;padding:10px 14px;cursor:pointer;opacity:.55;transition:opacity .15s}' +
+      '.fs-btn:hover,.fs-btn:focus-visible{opacity:1}' +
+      '.fs-btn svg{width:16px;height:16px}' +
+      ':fullscreen .fs-btn{display:none}' +
+      '.fs-start{position:fixed;inset:0;z-index:2147483001;display:flex;align-items:center;justify-content:center;' +
+      'background:rgba(42,33,27,.55)}' +
+      '.fs-start button{font:700 26px/1 "Alef","Heebo","Segoe UI",Arial,sans-serif;color:#FFFDF8;background:#1F5F5B;' +
+      'border:0;border-radius:12px;padding:22px 36px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.25)}' +
+      '.fs-start small{display:block;margin-top:10px;font-size:15px;font-weight:400;opacity:.85}' +
+      '@media print{.fs-btn,.fs-start{display:none!important}}';
+    d.head.appendChild(st);
+
+    var b = d.createElement('button');
+    b.className = 'fs-btn'; b.type = 'button'; b.title = 'מסך מלא (F)';
+    b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
+      '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>מסך מלא';
+    b.addEventListener('click', function (e) { e.stopPropagation(); enter(); b.blur(); });
+    d.body.appendChild(b);
+
+    if (/[?&]present\b/.test(location.search)) {
+      var o = d.createElement('div');
+      o.className = 'fs-start';
+      o.innerHTML = '<button type="button">▶ התחלת המצגת במסך מלא<small>יציאה: Esc · מעבר שקפים: חיצים, קליק או גלגלת</small></button>';
+      o.addEventListener('click', function () { o.remove(); enter(); });
+      d.body.appendChild(o);
+    }
+
+    // ניווט בעכבר: קליק שמאלי = הבא, קליק ימני = הקודם, גלגלת = קדימה/אחורה.
+    // קליק על קישור, כפתור, הטמעה או שדה לא מעביר שקף.
+    var deck = d.querySelector('deck-stage');
+    var SKIP = 'a,button,input,select,textarea,label,summary,details,video,audio,iframe,[contenteditable],[onclick],[role=button],[data-eg],.fs-btn,.fs-start';
+    function onSlide(e) {
+      var path = e.composedPath ? e.composedPath() : [];
+      var inSlide = false;
+      for (var i = 0; i < path.length; i++) {
+        var n = path[i];
+        if (n === deck) break;
+        if (n.matches && n.matches(SKIP)) return false;
+        if (n.tagName === 'SECTION') inSlide = true;
+      }
+      return inSlide;
+    }
+    function go(step) { step > 0 ? deck.next() : deck.prev(); }
+    var fine = matchMedia('(pointer: fine)');
+    d.addEventListener('click', function (e) {
+      if (!fine.matches || e.button !== 0 || e.defaultPrevented) return;
+      if (e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return;
+      if (String(getSelection()) || !onSlide(e)) return;
+      go(1);
+    });
+    d.addEventListener('contextmenu', function (e) {
+      if (!fine.matches || e.shiftKey || !onSlide(e)) return; // Shift+קליק ימני = התפריט הרגיל
+      e.preventDefault(); go(-1);
+    });
+    var lastWheel = 0;
+    d.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || Math.abs(e.deltaY) < 8 || !onSlide(e)) return;
+      e.preventDefault();
+      var now = Date.now();
+      if (now - lastWheel < 700) return; // גלגלת רגישה: שקף אחד לכל תנועה
+      lastWheel = now;
+      go(e.deltaY > 0 ? 1 : -1);
+    }, { passive: false });
+
+    d.addEventListener('keydown', function (e) {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.key === 'f' || e.key === 'F' || e.key === 'כ') { e.preventDefault(); toggle(); }
+    });
+  }
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', init); else init();
+})();

@@ -9,7 +9,6 @@
 </head>
 <body>
   <header class="hero">
-    <div class="bars" aria-hidden="true"><span style="height:70px"></span><span style="height:110px"></span><span style="height:160px"></span><span style="height:120px"></span><span style="height:90px"></span></div>
     <div class="wrap">
       <div class="topbar">
         <a class="brand" href="https://www.romanai.net/">Roman<b>AI</b></a>
@@ -47,7 +46,6 @@
         list.replaceChildren();
         decks.forEach(function (d) {
           var a = el("a", "card"); a.href = d.folder + "/";
-          a.appendChild(el("div", "band"));
           var body = el("div", "body");
           var meta = el("div", "meta");
           if (d.badge) meta.appendChild(el("span", "badge" + (d.badgeNew ? " new" : ""), d.badge));
