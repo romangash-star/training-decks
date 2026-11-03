@@ -1,0 +1,200 @@
+/*
+  ערכת נושא משותפת לכל המצגות.
+  עיצוב זמני: כשתגיע מערכת העיצוב מ-Claude Design, מחליפים רק את המשתנים ב-:root.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap");
+
+:root {
+  /* צבעים */
+  --c-bg: #f7f6f2;
+  --c-surface: #ffffff;
+  --c-ink: #1b2433;
+  --c-ink-soft: #4a5568;
+  --c-muted: #8a94a6;
+  --c-line: #e3e1da;
+  --c-primary: #1f3a5f;
+  --c-accent: #0f8b8d;
+  --c-accent-soft: #d7efee;
+  --c-on-primary: #ffffff;
+
+  /* טיפוגרפיה */
+  --f-main: "Heebo", "Segoe UI", Arial, sans-serif;
+  --f-size-base: 34px;
+  --f-h1: 2.4em;
+  --f-h2: 1.6em;
+  --f-h3: 1.15em;
+
+  /* צורה וריווח */
+  --radius: 18px;
+  --radius-sm: 10px;
+  --gap: 28px;
+  --shadow: 0 10px 30px rgba(27, 36, 51, 0.12);
+}
+
+/* ---------- בסיס ---------- */
+html, body { background: var(--c-bg); }
+
+.reveal-viewport { background: var(--c-bg); }
+
+.reveal {
+  font-family: var(--f-main);
+  font-size: var(--f-size-base);
+  color: var(--c-ink);
+  direction: rtl;
+}
+
+.reveal .slides { text-align: right; }
+
+/* reveal.css קובע sans-serif במצב RTL, דורסים */
+.reveal.rtl .slides,
+.reveal.rtl .slides h1, .reveal.rtl .slides h2, .reveal.rtl .slides h3,
+.reveal.rtl .slides h4, .reveal.rtl .slides h5, .reveal.rtl .slides h6 {
+  font-family: var(--f-main);
+}
+
+.reveal .slides section { height: 100%; box-sizing: border-box; padding: 40px 60px; }
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--f-main);
+  color: var(--c-primary);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.reveal h1 { font-size: var(--f-h1); }
+.reveal h2 { font-size: var(--f-h2); }
+.reveal h3 { font-size: var(--f-h3); font-weight: 700; }
+
+.reveal p, .reveal li { line-height: 1.5; color: var(--c-ink-soft); }
+.reveal ul, .reveal ol { display: block; margin: 0 1.2em 0 0; }
+.reveal li + li { margin-top: 0.4em; }
+.reveal strong { color: var(--c-ink); }
+.reveal a { color: var(--c-accent); }
+
+.reveal .controls { color: var(--c-accent); }
+.reveal .progress { color: var(--c-accent); height: 5px; }
+.reveal .slide-number { background: transparent; color: var(--c-muted); font-family: var(--f-main); }
+
+/* ---------- סוגי שקפים ---------- */
+
+/* שער וסיום */
+.reveal section.slide-cover,
+.reveal section.slide-end {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+.reveal section.slide-cover h1,
+.reveal section.slide-end h1 { color: var(--c-on-primary); }
+.reveal section.slide-cover p,
+.reveal section.slide-end p { color: rgba(255, 255, 255, 0.82); font-size: 1.1em; }
+.reveal .eyebrow {
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: 700;
+  color: var(--c-accent-soft);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.3em 1em;
+  margin-bottom: 1em;
+  width: fit-content;
+}
+.reveal .accent-bar { width: 120px; height: 6px; background: var(--c-accent); border-radius: 3px; margin: 0.6em 0 1em; }
+
+/* שקף עם הטמעה: כותרת קטנה למעלה וההטמעה ממלאת את השאר */
+.reveal section.slide-embed {
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px 40px;
+}
+.reveal section.slide-embed h2 { font-size: 1.1em; margin: 0; }
+.reveal section.slide-embed .embed { flex: 1; min-height: 0; }
+
+/* כרטיסים */
+.reveal .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); margin-top: 1em; }
+.reveal .card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.reveal .card h3 { margin-bottom: 0.3em; }
+.reveal .card p { font-size: 0.75em; margin: 0; }
+
+/* ---------- רכיב הטמעה ---------- */
+.embed {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--c-primary);
+  box-shadow: var(--shadow);
+}
+/* בלי גובה מהשקף: יחס 16:9 */
+.embed:not(.embed-fill) { aspect-ratio: 16 / 9; }
+.embed iframe, .embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
+}
+.embed video { background: #000; }
+
+/* כרטיס חלופי: צילום מסך + כפתור פתיחה */
+.embed-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-decoration: none !important;
+  color: var(--c-on-primary) !important;
+  background-color: var(--c-primary);
+  background-size: cover;
+  background-position: center;
+}
+.embed-fallback::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 22, 34, 0.55);
+}
+.embed-fallback > * { position: relative; }
+.embed-fallback .embed-btn {
+  font-family: var(--f-main);
+  font-weight: 700;
+  font-size: 0.8em;
+  background: var(--c-accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.55em 1.4em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.embed-fallback:hover .embed-btn { filter: brightness(1.1); }
+.embed-fallback .embed-note { font-size: 0.55em; opacity: 0.85; }
+
+/* שורת מקור מתחת להטמעה */
+.embed-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  font-size: 0.5em;
+  color: var(--c-muted);
+  margin-top: -6px;
+}
+.embed-caption a { color: var(--c-accent); text-decoration: none; font-weight: 500; }
+
+/* הדפסה ל-PDF: תמיד כרטיס חלופי במקום iframe */
+html.print-pdf .embed iframe { display: none; }

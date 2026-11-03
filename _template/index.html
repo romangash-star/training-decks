@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>שם המצגת</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+  <link rel="stylesheet" href="../_shared/theme.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- שקף שער -->
+    <section class="slide-cover" data-background-color="var(--c-primary)">
+      <span class="eyebrow">שם הרשות · תאריך</span>
+      <h1>כותרת המצגת</h1>
+      <div class="accent-bar"></div>
+      <p>שורת משנה קצרה</p>
+      <aside class="notes">הערות דובר לשקף הזה. נפתחות במקש S.</aside>
+    </section>
+
+    <!-- שקף טקסט -->
+    <section>
+      <h2>כותרת השקף</h2>
+      <ul>
+        <li>נקודה ראשונה</li>
+        <li>נקודה שנייה</li>
+        <li class="fragment">נקודה שמופיעה בלחיצה</li>
+      </ul>
+      <aside class="notes">מה להגיד כאן.</aside>
+    </section>
+
+    <!-- שקף עם דשבורד Power BI: מדביקים קישור Publish to web ב-data-src -->
+    <section class="slide-embed">
+      <h2>כותרת הדשבורד</h2>
+      <div class="embed embed-fill"
+           data-src=""
+           data-type="powerbi"
+           data-title="שם הדשבורד"
+           data-fallback="assets/dashboard.svg"></div>
+    </section>
+
+    <!-- שקף עם סרטון: מדביקים קישור רגיל של YouTube או Vimeo, או assets/video.mp4 -->
+    <section class="slide-embed">
+      <h2>כותרת הסרטון</h2>
+      <div class="embed embed-fill"
+           data-src=""
+           data-type="youtube"
+           data-title="שם הסרטון"
+           data-fallback=""></div>
+    </section>
+
+    <!-- שקף סיום -->
+    <section class="slide-end" data-background-color="var(--c-primary)">
+      <h1>תודה!</h1>
+      <div class="accent-bar"></div>
+      <p>שם · טלפון · מייל</p>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/plugin/notes/notes.min.js"></script>
+<script src="../_shared/embeds.js"></script>
+<script src="../_shared/deck.js"></script>
+</body>
+</html>
