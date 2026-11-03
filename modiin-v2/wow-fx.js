@@ -64,7 +64,8 @@ class Wow3D extends HTMLElement{
 }
 if(!customElements.get('wow-3d'))customElements.define('wow-3d',Wow3D);
 
-/* ---------- <ai-typing prompt="…" answer="…" tool="…"> ---------- */
+/* ---------- <ai-typing prompt="…" answer="…" tool="…" speed="1"> ---------- */
+/* speed: 2 = פי 2 מהר יותר (הקלדה, "חושב" והתשובה) */
 class AiTyping extends HTMLElement{
   connectedCallback(){
     if(this._b)return;this._b=true;this.style.display='block';
@@ -86,13 +87,13 @@ class AiTyping extends HTMLElement{
     this.reset();var R=this._sr;if(!R)return;var gen=this._gen,self=this,u=R.querySelector('[data-u]'),a=R.querySelector('[data-a]'),d=R.querySelector('[data-dots]');
     var P=(this.getAttribute('prompt')||'').replace(/\\n/g,'\n'),A=(this.getAttribute('answer')||'').replace(/\\n/g,'\n');
     if(RM()){u.textContent=P;a.style.display='block';a.textContent=A;return;}
-    var i=0,caret='▍';
-    function typeP(){if(gen!==self._gen)return;i++;u.textContent=P.slice(0,i)+(i<P.length?caret:'');if(i<P.length)self._t=setTimeout(typeP,P[i-1]===' '?42:24);else self._t=setTimeout(think,500);}
+    var i=0,caret='▍',S=Math.max(.2,parseFloat(this.getAttribute('speed'))||1);function T(ms){return Math.round(ms/S);}
+    function typeP(){if(gen!==self._gen)return;i++;u.textContent=P.slice(0,i)+(i<P.length?caret:'');if(i<P.length)self._t=setTimeout(typeP,T(P[i-1]===' '?42:24));else self._t=setTimeout(think,T(500));}
     function think(){if(gen!==self._gen)return;d.style.display='flex';var k=0;var dots=d.children;
-      (function blink(){if(gen!==self._gen)return;for(var j=0;j<3;j++)dots[j].style.opacity=(j===k%3)?'1':'.3';k++;if(k<9)self._t=setTimeout(blink,220);else{d.style.display='none';stream();}})();}
+      (function blink(){if(gen!==self._gen)return;for(var j=0;j<3;j++)dots[j].style.opacity=(j===k%3)?'1':'.3';k++;if(k<9)self._t=setTimeout(blink,T(220));else{d.style.display='none';stream();}})();}
     var words=A.split(/(\s+)/),w=0;
-    function stream(){if(gen!==self._gen)return;a.style.display='block';w++;a.textContent=words.slice(0,w).join('')+(w<words.length?caret:'');if(w<words.length)self._t=setTimeout(stream,/\n/.test(words[w-1])?160:55);}
-    this._t=setTimeout(typeP,600);
+    function stream(){if(gen!==self._gen)return;a.style.display='block';w++;a.textContent=words.slice(0,w).join('')+(w<words.length?caret:'');if(w<words.length)self._t=setTimeout(stream,T(/\n/.test(words[w-1])?160:55));}
+    this._t=setTimeout(typeP,T(600));
   }
 }
 if(!customElements.get('ai-typing'))customElements.define('ai-typing',AiTyping);
