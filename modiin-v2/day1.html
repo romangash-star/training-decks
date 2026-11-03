@@ -108,6 +108,8 @@ document.addEventListener('click',function(e){
 </style>
 <script>
 (function(){
+  // הנגן של Claude Design מריץ את הסקריפט הזה פעמיים. בלי השמירה הזו כל קליק מנגן ומיד עוצר
+  if(window.__deckAudioInit) return; window.__deckAudioInit=true;
   function player(el){return el&&el.closest?el.closest('[data-audio-player]'):null;}
   function setIcon(p,name){var i=p.querySelector('[data-audio-icon]');if(i)i.textContent=name;}
   document.addEventListener('click',function(e){
