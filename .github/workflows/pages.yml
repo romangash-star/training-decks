@@ -22,6 +22,27 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: needed for "last updated" per deck
+
+      # זמן ההעלאה + זמן העדכון האחרון של כל מצגת, מוצגים בעמודי האתר (_shared/site.js)
+      - name: זמני העלאה
+        run: |
+          python3 - <<'EOF'
+          import datetime, json, os, subprocess
+          def last(path):
+              out = subprocess.check_output(['git', 'log', '-1', '--format=%cI', '--', path]).decode().strip()
+              return out or None
+          decks = json.load(open('decks.json', encoding='utf-8'))
+          info = {
+              'site': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
+              'commit': os.environ.get('GITHUB_SHA', '')[:7],
+              'decks': {d['folder']: last(d['folder']) for d in decks},
+          }
+          json.dump(info, open('_build.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+          print(info)
+          EOF
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

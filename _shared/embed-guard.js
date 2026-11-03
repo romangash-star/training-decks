@@ -44,6 +44,12 @@
       f.setAttribute('srcdoc', cardHtml(abs, href));
       return;
     }
+    // the slide already has its own "open" link for this URL: don't add a second one
+    var sec = f.closest('section');
+    var own = sec && [].some.call(sec.querySelectorAll('a[href]:not([data-eg])'), function (l) {
+      return l.href.replace(/\/$/, '') === href.replace(/\/$/, '');
+    });
+    if (own) return;
     // small "open in new tab" pill, placed over the iframe's corner without touching layout
     var a = document.createElement('a');
     a.href = href; a.target = '_blank'; a.rel = 'noopener';

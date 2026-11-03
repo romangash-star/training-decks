@@ -2,33 +2,37 @@
   ערכת נושא משותפת לכל המצגות.
   עיצוב זמני: כשתגיע מערכת העיצוב מ-Claude Design, מחליפים רק את המשתנים ב-:root.
 */
-@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Heebo:wght@400;500;700;800&display=swap");
 
 :root {
-  /* צבעים */
-  --c-bg: #f7f6f2;
-  --c-surface: #ffffff;
-  --c-ink: #1b2433;
-  --c-ink-soft: #4a5568;
-  --c-muted: #8a94a6;
-  --c-line: #e3e1da;
-  --c-primary: #1f3a5f;
-  --c-accent: #0f8b8d;
-  --c-accent-soft: #d7efee;
-  --c-on-primary: #ffffff;
+  /* צבעי RomanAI (כמו במצגות מ-Claude Design) */
+  --c-bg: #FAF5EC;
+  --c-bg2: #F2EADC;
+  --c-surface: #FFFDF8;
+  --c-ink: #2A211B;
+  --c-ink-soft: #5A4D43;
+  --c-muted: #6B5D52;
+  --c-line: #E3D8C6;
+  --c-primary: #1F5F5B;
+  --c-primary-2: #2F6E68;
+  --c-accent: #B4502F;
+  --c-accent-soft: #DCEDEA;
+  --c-amber: #D99A2B;
+  --c-on-primary: #FFFDF8;
 
   /* טיפוגרפיה */
-  --f-main: "Heebo", "Segoe UI", Arial, sans-serif;
+  --f-main: "Alef", "Heebo", "Segoe UI", Arial, sans-serif;
   --f-size-base: 34px;
   --f-h1: 2.4em;
   --f-h2: 1.6em;
   --f-h3: 1.15em;
 
   /* צורה וריווח */
-  --radius: 18px;
-  --radius-sm: 10px;
+  --radius: 20px;
+  --radius-sm: 12px;
   --gap: 28px;
-  --shadow: 0 10px 30px rgba(27, 36, 51, 0.12);
+  --shadow: 0 10px 30px rgba(42, 33, 27, 0.08);
+  --shadow-lift: 0 18px 44px rgba(42, 33, 27, 0.14);
 }
 
 /* ---------- בסיס ---------- */

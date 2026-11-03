@@ -2,10 +2,31 @@
   "title": "קבלת החלטות מבוססת נתונים · מודיעין",
   "subtitle": "עיריית מודיעין מכבים רעות · מאיצים דיגיטליים · 3 מפגשים",
   "pages": [
-    {"file": "day1.html", "title": "יום 1 · פיצוח האתגר", "kind": "deck"},
-    {"file": "day2.html", "title": "יום 2 · דאטה ו-AI", "kind": "deck"},
-    {"file": "day3.html", "title": "יום 3 · סיפור ופיץ'", "kind": "deck"},
-    {"file": "worksheet-day2.html", "title": "דף עזר · יום 2", "kind": "doc"},
-    {"file": "tools.html", "title": "דף כלים", "kind": "doc"}
-  ]
+    {
+      "file": "day1.html",
+      "title": "יום 1 · פיצוח האתגר",
+      "kind": "deck"
+    },
+    {
+      "file": "day2.html",
+      "title": "יום 2 · דאטה ו-AI",
+      "kind": "deck"
+    },
+    {
+      "file": "day3.html",
+      "title": "יום 3 · סיפור ופיץ'",
+      "kind": "deck"
+    },
+    {
+      "file": "worksheet-day2.html",
+      "title": "דף עזר · יום 2",
+      "kind": "doc"
+    },
+    {
+      "file": "tools.html",
+      "title": "דף כלים",
+      "kind": "doc"
+    }
+  ],
+  "eyebrow": "גרסה 1 · כפי שיובאה"
 }

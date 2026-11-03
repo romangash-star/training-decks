@@ -3,54 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>מצגות להכשרות</title>
+  <title>מצגות להכשרות · RomanAI</title>
   <link rel="stylesheet" href="_shared/theme.css">
-  <style>
-    body { margin: 0; font-family: var(--f-main); color: var(--c-ink); background: var(--c-bg); }
-    header { background: var(--c-primary); color: var(--c-on-primary); padding: 56px 16px 48px; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
-    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 44px); font-weight: 800; }
-    header p { margin: 0; opacity: 0.85; font-size: 18px; }
-    main { padding: 40px 0 64px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-    .deck {
-      display: block; text-decoration: none; color: inherit;
-      background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius);
-      padding: 24px; box-shadow: var(--shadow); transition: transform .15s ease;
-    }
-    .deck:hover { transform: translateY(-3px); }
-    .deck h2 { margin: 0 0 8px; color: var(--c-primary); font-size: 22px; }
-    .deck p { margin: 0 0 16px; color: var(--c-ink-soft); font-size: 16px; line-height: 1.5; }
-    .deck span { font-size: 14px; color: var(--c-muted); }
-    .empty { color: var(--c-ink-soft); }
-  </style>
+  <link rel="stylesheet" href="_shared/site.css">
 </head>
 <body>
-  <header>
+  <header class="hero">
+    <div class="bars" aria-hidden="true"><span style="height:70px"></span><span style="height:110px"></span><span style="height:160px"></span><span style="height:120px"></span><span style="height:90px"></span></div>
     <div class="wrap">
+      <div class="topbar">
+        <a class="brand" href="https://www.romanai.net/">Roman<b>AI</b></a>
+      </div>
+      <span class="eyebrow">הרצאות וסדנאות לרשויות מקומיות</span>
       <h1>מצגות להכשרות</h1>
-      <p>הרצאות וסדנאות לרשויות מקומיות</p>
+      <p class="lead">כל המצגות במקום אחד: מציגים ישר מהדפדפן, עם דשבורדים וסרטונים חיים בתוך השקפים, וכל יום זמין גם להורדה כ-PDF.</p>
+      <div class="stamp">
+        <span class="chip"><span class="dot"></span>העלאה אחרונה: <b data-updated>…</b></span>
+        <span class="chip"><span class="url" data-url></span><button class="copy" data-copy>העתקה</button></span>
+      </div>
     </div>
   </header>
+
   <main class="wrap">
+    <h2 class="section-title">המצגות</h2>
     <div class="grid" id="list"><p class="empty">טוען…</p></div>
   </main>
+
+  <footer>
+    <div class="wrap">
+      <span>RomanAI · רומן גרינשטיין</span>
+      <span>גרסה <span data-commit></span></span>
+    </div>
+  </footer>
+
+  <script src="_shared/site.js"></script>
   <script>
-    // רשימת המצגות נמצאת ב-decks.json
-    fetch("decks.json")
+    // רשימת המצגות נמצאת ב-decks.json. שדות: folder, title, description, date, badge (לא חובה)
+    function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text) n.textContent = text; return n; }
+    fetch("decks.json", { cache: "no-store" })
       .then(function (r) { return r.json(); })
       .then(function (decks) {
         var list = document.getElementById("list");
         list.replaceChildren();
         decks.forEach(function (d) {
-          var a = document.createElement("a");
-          a.className = "deck";
-          a.href = d.folder + "/";
-          var h = document.createElement("h2"); h.textContent = d.title;
-          var p = document.createElement("p"); p.textContent = d.description || "";
-          var s = document.createElement("span"); s.textContent = d.date || "";
-          a.append(h, p, s);
+          var a = el("a", "card"); a.href = d.folder + "/";
+          a.appendChild(el("div", "band"));
+          var body = el("div", "body");
+          var meta = el("div", "meta");
+          if (d.badge) meta.appendChild(el("span", "badge" + (d.badgeNew ? " new" : ""), d.badge));
+          if (d.date) meta.appendChild(el("span", "", d.date));
+          body.appendChild(meta);
+          body.appendChild(el("h2", "", d.title));
+          if (d.description) body.appendChild(el("p", "", d.description));
+          a.appendChild(body);
+          var foot = el("div", "foot");
+          var up = el("span", ""); up.append("עודכן: "); var t = el("b", ""); t.setAttribute("data-updated", d.folder); t.textContent = "…"; up.appendChild(t);
+          foot.appendChild(up);
+          foot.appendChild(el("span", "go", "פתיחה ←"));
+          a.appendChild(foot);
           list.appendChild(a);
+        });
+        // מילוי זמני העדכון, גם אם site.js כבר סיים לטעון
+        if (window.SiteInfo && SiteInfo.build) document.querySelectorAll("[data-updated]").forEach(function (n) {
+          var k = n.getAttribute("data-updated"), v = k ? (SiteInfo.build.decks || {})[k] : SiteInfo.build.site;
+          if (v) n.textContent = SiteInfo.fmt(v);
         });
       })
       .catch(function () {
