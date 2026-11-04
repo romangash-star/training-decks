@@ -1,11 +1,19 @@
 [
   {
+    "folder": "sderot",
+    "title": "הכשרת AI · שדרות",
+    "description": "סדנת בינה מלאכותית ליום אחד: חששות, סקירת כלים, פרומפטים ותרגול · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "חדש",
+    "badgeNew": true
+  },
+  {
     "folder": "modiin-v2",
     "title": "פיצוח האתגר · מודיעין",
     "description": "יום 1 מתוקן, עם דשבורדים, סרטונים ואתרים מוטמעים חי בשקפים · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "גרסה 2 · מתוקנת",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "modiin",
