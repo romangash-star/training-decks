@@ -13,42 +13,42 @@
   #map { position:absolute; inset:0; background:#eef0ee; }
 
   /* Floating panel: legend + filters */
-  .panel { position:absolute; top:12px; right:12px; bottom:12px; width:clamp(230px, 30vw, 310px); z-index:1000;
-    background:rgba(255,255,255,.97); border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,.18);
+  .panel { position:absolute; top:10px; right:10px; max-height:calc(100% - 20px); width:clamp(180px, 21vw, 220px); z-index:1000;
+    background:rgba(255,255,255,.97); border-radius:10px; box-shadow:0 3px 14px rgba(0,0,0,.18);
     display:flex; flex-direction:column; overflow:hidden; transition:transform .25s ease, opacity .25s; }
   .panel.hidden { transform:translateX(calc(100% + 20px)); opacity:0; pointer-events:none; }
-  .ph { padding:14px 16px 10px; border-bottom:1px solid var(--line); }
-  .ph h1 { margin:0; font-size:clamp(15px, 1.6vw, 19px); font-weight:700; line-height:1.25; }
-  .count { margin-top:2px; font-size:13px; color:var(--muted); }
-  .count b { color:var(--accent); font-size:15px; }
-  .search { width:100%; margin-top:10px; padding:7px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; font-size:13px; }
+  .ph { padding:9px 10px 7px; border-bottom:1px solid var(--line); }
+  .ph h1 { margin:0; font-size:14px; font-weight:700; line-height:1.25; }
+  .count { margin-top:0; font-size:11.5px; color:var(--muted); }
+  .count b { color:var(--accent); font-size:12.5px; }
+  .search { width:100%; margin-top:6px; padding:4px 8px; border:1px solid var(--line); border-radius:6px; font:inherit; font-size:12px; }
   .search:focus { outline:2px solid var(--accent); outline-offset:-1px; border-color:transparent; }
-  .actions { display:flex; gap:6px; margin-top:8px; }
-  .actions button { flex:1; padding:6px 0; border-radius:8px; font:inherit; font-size:13px; font-weight:500; cursor:pointer; border:1px solid var(--accent); }
+  .actions { display:flex; gap:5px; margin-top:5px; }
+  .actions button { flex:1; padding:3px 0; border-radius:6px; font:inherit; font-size:12px; font-weight:500; cursor:pointer; border:1px solid var(--accent); }
   .btn-all { background:var(--accent); color:#fff; }
   .btn-clear { background:#fff; color:var(--accent); }
   .actions button:hover { filter:brightness(.95); }
-  .pb { padding:6px 10px 12px; overflow-y:auto; flex:1; }
-  .sec { font-size:12px; font-weight:700; color:var(--muted); margin:10px 6px 4px; letter-spacing:.02em; }
-  .item { display:flex; align-items:center; gap:9px; padding:5px 6px; border-radius:7px; cursor:pointer; user-select:none; font-size:13.5px; line-height:1.25; }
+  .pb { padding:2px 6px 8px; overflow-y:auto; flex:1; }
+  .sec { font-size:11px; font-weight:700; color:var(--muted); margin:7px 4px 2px; letter-spacing:.02em; }
+  .item { display:flex; align-items:center; gap:7px; padding:2.5px 4px; border-radius:5px; cursor:pointer; user-select:none; font-size:12px; line-height:1.2; }
   .item:hover { background:#f2f4f3; }
   .item input { position:absolute; opacity:0; pointer-events:none; }
-  .sw { width:16px; height:16px; border-radius:50%; flex-shrink:0; border:2px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.25); position:relative; }
+  .sw { width:12px; height:12px; border-radius:50%; flex-shrink:0; border:1.5px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.25); position:relative; }
   .item .lbl { flex:1; }
-  .item .n { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; min-width:22px; text-align:left; }
+  .item .n { font-size:10.5px; color:var(--muted); font-variant-numeric:tabular-nums; min-width:22px; text-align:left; }
   .item.off .sw { background:#fff !important; box-shadow:0 0 0 1.5px #b9c0c7; }
   .item.off .lbl, .item.off .n { color:#a3aab2; text-decoration:line-through; }
   .item input:focus-visible + .sw { outline:2px solid var(--accent); outline-offset:2px; }
-  .chips { display:flex; flex-wrap:wrap; gap:5px; padding:2px 6px; }
-  .chip { font-size:12.5px; padding:4px 10px; border-radius:20px; border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent); cursor:pointer; font-family:inherit; }
+  .chips { display:flex; flex-wrap:wrap; gap:3px; padding:1px 4px; }
+  .chip { font-size:10.5px; padding:1px 7px; border-radius:20px; border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent); cursor:pointer; font-family:inherit; }
   .chip.off { background:#fff; color:#9aa2aa; border-color:#d3d8dc; text-decoration:line-through; }
 
   /* Corner controls */
-  .ctl { position:absolute; z-index:1001; left:12px; display:flex; gap:6px; }
-  .ctl.top { top:12px; } .ctl.bottom { bottom:28px; }
-  .ctl button { background:#fff; border:0; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.2); padding:7px 12px; font:inherit; font-size:13px; font-weight:500; cursor:pointer; color:var(--ink); }
+  .ctl { position:absolute; z-index:1001; left:10px; display:flex; gap:6px; }
+  .ctl.top { top:10px; } .ctl.bottom { bottom:24px; }
+  .ctl button { background:#fff; border:0; border-radius:7px; box-shadow:0 2px 8px rgba(0,0,0,.2); padding:4px 10px; font:inherit; font-size:12px; font-weight:500; cursor:pointer; color:var(--ink); }
   .ctl button.on { background:var(--ink); color:#fff; }
-  .leaflet-control-zoom { margin-left:12px !important; margin-top:56px !important; }
+  .leaflet-control-zoom { margin-left:10px !important; margin-top:44px !important; }
 
   .leaflet-popup-content { font-family:'Heebo',sans-serif; direction:rtl; text-align:right; margin:12px 14px; min-width:190px; }
   .pp-name { font-weight:700; font-size:15px; }
@@ -57,7 +57,7 @@
   .pp-tag { display:inline-block; font-size:11px; padding:2px 9px; border-radius:10px; color:#fff; margin-top:6px; }
 
   @media (max-width:560px) {
-    .panel { top:auto; left:8px; right:8px; bottom:8px; width:auto; height:48%; }
+    .panel { top:auto; left:auto; right:8px; bottom:8px; width:190px; max-height:55%; }
     .panel.hidden { transform:translateY(calc(100% + 20px)); }
   }
 </style>
@@ -66,7 +66,7 @@
 <div id="map"></div>
 
 <div class="ctl top">
-  <button id="togglePanel" class="on">מקרא וסינון</button>
+  <button id="togglePanel" class="on">מקרא</button>
 </div>
 <div class="ctl bottom">
   <button data-base="map" class="on">מפה</button>
@@ -76,8 +76,8 @@
 <aside class="panel" id="panel">
   <div class="ph">
     <h1>עסקים בכפר סבא</h1>
-    <div class="count">מוצגים <b id="shown">0</b> מתוך <span id="total">0</span></div>
-    <input id="q" class="search" type="search" placeholder="חיפוש שם, רחוב או סוג עסק…">
+    <div class="count"><b id="shown">0</b> מתוך <span id="total">0</span> מוצגים</div>
+    <input id="q" class="search" type="search" placeholder="חיפוש…">
     <div class="actions">
       <button class="btn-all" id="showAll">הצג הכל</button>
       <button class="btn-clear" id="clearAll">נקה הכל</button>
@@ -128,7 +128,7 @@ groups.forEach(([g, n]) => {
 const sEl = document.getElementById('statuses');
 statuses.forEach(([s, n]) => {
   const b = document.createElement('button');
-  b.className = 'chip'; b.textContent = `${s} (${n})`;
+  b.className = 'chip'; b.textContent = s; b.title = `${n} עסקים`;
   b.addEventListener('click', () => { on.s.has(s) ? on.s.delete(s) : on.s.add(s); render(); });
   b.sync = () => b.classList.toggle('off', !on.s.has(s));
   sEl.appendChild(b);
