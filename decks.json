@@ -1,11 +1,19 @@
 [
   {
+    "folder": "migdal-haemek-3",
+    "title": "קבלת החלטות מבוססת נתונים · מגדל העמק · יום 3",
+    "description": "מגיעים לפתרון, בונים מצגת עם Copilot ב‑PowerPoint ומציגים לפורום · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "חדש",
+    "badgeNew": true
+  },
+  {
     "folder": "sderot",
     "title": "הכשרת AI · שדרות",
     "description": "סדנת בינה מלאכותית ליום אחד: חששות, סקירת כלים, פרומפטים ותרגול · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "חדש",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "modiin-v2",
@@ -20,13 +28,15 @@
     "title": "קבלת החלטות מבוססת נתונים · מודיעין",
     "description": "3 ימים כפי שיובאו מ-Claude Design · כולל PDF",
     "date": "נובמבר 2026",
-    "badge": "גרסה 1"
+    "badge": "גרסה 1",
+    "badgeNew": false
   },
   {
     "folder": "example",
     "title": "קבלת החלטות מבוססת נתונים",
     "description": "מצגת דוגמה: דשבורד, מפה חיה וסרטון",
     "date": "נובמבר 2026",
-    "badge": "דוגמה"
+    "badge": "דוגמה",
+    "badgeNew": false
   }
 ]
