@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" role="img" aria-label="איור: אדם עוצם עיניים וחושב">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="60%">
+      <stop offset="0" stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#DCEDEA"/>
+    </radialGradient>
+    <clipPath id="c"><circle cx="240" cy="240" r="240"/></clipPath>
+    <style>
+      .b{animation:br 5s ease-in-out infinite;transform-origin:240px 300px}
+      .r1{animation:rg 5s ease-out infinite}
+      .r2{animation:rg 5s ease-out 2.5s infinite}
+      .t{animation:fl 6s ease-in-out infinite}
+      @keyframes br{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+      @keyframes rg{0%{opacity:.55;transform:scale(.8)}100%{opacity:0;transform:scale(1.25)}}
+      @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+      .r1,.r2{transform-origin:240px 205px}
+    </style>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="480" height="480" fill="url(#bg)"/>
+    <circle class="r1" cx="240" cy="205" r="150" fill="none" stroke="#A9D3CC" stroke-width="4"/>
+    <circle class="r2" cx="240" cy="205" r="150" fill="none" stroke="#A9D3CC" stroke-width="4"/>
+    <g class="b">
+      <!-- shoulders / shirt -->
+      <path d="M70 480 C80 380 150 330 240 330 C330 330 400 380 410 480 Z" fill="#1F5F5B"/>
+      <path d="M200 330 L240 380 L280 330 Z" fill="#FFFDF8" opacity=".9"/>
+      <!-- neck -->
+      <rect x="214" y="285" width="52" height="56" rx="20" fill="#E8B48F"/>
+      <!-- head -->
+      <ellipse cx="240" cy="210" rx="92" ry="104" fill="#F2C29E"/>
+      <!-- hair -->
+      <path d="M148 205 C140 120 200 92 245 96 C300 98 340 130 334 205 C326 165 300 140 262 138 C228 136 190 150 170 175 C160 188 152 198 148 205 Z" fill="#3B2A22"/>
+      <!-- ears -->
+      <ellipse cx="148" cy="218" rx="13" ry="22" fill="#E8B48F"/>
+      <ellipse cx="332" cy="218" rx="13" ry="22" fill="#E8B48F"/>
+      <!-- closed eyes -->
+      <path d="M182 214 Q202 230 222 214" fill="none" stroke="#2A211B" stroke-width="6" stroke-linecap="round"/>
+      <path d="M258 214 Q278 230 298 214" fill="none" stroke="#2A211B" stroke-width="6" stroke-linecap="round"/>
+      <!-- brows -->
+      <path d="M180 190 Q200 182 222 190" fill="none" stroke="#3B2A22" stroke-width="5" stroke-linecap="round"/>
+      <path d="M258 190 Q280 182 300 190" fill="none" stroke="#3B2A22" stroke-width="5" stroke-linecap="round"/>
+      <!-- cheeks -->
+      <ellipse cx="190" cy="250" rx="16" ry="9" fill="#E9967A" opacity=".45"/>
+      <ellipse cx="290" cy="250" rx="16" ry="9" fill="#E9967A" opacity=".45"/>
+      <!-- nose & calm smile -->
+      <path d="M240 225 Q234 246 244 250" fill="none" stroke="#C9906C" stroke-width="4" stroke-linecap="round"/>
+      <path d="M216 272 Q240 288 264 272" fill="none" stroke="#8B3A2A" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <!-- thought dots & bubble -->
+    <g class="t">
+      <circle cx="322" cy="128" r="9" fill="#B4502F" opacity=".85"/>
+      <circle cx="342" cy="104" r="13" fill="#B4502F" opacity=".85"/>
+      <circle cx="372" cy="74" r="30" fill="#FFFDF8" stroke="#B4502F" stroke-width="4"/>
+      <text x="372" y="86" text-anchor="middle" font-family="Alef, Arial, sans-serif" font-size="36" font-weight="700" fill="#B4502F">?</text>
+    </g>
+  </g>
+</svg>
