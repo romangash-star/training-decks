@@ -1,11 +1,19 @@
 [
   {
+    "folder": "modiin-day2",
+    "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 2",
+    "description": "ניתוח קבצים עם Gemini החינמי, Gemini כיועץ אקסל, חדר מחקר ב-Canvas ותובנות · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "חדש",
+    "badgeNew": true
+  },
+  {
     "folder": "yavne",
     "title": "קבלת החלטות מבוססת נתונים · יבנה · יום 1",
     "description": "פיצוח האתגר משולחן העבודה, מקורות מידע ומבוא ל-AI · עם מפות, סרטונים וכלי האתר מוטמעים בשקפים · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "חדש",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "migdal-haemek-3",
