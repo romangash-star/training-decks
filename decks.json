@@ -1,11 +1,19 @@
 [
   {
+    "folder": "modiin-day3",
+    "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 3",
+    "description": "מגיעים לפתרון, בונים מצגת עם Gemini, Gamma, NotebookLM ו-Napkin בחינם, ומציגים לפורום · טיימרים והדמיות מונפשות · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "גרסה 1",
+    "badgeNew": true
+  },
+  {
     "folder": "modiin-day2",
     "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 2",
     "description": "ניתוח קבצים עם Gemini החינמי, Gemini כיועץ אקסל, חדר מחקר ב-Canvas ותובנות · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "חדש",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "yavne",
