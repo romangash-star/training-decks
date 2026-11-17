@@ -1,11 +1,19 @@
 [
   {
+    "folder": "modiin-day3-v2",
+    "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 3",
+    "description": "מגיעים לפתרון, בונים מצגת עם Gemini, Gamma, NotebookLM, Napkin ו-Copilot, ומציגים לפורום · טיימר עם התחל ועצור, הדמיות מונפשות · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "גרסה 2 · מעודכנת",
+    "badgeNew": true
+  },
+  {
     "folder": "modiin-day3",
     "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 3",
     "description": "מגיעים לפתרון, בונים מצגת עם Gemini, Gamma, NotebookLM ו-Napkin בחינם, ומציגים לפורום · טיימרים והדמיות מונפשות · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "גרסה 1",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "modiin-day2",
