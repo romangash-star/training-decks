@@ -1,0 +1,8 @@
+{
+  "title": "עבודה עם נתונים בעזרת בינה מלאכותית · באר שבע",
+  "subtitle": "נוסחאות עם AI, דשבורד ב-Gemini Canvas, ניתוח בתוך הגיליון, NotebookLM ומקורות מידע פתוחים · 23.11.2026",
+  "pages": [
+    {"file": "deck.html", "title": "המצגת", "kind": "deck"},
+    {"file": "summary.html", "title": "סיכום ההכשרה וכל הקישורים", "kind": "doc"}
+  ]
+}

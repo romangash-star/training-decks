@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סיכום ההכשרה · עבודה עם נתונים בעזרת בינה מלאכותית · באר שבע</title>
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --teal:#1F5F5B; --teal-l:#DCEDEA; --coral:#B4502F; --gold:#D99A2B; --ink:#2A211B; --muted:#6B5F55; --cream:#FBF7F1; --line:#E6DDD2; }
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Alef, Arial, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.5; background: #fff; }
+  a { color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(31,95,91,.35); }
+  .page { max-width: 182mm; margin: 0 auto; }
+  header { background: var(--teal); color: #fff; border-radius: 10px; padding: 16px 20px 14px; margin-bottom: 14px; }
+  header h1 { margin: 0; font-size: 21pt; line-height: 1.15; }
+  header h1 span { color: #F2C879; }
+  header p { margin: 6px 0 0; color: var(--teal-l); font-size: 10.5pt; }
+  h2 { font-size: 13.5pt; color: var(--teal); margin: 16px 0 6px; padding-right: 9px; border-right: 4px solid var(--coral); line-height: 1.2; }
+  .stages { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 10px; }
+  .stage { border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; background: var(--cream); break-inside: avoid; }
+  .stage b { color: var(--teal); }
+  .stage .n { color: var(--coral); font-weight: 700; margin-inline-end: 6px; display: inline-block; }
+  .stage div { color: var(--muted); font-size: 9.5pt; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  ol, ul { margin: 0; padding-right: 18px; }
+  li { margin: 2px 0; }
+  .formula { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 4px; }
+  .formula div { background: var(--teal-l); border-radius: 7px; padding: 6px 8px; font-size: 9.5pt; }
+  .formula b { display: block; color: var(--teal); font-size: 10.5pt; }
+  .example { margin-top: 6px; font-size: 9.5pt; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.8pt; }
+  td { padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { width: 34%; font-weight: 700; }
+  td.d { color: var(--muted); }
+  .group { break-inside: avoid; }
+  .group h3 { margin: 10px 0 3px; font-size: 11pt; color: var(--coral); }
+  .note { font-size: 9.3pt; color: var(--muted); margin-top: 4px; }
+  footer { margin-top: 18px; border-top: 3px solid var(--gold); padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; break-inside: avoid; }
+  footer .who b { font-size: 13pt; color: var(--teal); display: block; }
+  footer .who { font-size: 9.8pt; color: var(--muted); }
+  footer .btns { display: flex; gap: 8px; }
+  footer .btn { display: inline-block; border: none; border-radius: 999px; padding: 7px 14px; font-weight: 700; font-size: 10pt; color: #fff; background: var(--teal); }
+  footer .btn.wa { background: #1F7A4D; }
+  .break { break-before: page; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>עבודה עם נתונים <span>בעזרת בינה מלאכותית</span></h1>
+  <p>סיכום ההכשרה · באר שבע · 23.11.2026 · רומן גרינשטיין</p>
+</header>
+
+<h2>מה עשינו היום</h2>
+<div class="stages">
+  <div class="stage"><span class="n">01</span><b>האתר, קובץ והתממה</b><div>בחרנו קובץ ורמה, למדנו מה מותר להעלות ואיך מתממים · <a href="https://www.romanai.net/data-ai/">romanai.net/data-ai</a></div></div>
+  <div class="stage"><span class="n">02</span><b>עוזר אישי לנוסחאות</b><div>Gemini או Copilot כותבים נוסחאות ל-Excel ול-Sheets, גם בלי מנוי בתשלום</div></div>
+  <div class="stage"><span class="n">03</span><b>דשבורד ב-Gemini Canvas</b><div>מקובץ נתונים לדשבורד או לאתר, בשיחה</div></div>
+  <div class="stage"><span class="n">04</span><b>ניתוח נתונים בתוך הגיליון</b><div>Copilot ב-Excel, Gemini ב-Sheets: ניתוח, סיווג טקסט חופשי וסידור</div></div>
+  <div class="stage"><span class="n">05</span><b>NotebookLM</b><div>מחברת שעונה מתוך הקבצים שלכם, ותוצר ויזואלי</div></div>
+  <div class="stage"><span class="n">06</span><b>מקורות מידע פתוחים</b><div>איפה מוצאים נתונים בלי לבקש מאף אחד, ומפה עם My Maps</div></div>
+</div>
+
+<div class="two">
+  <div>
+    <h2>חמשת הכללים של היום</h2>
+    <ol>
+      <li>מתממים לפני שמעלים</li>
+      <li>נוסחה, ולא תשובה</li>
+      <li>בודקים מול המקור</li>
+      <li>מתעקשים: התשובה הראשונה היא טיוטה</li>
+      <li>כלי מתאים לכל משימה</li>
+    </ol>
+  </div>
+  <div>
+    <h2>מה לא מעלים לכלי ציבורי</h2>
+    <ul>
+      <li>פרטי תושבים: שם, ת״ז, כתובת, טלפון</li>
+      <li>רשימות זכאות, מידע רפואי, סוציאלי או כלכלי</li>
+      <li>תיקי אכיפה ותלונות, מכרזים לפני פרסום</li>
+      <li>סיסמאות ופרטי גישה למערכות</li>
+    </ul>
+    <div class="note">בספק? שואלים את מנמ״ר הרשות וממונה הגנת הפרטיות לפני שמעלים.</div>
+  </div>
+</div>
+
+<h2>איך כותבים פרומפט טוב</h2>
+<div class="formula">
+  <div><b>1. תפקיד</b>"התנהג כמו..."</div>
+  <div><b>2. הקשר</b>למי, למה, באיזה רקע</div>
+  <div><b>3. משימה</b>מה בדיוק לעשות</div>
+  <div><b>4. פורמט</b>אורך, סגנון, מבנה</div>
+</div>
+<div class="example">דוגמה: "התנהג כמו דובר עירייה. אני צריך להודיע לתושבים על שינוי בשעות מוקד 106. נסח הודעה קצרה וברורה, באורך פסקה, בטון רשמי אך ידידותי."</div>
+
+<h2 class="break">כל הקישורים</h2>
+
+<div class="group">
+<h3>כלי AI</h3>
+<table>
+  <tr><td><a href="https://gemini.google.com/">Gemini</a></td><td class="d">צ׳אט, Canvas לדשבורדים ואתרים, ומחקר מעמיק (Deep Research)</td></tr>
+  <tr><td><a href="https://copilot.microsoft.com/">Microsoft Copilot</a></td><td class="d">צ׳אט, ובתוך Excel למי שיש מנוי</td></tr>
+  <tr><td><a href="https://chatgpt.com/">ChatGPT</a></td><td class="d">צ׳אט עם העלאת קבצים</td></tr>
+  <tr><td><a href="https://claude.ai/">Claude</a></td><td class="d">צ׳אט עם העלאת קבצים</td></tr>
+  <tr><td><a href="https://notebooklm.google.com/">NotebookLM</a></td><td class="d">מחברת שעונה רק מתוך המקורות שהעליתם</td></tr>
+  <tr><td><a href="https://sheets.google.com/">Google Sheets</a></td><td class="d">גיליון עם Gemini מובנה</td></tr>
+  <tr><td><a href="https://lookerstudio.google.com/">Looker Studio</a></td><td class="d">דשבורד חינמי שמתעדכן מהגיליון</td></tr>
+  <tr><td><a href="https://www.google.com/mymaps">Google My Maps</a></td><td class="d">מגיליון עם כתובות למפה, בלי GIS</td></tr>
+</table>
+</div>
+
+<div class="group">
+<h3>הכלים באתר שלי</h3>
+<table>
+  <tr><td><a href="https://www.romanai.net/data-ai/">romanai.net/data-ai</a></td><td class="d">כל שלבי היום, צעד אחר צעד, עם הפרומפטים</td></tr>
+  <tr><td><a href="https://www.romanai.net/data/role-worksheet/">מה אני עושה ברשות?</a></td><td class="d">תפקיד, משימות ונתונים: הרשימה האישית שלכם</td></tr>
+  <tr><td><a href="https://www.romanai.net/data/practice-files">קובצי התרגול</a></td><td class="d">קבצים לתרגול לפי תחום</td></tr>
+  <tr><td><a href="https://www.romanai.net/data/anonymize">כלי ההתממה</a></td><td class="d">מסירים פרטים מזהים מהקובץ לפני שמעלים</td></tr>
+  <tr><td><a href="https://www.romanai.net/data/sources/">מקורות מידע</a></td><td class="d">מיפוי מקורות נתונים פתוחים לפי נושא</td></tr>
+</table>
+</div>
+
+<div class="group">
+<h3>מקורות מידע פתוחים</h3>
+<table>
+  <tr><td><a href="https://app.powerbi.com/view?r=eyJrIjoiMGU0NGY0OGEtNzQwNy00OWMwLTkwYjgtZjY2MzEyN2Y1YTMzIiwidCI6ImRmYzRlOWEyLTkwYTctNDY0MC1hNWY5LWZkYzFiMWFlZjM2NSIsImMiOjl9">הדשבורד הדמוגרפי של באר שבע</a></td><td class="d">Power BI</td></tr>
+  <tr><td><a href="https://data.gov.il/he/organizations/beer-sheva">data.gov.il · באר שבע</a></td><td class="d">המאגר הממשלתי הפתוח, הנתונים של העירייה</td></tr>
+  <tr><td><a href="https://www.cbs.gov.il/">הלמ״ס</a></td><td class="d">מפקד האוכלוסין ונתוני רשויות</td></tr>
+  <tr><td><a href="https://www.govmap.gov.il/">GovMap</a></td><td class="d">מפות ושכבות מידע</td></tr>
+  <tr><td><a href="https://shkifut.education.gov.il/home">שקיפות בחינוך</a></td><td class="d">נתוני מוסדות חינוך</td></tr>
+  <tr><td><a href="https://municipal-data.org/demographics">municipal-data.org</a></td><td class="d">דמוגרפיה והשוואה בין רשויות</td></tr>
+</table>
+</div>
+
+<div class="group">
+<h3>כללים ומדיניות</h3>
+<table>
+  <tr><td>תיקון 13 לחוק הגנת הפרטיות</td><td class="d">בתוקף מאוגוסט 2025: קנסות, וחובה למנות ממונה הגנת פרטיות בגוף ציבורי</td></tr>
+  <tr><td>מערך הדיגיטל הלאומי</td><td class="d">מדריך לשימוש אחראי בכלי AI במגזר הציבורי</td></tr>
+  <tr><td>הרשות להגנת הפרטיות</td><td class="d">טיוטת הנחיה על מערכות AI ומידע אישי (אפריל 2025)</td></tr>
+</table>
+</div>
+
+<footer>
+  <div class="who">
+    <b>רומן גרינשטיין</b>
+    הכשרות נתונים ו-AI לרשויות מקומיות · 054-6738651 ·
+    <a href="https://www.linkedin.com/in/romangrinshtein">LinkedIn</a>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://www.romanai.net">romanai.net</a>
+    <a class="btn wa" href="https://wa.me/972546738651">הודעה בוואטסאפ</a>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

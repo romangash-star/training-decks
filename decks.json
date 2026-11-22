@@ -1,11 +1,19 @@
 [
   {
+    "folder": "beer-sheva",
+    "title": "עבודה עם נתונים בעזרת בינה מלאכותית · באר שבע",
+    "description": "נוסחאות עם AI, דשבורד ב-Gemini Canvas, ניתוח בתוך הגיליון, NotebookLM ומקורות מידע פתוחים · עם סרטונים והדמיות · כולל PDF ודף סיכום עם כל הקישורים",
+    "date": "נובמבר 2026",
+    "badge": "חדש",
+    "badgeNew": true
+  },
+  {
     "folder": "modiin-day3-v2",
     "title": "קבלת החלטות מבוססת נתונים · מודיעין־מכבים־רעות · יום 3",
     "description": "מגיעים לפתרון, בונים מצגת עם Gemini, Gamma, NotebookLM, Napkin ו-Copilot, ומציגים לפורום · טיימר עם התחל ועצור, הדמיות מונפשות · כולל PDF",
     "date": "נובמבר 2026",
     "badge": "גרסה 2 · מעודכנת",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "modiin-day3",
