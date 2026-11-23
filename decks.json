@@ -1,11 +1,19 @@
 [
   {
+    "folder": "emek-yizrael",
+    "title": "קבלת החלטות מבוססת נתונים · עמק יזרעאל · יום 1",
+    "description": "הגדרת האתגר משולחן העבודה, מקורות מידע פתוחים ומבוא ל-AI עם Copilot · גרפיקה מונפשת, קודי QR וצילומי אתרים · כולל PDF",
+    "date": "נובמבר 2026",
+    "badge": "חדש",
+    "badgeNew": true
+  },
+  {
     "folder": "beer-sheva",
     "title": "עבודה עם נתונים בעזרת בינה מלאכותית · באר שבע",
     "description": "נוסחאות עם AI, דשבורד ב-Gemini Canvas, ניתוח בתוך הגיליון, NotebookLM ומקורות מידע פתוחים · עם סרטונים והדמיות · כולל PDF ודף סיכום עם כל הקישורים",
     "date": "נובמבר 2026",
     "badge": "חדש",
-    "badgeNew": true
+    "badgeNew": false
   },
   {
     "folder": "modiin-day3-v2",
